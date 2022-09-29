@@ -8,6 +8,8 @@
 import Foundation
 import UIKit
 
+// MARK: - UIView
+
 extension UIView {
     
     func fullPinTo(view: UIView, with insets: UIEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)) {

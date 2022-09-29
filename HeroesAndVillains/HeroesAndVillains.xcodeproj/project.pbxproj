@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		541DA94128E5C4C500C4B429 /* StatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541DA94028E5C4C500C4B429 /* StatView.swift */; };
 		5424AECB28DA6844002F8DDF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5424AECA28DA6844002F8DDF /* AppDelegate.swift */; };
 		5424AECD28DA6844002F8DDF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5424AECC28DA6844002F8DDF /* SceneDelegate.swift */; };
 		5424AED428DA684D002F8DDF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5424AED328DA684D002F8DDF /* Assets.xcassets */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		541DA94028E5C4C500C4B429 /* StatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatView.swift; sourceTree = "<group>"; };
 		5424AEC728DA6844002F8DDF /* HeroesAndVillains.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HeroesAndVillains.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5424AECA28DA6844002F8DDF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5424AECC28DA6844002F8DDF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -149,6 +151,7 @@
 			children = (
 				5424AEE828DA6933002F8DDF /* SuperhumansListViewController.swift */,
 				542809C028DB4A420061DE16 /* SuperhumansCell.swift */,
+				541DA94028E5C4C500C4B429 /* StatView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -253,6 +256,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				541DA94128E5C4C500C4B429 /* StatView.swift in Sources */,
 				5424AEEB28DA6934002F8DDF /* SuperhumansListViewController.swift in Sources */,
 				5424AECB28DA6844002F8DDF /* AppDelegate.swift in Sources */,
 				542809C528DD6F840061DE16 /* View.swift in Sources */,
