@@ -70,4 +70,3 @@ extension SuperhumansListViewController {
         static let cellHeight: CGFloat = 196
     }
 }
-

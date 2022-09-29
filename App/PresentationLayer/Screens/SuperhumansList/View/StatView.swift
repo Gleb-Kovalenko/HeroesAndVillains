@@ -93,6 +93,3 @@ extension StatView {
         static let statValueAndNameSpacing: CGFloat = 8
     }
 }
-
-
-
