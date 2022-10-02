@@ -18,7 +18,6 @@ final public class StatView: UIView {
     private let statValueLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 17, weight: .semibold)
-        label.textColor = .white
         label.textAlignment = .right
         return label
     }()
@@ -26,7 +25,6 @@ final public class StatView: UIView {
     /// Label with superhuman's stat name
     private let statNameLabel: UILabel = {
         let label = UILabel()
-        label.textColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.38)
         label.font = UIFont.systemFont(ofSize: 17, weight: .semibold)
         return label
     }()
@@ -36,6 +34,7 @@ final public class StatView: UIView {
     init() {
         super.init(frame: .zero)
         setupLayout()
+        design()
     }
     
     required init?(coder: NSCoder) {
@@ -48,16 +47,16 @@ final public class StatView: UIView {
         statValueLabel.text = String(statValue)
         statNameLabel.text = statName
     }
-    
-    private func setupLayout() {
-        setupStatValueLabel()
-        setupStatNameLabel()
-    }
 }
 
 // MARK: - Layout
 
 extension StatView {
+    
+    private func setupLayout() {
+        setupStatValueLabel()
+        setupStatNameLabel()
+    }
     
     private func setupStatValueLabel() {
         statValueLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -80,8 +79,9 @@ extension StatView {
 
 extension StatView {
     
-    private func desing() {
-        
+    private func design() {
+        statValueLabel.textColor = .white
+        statNameLabel.textColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.38)
     }
 }
 

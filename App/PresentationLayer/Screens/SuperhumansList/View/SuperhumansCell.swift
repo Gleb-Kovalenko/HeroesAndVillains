@@ -45,7 +45,6 @@ final public class SuperhumanCell: UIView {
     /// Header label instance
     private let headerLabelView: UILabel =  {
         let label = UILabel()
-        label.textColor = .white
         label.font = UIFont.systemFont(ofSize: 22, weight: .semibold)
         return label
     }()
@@ -65,24 +64,13 @@ final public class SuperhumanCell: UIView {
 
     // MARK: - Useful
     
-    public func setupHeaderLabelText(text: String) {
-        headerLabelView.text = text
+    public func setup(headerText: String, imageUrl: String) {
+        headerLabelView.text = headerText
+        imageView.image = UIImage(named: imageUrl)
     }
     
-    public func setupSuperhumanImage(url: String) {
-        imageView.image = UIImage(named: url)
-    }
+    // MARK: - Private
     
-    private func setupLayout() {
-        setupContainerView()
-        setupImageView()
-        setupInfoContainerView()
-        setupHeaderView()
-        setupFavoriteButton()
-        setupHeaderLabelView()
-        setupStackView()
-    }
-
     private func fillStack() {
         for i in 1...6 {
             let statView = StatView()
@@ -95,6 +83,16 @@ final public class SuperhumanCell: UIView {
 
 extension SuperhumanCell {
     
+    private func setupLayout() {
+        setupContainerView()
+        setupImageView()
+        setupInfoContainerView()
+        setupHeaderView()
+        setupFavoriteButton()
+        setupHeaderLabelView()
+        setupStackView()
+    }
+
     private func setupContainerView() {
         containerView.translatesAutoresizingMaskIntoConstraints = false
         addSubview(containerView)
@@ -156,6 +154,7 @@ extension SuperhumanCell {
     
     private func design() {
         backgroundColor = UIColor(red: 0.345, green: 0.02, blue: 0.055, alpha: 1)
+        headerLabelView.textColor = .white
     }
 }
 
