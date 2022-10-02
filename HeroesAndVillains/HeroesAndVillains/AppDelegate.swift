@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  HeroesAndVillains
 //
-//  Created by Глеб Коваленко on 21.09.2022.
+//  Created by Глеб Коваленко on 16.09.2022.
 //
 
 import UIKit
@@ -13,7 +13,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        
+
         return true
     }
 
