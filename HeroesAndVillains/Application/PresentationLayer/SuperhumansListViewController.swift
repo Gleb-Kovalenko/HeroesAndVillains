@@ -13,12 +13,10 @@ final class SuperhumansListViewController: UIViewController {
     
     // MARK: - Properties
     
+    //private let service = SuperhumansServiceImplementation()
+    
     /// Table cell instance
-    private var cellView: SuperhumanCell = {
-        let cell = SuperhumanCell()
-        cell.setup(headerText: "Spiderman", imageUrl: "spiderman")
-        return cell
-    }()
+    private var cellView: SuperhumanCell = SuperhumanCell()
     
     // MARK: - ViewController
     
@@ -26,6 +24,12 @@ final class SuperhumansListViewController: UIViewController {
         super.viewDidLoad()
         setupLayout()
         design()
+//        let superhumans = try! service.obtain()
+//        let stats = try! service.obtainCache()
+//        print(stats)
+//        let viewModel = SuperhumanCellViewModel(superhuman: superhumans[0])
+//        let controller = SuperhumansCellController(viewModel: viewModel)
+//        controller.configureCell(cellView)
     }
     
     override func viewDidLayoutSubviews() {

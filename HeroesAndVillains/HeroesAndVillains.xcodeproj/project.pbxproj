@@ -16,6 +16,8 @@
 		546982D62901ECB9002AD3CF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 546982D02901ECB9002AD3CF /* AppDelegate.swift */; };
 		546982D72901ECB9002AD3CF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 546982D12901ECB9002AD3CF /* SceneDelegate.swift */; };
 		54D6056E2901FF3E004F3A50 /* SuperhumansInfo.json in Resources */ = {isa = PBXBuildFile; fileRef = 54D6056D2901FF3E004F3A50 /* SuperhumansInfo.json */; };
+		54D6057629020161004F3A50 /* SuperhumanPlainObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D6057529020161004F3A50 /* SuperhumanPlainObject.swift */; };
+		54D605782902019F004F3A50 /* RuntimeError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D605772902019F004F3A50 /* RuntimeError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +32,8 @@
 		546982D02901ECB9002AD3CF /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		546982D12901ECB9002AD3CF /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		54D6056D2901FF3E004F3A50 /* SuperhumansInfo.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = SuperhumansInfo.json; sourceTree = "<group>"; };
+		54D6057529020161004F3A50 /* SuperhumanPlainObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperhumanPlainObject.swift; sourceTree = "<group>"; };
+		54D605772902019F004F3A50 /* RuntimeError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RuntimeError.swift; sourceTree = "<group>"; };
 		57B83DF5B93C0AD90226F21A /* Pods-HeroesAndVillains.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HeroesAndVillains.release.xcconfig"; path = "Target Support Files/Pods-HeroesAndVillains/Pods-HeroesAndVillains.release.xcconfig"; sourceTree = "<group>"; };
 		68F98D429E02CAEA790F275B /* Pods_HeroesAndVillains.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HeroesAndVillains.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -94,6 +98,7 @@
 		546982C42901ECB8002AD3CF /* Application */ = {
 			isa = PBXGroup;
 			children = (
+				54D6057329020139004F3A50 /* Models */,
 				546982C62901ECB9002AD3CF /* PresentationLayer */,
 			);
 			path = Application;
@@ -102,6 +107,7 @@
 		546982C62901ECB9002AD3CF /* PresentationLayer */ = {
 			isa = PBXGroup;
 			children = (
+				546982CB2901ECB9002AD3CF /* SuperhumansListViewController.swift */,
 				546982C72901ECB9002AD3CF /* Screens */,
 				546982CD2901ECB9002AD3CF /* Common */,
 				546982D02901ECB9002AD3CF /* AppDelegate.swift */,
@@ -130,7 +136,6 @@
 			isa = PBXGroup;
 			children = (
 				546982CA2901ECB9002AD3CF /* StatView.swift */,
-				546982CB2901ECB9002AD3CF /* SuperhumansListViewController.swift */,
 				546982CC2901ECB9002AD3CF /* SuperhumansCell.swift */,
 			);
 			path = View;
@@ -150,6 +155,23 @@
 				546982CF2901ECB9002AD3CF /* View.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		54D6057329020139004F3A50 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				54D605742902013F004F3A50 /* Plain */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		54D605742902013F004F3A50 /* Plain */ = {
+			isa = PBXGroup;
+			children = (
+				54D6057529020161004F3A50 /* SuperhumanPlainObject.swift */,
+				54D605772902019F004F3A50 /* RuntimeError.swift */,
+			);
+			path = Plain;
 			sourceTree = "<group>";
 		};
 		6149D01098D3476BCAD9ED50 /* Pods */ = {
@@ -276,7 +298,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				546982D52901ECB9002AD3CF /* View.swift in Sources */,
+				54D6057629020161004F3A50 /* SuperhumanPlainObject.swift in Sources */,
 				546982D32901ECB9002AD3CF /* SuperhumansListViewController.swift in Sources */,
+				54D605782902019F004F3A50 /* RuntimeError.swift in Sources */,
 				546982D22901ECB9002AD3CF /* StatView.swift in Sources */,
 				546982D62901ECB9002AD3CF /* AppDelegate.swift in Sources */,
 				546982D42901ECB9002AD3CF /* SuperhumansCell.swift in Sources */,
