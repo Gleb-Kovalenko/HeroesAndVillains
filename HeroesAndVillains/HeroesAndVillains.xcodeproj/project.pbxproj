@@ -18,6 +18,8 @@
 		54D6056E2901FF3E004F3A50 /* SuperhumansInfo.json in Resources */ = {isa = PBXBuildFile; fileRef = 54D6056D2901FF3E004F3A50 /* SuperhumansInfo.json */; };
 		54D6057629020161004F3A50 /* SuperhumanPlainObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D6057529020161004F3A50 /* SuperhumanPlainObject.swift */; };
 		54D605782902019F004F3A50 /* RuntimeError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D605772902019F004F3A50 /* RuntimeError.swift */; };
+		54D6057F290202BF004F3A50 /* SuperhumanCellViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D6057E290202BF004F3A50 /* SuperhumanCellViewModelProtocol.swift */; };
+		54D60581290202EB004F3A50 /* SuperhumanCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D60580290202EB004F3A50 /* SuperhumanCellViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +36,8 @@
 		54D6056D2901FF3E004F3A50 /* SuperhumansInfo.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = SuperhumansInfo.json; sourceTree = "<group>"; };
 		54D6057529020161004F3A50 /* SuperhumanPlainObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperhumanPlainObject.swift; sourceTree = "<group>"; };
 		54D605772902019F004F3A50 /* RuntimeError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RuntimeError.swift; sourceTree = "<group>"; };
+		54D6057E290202BF004F3A50 /* SuperhumanCellViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SuperhumanCellViewModelProtocol.swift; path = Application/Models/Plain/SuperhumanCellViewModelProtocol.swift; sourceTree = SOURCE_ROOT; };
+		54D60580290202EB004F3A50 /* SuperhumanCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SuperhumanCellViewModel.swift; path = Application/Models/Plain/SuperhumanCellViewModel.swift; sourceTree = SOURCE_ROOT; };
 		57B83DF5B93C0AD90226F21A /* Pods-HeroesAndVillains.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HeroesAndVillains.release.xcconfig"; path = "Target Support Files/Pods-HeroesAndVillains/Pods-HeroesAndVillains.release.xcconfig"; sourceTree = "<group>"; };
 		68F98D429E02CAEA790F275B /* Pods_HeroesAndVillains.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HeroesAndVillains.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -135,6 +139,7 @@
 		546982C92901ECB9002AD3CF /* View */ = {
 			isa = PBXGroup;
 			children = (
+				54D6057929020236004F3A50 /* ContentManager */,
 				546982CA2901ECB9002AD3CF /* StatView.swift */,
 				546982CC2901ECB9002AD3CF /* SuperhumansCell.swift */,
 			);
@@ -172,6 +177,47 @@
 				54D605772902019F004F3A50 /* RuntimeError.swift */,
 			);
 			path = Plain;
+			sourceTree = "<group>";
+		};
+		54D6057929020236004F3A50 /* ContentManager */ = {
+			isa = PBXGroup;
+			children = (
+				54D6057A2902026A004F3A50 /* SuperhumanCellControllerFactory */,
+			);
+			path = ContentManager;
+			sourceTree = "<group>";
+		};
+		54D6057A2902026A004F3A50 /* SuperhumanCellControllerFactory */ = {
+			isa = PBXGroup;
+			children = (
+				54D6057B2902027D004F3A50 /* SuperhumanCellController */,
+			);
+			path = SuperhumanCellControllerFactory;
+			sourceTree = "<group>";
+		};
+		54D6057B2902027D004F3A50 /* SuperhumanCellController */ = {
+			isa = PBXGroup;
+			children = (
+				54D6057C2902028F004F3A50 /* SuperhumanCell */,
+			);
+			path = SuperhumanCellController;
+			sourceTree = "<group>";
+		};
+		54D6057C2902028F004F3A50 /* SuperhumanCell */ = {
+			isa = PBXGroup;
+			children = (
+				54D6057D290202A0004F3A50 /* SuperhumanCellViewModel */,
+			);
+			path = SuperhumanCell;
+			sourceTree = "<group>";
+		};
+		54D6057D290202A0004F3A50 /* SuperhumanCellViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				54D6057E290202BF004F3A50 /* SuperhumanCellViewModelProtocol.swift */,
+				54D60580290202EB004F3A50 /* SuperhumanCellViewModel.swift */,
+			);
+			path = SuperhumanCellViewModel;
 			sourceTree = "<group>";
 		};
 		6149D01098D3476BCAD9ED50 /* Pods */ = {
@@ -299,12 +345,14 @@
 			files = (
 				546982D52901ECB9002AD3CF /* View.swift in Sources */,
 				54D6057629020161004F3A50 /* SuperhumanPlainObject.swift in Sources */,
+				54D60581290202EB004F3A50 /* SuperhumanCellViewModel.swift in Sources */,
 				546982D32901ECB9002AD3CF /* SuperhumansListViewController.swift in Sources */,
 				54D605782902019F004F3A50 /* RuntimeError.swift in Sources */,
 				546982D22901ECB9002AD3CF /* StatView.swift in Sources */,
 				546982D62901ECB9002AD3CF /* AppDelegate.swift in Sources */,
 				546982D42901ECB9002AD3CF /* SuperhumansCell.swift in Sources */,
 				546982D72901ECB9002AD3CF /* SceneDelegate.swift in Sources */,
+				54D6057F290202BF004F3A50 /* SuperhumanCellViewModelProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
