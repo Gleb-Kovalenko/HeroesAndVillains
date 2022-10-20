@@ -28,7 +28,7 @@ final class SuperhumansListViewController: UIViewController {
 //        let stats = try! service.obtainCache()
 //        print(stats)
 //        let viewModel = SuperhumanCellViewModel(superhuman: superhumans[0])
-//        let controller = SuperhumansCellController(viewModel: viewModel)
+//        let controller = SuperhumanCellController(viewModel: viewModel)
 //        controller.configureCell(cellView)
     }
     

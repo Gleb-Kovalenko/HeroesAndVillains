@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Kingfisher
 import UIKit
 
 // MARK: - SuperhumansCell
@@ -33,7 +34,11 @@ final public class SuperhumanCell: UIView {
     private let cellHeaderView = UIView()
 
     /// Superhuman's image view instance
-    private let imageView = UIImageView()
+    private let imageView: UIImageView = {
+        let image = UIImageView()
+        image.contentMode = .scaleAspectFit
+        return image
+    }()
 
     /// Favorite button instance
     private let favoriteButton: UIButton = {
@@ -55,7 +60,6 @@ final public class SuperhumanCell: UIView {
         super.init(frame: .zero)
         setupLayout()
         design()
-        fillStack()
     }
 
     required init?(coder: NSCoder) {
@@ -64,17 +68,20 @@ final public class SuperhumanCell: UIView {
 
     // MARK: - Useful
     
-    public func setup(headerText: String, imageUrl: String) {
-        headerLabelView.text = headerText
-        imageView.image = UIImage(named: imageUrl)
+    public func setup(viewModel: SuperhumanCellViewModelProtocol) {
+        headerLabelView.text = viewModel.name
+        imageView.kf.setImage(with: viewModel.imageUrl)
+        setStats(with: viewModel)
     }
     
     // MARK: - Private
     
-    private func fillStack() {
-        for i in 1...6 {
+    private func setStats(with viewModel: SuperhumanCellViewModelProtocol) {
+        for i in 0...5 {
             let statView = StatView()
-            statView.setupText(statValue: i + 21, statName: "StatName\(i)")
+            let shortName = viewModel.stats[i].shortName
+            let value = viewModel.stats[i].value
+            statView.setupText(statValue: value, statName: shortName)
             statsStackView.addArrangedSubview(statView)
         }
     }
@@ -85,8 +92,8 @@ extension SuperhumanCell {
     
     private func setupLayout() {
         setupContainerView()
-        setupImageView()
         setupInfoContainerView()
+        setupImageView()
         setupHeaderView()
         setupFavoriteButton()
         setupHeaderLabelView()
@@ -103,6 +110,8 @@ extension SuperhumanCell {
         imageView.translatesAutoresizingMaskIntoConstraints = false
         containerView.addSubview(imageView)
         imageView.rightAnchor.constraint(equalTo: containerView.rightAnchor, constant: LayoutConstants.imageViewRightPadding).isActive = true
+        imageView.heightAnchor.constraint(equalToConstant: 164).isActive = true
+        imageView.widthAnchor.constraint(equalToConstant: 164).isActive = true
     }
     
     private func setupInfoContainerView() {
