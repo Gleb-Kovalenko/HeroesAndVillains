@@ -186,7 +186,7 @@ extension SuperhumanCell {
 extension SuperhumanCell {
     
     enum LayoutConstants {
-        static let containerViewBottomPadding: CGFloat = 12
+        static let containerViewBottomPadding: CGFloat = -6
         static let containerViewHeight: CGFloat = 196
         static let imageViewInsets: UIEdgeInsets = UIEdgeInsets(top: 16, left: 0, bottom: -16, right: -16)
         static let infoContainerInsets: UIEdgeInsets = UIEdgeInsets(top: 12, left: 16, bottom: -12, right: 0)
