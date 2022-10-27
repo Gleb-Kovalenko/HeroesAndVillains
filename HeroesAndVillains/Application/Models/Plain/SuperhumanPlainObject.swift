@@ -10,13 +10,14 @@ import SDAO
 
 // MARK: - SuperhumanPlainObject
 
-struct SuperhumanPlainObject: Decodable, Plain {
-    var uniqueId: UniqueID {
+public struct SuperhumanPlainObject: Decodable, Plain {
+    public var uniqueId: UniqueID {
         .init(rawValue: name + type)
     }
     let name: String
     let type: String
     let image: URL
+    let backgroundColorHex: String
     let stats: [StatPlainObject]
 }
 

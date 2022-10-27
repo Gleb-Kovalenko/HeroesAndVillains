@@ -14,4 +14,5 @@ public protocol SuperhumanCellViewModelProtocol {
     var isFavorite: Bool { get set }
     var stats: [StatPlainObject] { get }
     var imageUrl: URL { get }
+    var backgroundColorHex: String { get }
 }

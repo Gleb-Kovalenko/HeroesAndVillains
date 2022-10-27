@@ -3,6 +3,7 @@
     "name": "Spiderman",
     "type": "Superhero",
     "image": "https://i.postimg.cc/mDdCc5GM/spiderman.png",
+    "backgroundColorHex": "#58050E",
     "stats": [
       {
         "longName": "INTELLIGENCE",
@@ -40,6 +41,7 @@
     "name": "Yoda",
     "type": "Superhero",
     "image": "https://i.postimg.cc/kDP4DQDK/yoda.png",
+    "backgroundColorHex": "#425D17",
     "stats": [
       {
         "longName": "INTELLIGENCE",
@@ -77,6 +79,7 @@
     "name": "Thing",
     "type": "Superhero",
     "image": "https://i.postimg.cc/FF8TFDg8/thing.png",
+    "backgroundColorHex": "#5A3207",
     "stats": [
       {
         "longName": "INTELLIGENCE",
@@ -114,6 +117,7 @@
     "name": "Venom",
     "type": "Supervillian",
     "image": "https://i.postimg.cc/k4ZDP3mj/venom.png",
+    "backgroundColorHex": "#1C1C1C",
     "stats": [
       {
         "longName": "INTELLIGENCE",
@@ -151,6 +155,7 @@
     "name": "Alien",
     "type": "Supervillian",
     "image": "https://i.postimg.cc/2jKnrMGN/alien.png",
+    "backgroundColorHex": "#155915",
     "stats": [
       {
         "longName": "INTELLIGENCE",
@@ -188,6 +193,7 @@
     "name": "Krang",
     "type": "Supervillian",
     "image": "https://i.postimg.cc/8kjyVqWL/krang.png",
+    "backgroundColorHex": "#610C25",
     "stats": [
       {
         "longName": "INTELLIGENCE",
@@ -225,6 +231,7 @@
     "name": "Joker",
     "type": "Supervillian",
     "image": "https://i.postimg.cc/BbKbqYZJ/joker.png",
+    "backgroundColorHex": "#242357",
     "stats": [
       {
         "longName": "INTELLIGENCE",

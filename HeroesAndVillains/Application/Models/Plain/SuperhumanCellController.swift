@@ -6,10 +6,11 @@
 //
 
 import Foundation
+import GenericCellPresenters
 
 // MARK: - SuperhumanCellController
 
-final public class SuperhumanCellController {
+final public class SuperhumanCellController: GenericCellPresenter<SuperhumanCell> {
     
     // MARK: - Properties
     
@@ -19,14 +20,17 @@ final public class SuperhumanCellController {
     /// Default initializer
     ///
     /// - Parameter viewModel: ViewModel instance
-    init(viewModel: SuperhumanCellViewModelProtocol) {
+    public init(viewModel: SuperhumanCellViewModelProtocol) {
         self.viewModel = viewModel
     }
     
-    // MARK: - CellController
+    // MARK: - SuperhumanCellController
     
-    public func configureCell(_ cell: SuperhumanCell) {
+    public override func configureCell(_ cell: SuperhumanCell) {
         cell.setup(viewModel: viewModel)
     }
     
+    override public func cellSize(reusableCellHolder: UITableView) -> CGSize {
+        CGSize(width: reusableCellHolder.frame.width, height: 196)
+    }
 }
