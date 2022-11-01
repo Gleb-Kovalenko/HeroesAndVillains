@@ -16,5 +16,5 @@ public protocol SuperhumanViewOutput {
 
     /// Some superhuman was selected
     /// - Parameter superhumanName: some superhuman
-    func didTriggerSelectCountryEvent(_ superhumanName: SuperhumanPlainObject)
+    func didTriggerSelectSuperhumanEvent(_ superhuman: SuperhumanPlainObject)
 }

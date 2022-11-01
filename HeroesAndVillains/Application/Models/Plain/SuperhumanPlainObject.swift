@@ -11,23 +11,26 @@ import SDAO
 // MARK: - SuperhumanPlainObject
 
 public struct SuperhumanPlainObject: Decodable, Plain {
+    
+    // MARK: - Properties
+    
+    /// Unique id for each superhuman
     public var uniqueId: UniqueID {
-        .init(rawValue: name + type)
+        UniqueID(rawValue: name + type)
     }
+    
+    /// Superhuman's name
     let name: String
+    
+    /// Superhuman's type: superhero, supervillains, etc.
     let type: String
-    let image: URL
+    
+    /// URL of image with superhuman
+    let imageURL: URL
+    
+    /// Background color of superhuman's card
     let backgroundColorHex: String
+    
+    /// Superhuman stats instance
     let stats: [StatPlainObject]
-}
-
-// MARK: - Stat
-
-public struct StatPlainObject: Decodable, Plain {
-    public var uniqueId: UniqueID {
-        .init(rawValue: longName + String(value))
-    }
-    let longName: String
-    let shortName: String
-    let value: Int
 }

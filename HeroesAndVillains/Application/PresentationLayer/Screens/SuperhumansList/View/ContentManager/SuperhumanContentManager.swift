@@ -7,6 +7,7 @@
 
 import Foundation
 import VIPER
+import SDAO
 
 // MARK: - SuperhumanContentManager
 
@@ -19,5 +20,5 @@ public protocol SuperhumanContentManager: GeneralContentManager {
 
     /// Select some superhuman
     /// - Parameter superhumanName: some superhuman's name
-    func selectSuperhuman(_ superhumanName: String)
+    func selectSuperhuman(_ superhumanId: UniqueID)
 }

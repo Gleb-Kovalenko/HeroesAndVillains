@@ -1,5 +1,5 @@
 //
-//  SuperhumanCellControllerFactory.swift
+//  SuperhumanCellPresenterFactory.swift
 //  HeroesAndVillains
 //
 //  Created by Gleb Kovalenko on 21.10.2022.
@@ -8,32 +8,32 @@
 import Foundation
 import UIKit
 
-// MARK: - SuperhumanCellControllerFactory
+// MARK: - SuperhumanCellPresenterFactory
 
-public protocol SuperhumanCellControllerFactory {
+public protocol SuperhumanCellPresenterFactory {
     
-    /// Create SuperhumanCellController instance using some
+    /// Create SuperhumanCellPresenter instance using some
     /// viewModel and register it to the given tableView
     ///
     /// - Parameters:
     ///   - viewModel: viewModel instance for cell's configuration
     ///   - tableView: tableView for registering cell
-    /// - Returns: SuperhumanCellController instance
-    func controller(with viewModel: SuperhumanCellViewModelProtocol, tableView: UITableView) -> SuperhumanCellController
+    /// - Returns: SuperhumanCellPresenter instance
+    func controller(with viewModel: SuperhumanCellViewModelProtocol, tableView: UITableView) -> SuperhumanCellPresenter
 }
 
 // MARK: - Controllers
 
-extension SuperhumanCellControllerFactory {
+extension SuperhumanCellPresenterFactory {
     
-    /// Create SuperhumanCellController array using some
+    /// Create SuperhumanCellPresenter array using some
     /// viewModels and register it to the given tableView
     ///
     /// - Parameters:
     ///   - viewModels: viewModels instances for cells configuration
     ///   - tableView: tableView for registering cells
-    /// - Returns: SuperhumanCellController array
-    func controllers(with viewModels: [SuperhumanCellViewModelProtocol], tableView: UITableView) -> [SuperhumanCellController] {
+    /// - Returns: SuperhumanCellPresenter array
+    func controllers(with viewModels: [SuperhumanCellViewModelProtocol], tableView: UITableView) -> [SuperhumanCellPresenter] {
         viewModels.map {
             controller(with: $0, tableView: tableView)
         }

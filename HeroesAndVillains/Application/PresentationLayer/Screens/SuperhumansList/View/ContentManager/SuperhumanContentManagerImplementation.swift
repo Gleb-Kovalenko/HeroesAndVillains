@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 import VIPER
+import SDAO
 
 // MARK: - SuperhumanContentManagerImplementation
 
@@ -15,20 +16,30 @@ final public class SuperhumanContentManagerImplementation: IntermediateContentMa
     
     // MARK: - Properties
     
-    /// Superhuman controllers factory
-    private let controllersFactory: SuperhumanCellControllerFactory
+    /// Superhuman presenters factory
+    private let presentersFactory: SuperhumanCellPresenterFactory
 
     /// Current controllers which manipulates tableView's cells
-    private var controllers: [SuperhumanCellController] = []
+    private var controllers: [SuperhumanCellPresenter] = []
+    
+    /// Table view instance
+    private let tableView: UITableView
     
     // MARK: - Initializers
     
     /// Default initializer
     ///
-    /// - Parameter controllersFactory: superhuman controllers factory
-    public init(controllersFactory: SuperhumanCellControllerFactory) {
-        self.controllersFactory = controllersFactory
+    /// - Parameters:
+    ///    - presentersFactory: superhuman presenters factory
+    ///    - tableView: table view with superhuman's
+    public init(
+        tableView: UITableView,
+        presentersFactory: SuperhumanCellPresenterFactory
+    ) {
+        self.tableView = tableView
+        self.presentersFactory = presentersFactory
         super.init()
+        configure(withContentView: self.tableView)
     }
 }
 
@@ -36,15 +47,13 @@ final public class SuperhumanContentManagerImplementation: IntermediateContentMa
 
 extension SuperhumanContentManagerImplementation: SuperhumanContentManager {
     
-    public func selectSuperhuman(_ superhumanName: String) {
+    public func selectSuperhuman(_ superhumanId: UniqueID) {
         //Later
     }
     
     public func updateData(_ viewModels: [SuperhumanCellViewModelProtocol]) {
-        guard let tableView = contentView else {
-            return
-        }
-        controllers = controllersFactory.controllers(with: viewModels, tableView: tableView)
+        
+        controllers = presentersFactory.controllers(with: viewModels, tableView: tableView)
         tableView.reloadData()
     }
 }

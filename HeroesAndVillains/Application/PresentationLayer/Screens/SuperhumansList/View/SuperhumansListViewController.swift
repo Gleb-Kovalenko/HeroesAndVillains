@@ -27,7 +27,7 @@ final class SuperhumansListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        contentManager = SuperhumanContentManagerImplementation(controllersFactory: SuperhumanCellControllerFactoryImplementation())
+        contentManager = SuperhumanContentManagerImplementation(tableView: tableView, presentersFactory: SuperhumanCellPresenterFactoryImplementation())
         setupInitialState()
         design()
         let superhumansPlainObjects = try! obtain()
@@ -53,17 +53,13 @@ extension SuperhumansListViewController {
     public func obtain() throws -> [SuperhumanPlainObject] {
         
         let decoder = JSONDecoder()
-        guard let fileUrl = Bundle.main.url(forResource: "SuperhumansInfo", withExtension: "json") else {
-            throw RuntimeError.cantOpenJsonFile
-        }
-        guard let data = try? Data(contentsOf: fileUrl) else {
-            throw RuntimeError.cantLoadJsonFile
-        }
         do {
-            let plains = try decoder.decode([SuperhumanPlainObject].self, from: data)
+            let fileUrl = Bundle.main.url(forResource: "SuperhumansInfo", withExtension: "json")
+            let data = try? Data(contentsOf: fileUrl.unwrap())
+            let plains = try decoder.decode([SuperhumanPlainObject].self, from: data.unwrap())
             return plains
-        } catch {
-            throw RuntimeError.parseError
+        } catch let error {
+            throw error
         }
     }
 }

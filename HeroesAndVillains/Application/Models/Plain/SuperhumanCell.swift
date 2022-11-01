@@ -76,21 +76,19 @@ final public class SuperhumanCell: UITableViewCell {
     
     public func setup(viewModel: SuperhumanCellViewModelProtocol) {
         headerLabelView.text = viewModel.name
-        superhumanImageView.kf.setImage(with: viewModel.imageUrl)
-        setStats(with: viewModel)
+        superhumanImageView.kf.setImage(with: viewModel.imageURL)
+        setStats(with: viewModel.stats)
         containerView.backgroundColor = UIColor(hex: viewModel.backgroundColorHex)
-        backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0)
-        contentView.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0)
     }
     
     // MARK: - Private
     
-    private func setStats(with viewModel: SuperhumanCellViewModelProtocol) {
+    private func setStats(with stats: [StatPlainObject]) {
         if statsStackView.subviews.isEmpty {
-            for i in 0...5 {
+            for stat in stats {
                 let statView = StatView()
-                let shortName = viewModel.stats[i].shortName
-                let value = viewModel.stats[i].value
+                let shortName = stat.shortName
+                let value = stat.value
                 statView.setupText(statValue: value, statName: shortName)
                 statsStackView.addArrangedSubview(statView)
             }
@@ -178,6 +176,8 @@ extension SuperhumanCell {
     
     private func design() {
         headerLabelView.textColor = .white
+        backgroundColor = .clear
+        contentView.backgroundColor = .clear
     }
 }
 

@@ -1,5 +1,5 @@
 //
-//  SuperhumanCellController.swift
+//  SuperhumanCellPresenter.swift
 //  HeroesAndVillains
 //
 //  Created by Gleb Kovalenko on 07.10.2022.
@@ -8,9 +8,9 @@
 import Foundation
 import GenericCellPresenters
 
-// MARK: - SuperhumanCellController
+// MARK: - SuperhumanCellPresenter
 
-final public class SuperhumanCellController: GenericCellPresenter<SuperhumanCell> {
+final public class SuperhumanCellPresenter: GenericCellPresenter<SuperhumanCell> {
     
     // MARK: - Properties
     
@@ -24,7 +24,7 @@ final public class SuperhumanCellController: GenericCellPresenter<SuperhumanCell
         self.viewModel = viewModel
     }
     
-    // MARK: - SuperhumanCellController
+    // MARK: - SuperhumanCellPresenter
     
     public override func configureCell(_ cell: SuperhumanCell) {
         cell.setup(viewModel: viewModel)

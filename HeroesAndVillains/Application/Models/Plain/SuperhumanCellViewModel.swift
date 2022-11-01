@@ -29,9 +29,9 @@ public struct SuperhumanCellViewModel: SuperhumanCellViewModelProtocol {
         superhuman.stats
     }
     
-    /// Url of image with superhuman
-    public var imageUrl: URL {
-        superhuman.image
+    /// URL of image with superhuman
+    public var imageURL: URL {
+        superhuman.imageURL
     }
     
     /// Background color of superhuman's card
