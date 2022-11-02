@@ -13,24 +13,54 @@ final class SuperhumansListViewController: UIViewController {
     
     // MARK: - Properties
     
-    /// Table cell instance
-    private var cellView: SuperhumanCell = {
-        let cell = SuperhumanCell()
-        cell.setup(headerText: "Spiderman", imageUrl: "spiderman")
-        return cell
+    /// Superhuman content manager
+    var contentManager: SuperhumanContentManager?
+    
+    /// Table with superhuman cells
+    private var tableView: UITableView = {
+        let tableView = UITableView()
+        tableView.contentInset = LayoutConstants.contentInsets
+        return tableView
     }()
     
     // MARK: - ViewController
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupLayout()
+        contentManager = SuperhumanContentManagerImplementation(tableView: tableView, presentersFactory: SuperhumanCellPresenterFactoryImplementation())
+        setupInitialState()
         design()
+        let superhumansPlainObjects = try! obtain()
+        let viewModels = viewModels(from: superhumansPlainObjects)
+        update(viewModels)
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        cellView.smoothCorners(radius: 24)
+    }
+}
+
+// MARK: - For test
+
+extension SuperhumansListViewController {
+
+    func viewModels(from plainObjects: [SuperhumanPlainObject]) -> [SuperhumanCellViewModelProtocol] {
+        plainObjects.reduce(into: [SuperhumanCellViewModelProtocol]()) { result, elem in
+            result.append(SuperhumanCellViewModel(superhuman: elem))
+        }
+    }
+    
+    public func obtain() throws -> [SuperhumanPlainObject] {
+        
+        let decoder = JSONDecoder()
+        do {
+            let fileUrl = Bundle.main.url(forResource: "SuperhumansInfo", withExtension: "json")
+            let data = try? Data(contentsOf: fileUrl.unwrap())
+            let plains = try decoder.decode([SuperhumanPlainObject].self, from: data.unwrap())
+            return plains
+        } catch let error {
+            throw error
+        }
     }
 }
 
@@ -38,17 +68,12 @@ final class SuperhumansListViewController: UIViewController {
 
 extension SuperhumansListViewController {
     
-    private func setupLayout() {
-        setupCell()
-    }
-    
-    private func setupCell() {
-        cellView.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(cellView)
-        cellView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
-        cellView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
-        cellView.topAnchor.constraint(equalTo: view.topAnchor, constant: 200).isActive = true
-        cellView.heightAnchor.constraint(equalToConstant: LayoutConstants.cellHeight).isActive = true
+    /// Setup table with superhumans cards
+    private func setupTableView() {
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(tableView)
+        tableView.fullPinTo(view: view)
+        contentManager?.configure(withContentView: tableView)
     }
 }
 
@@ -57,7 +82,24 @@ extension SuperhumansListViewController {
 extension SuperhumansListViewController {
     
     private func design() {
-        view.backgroundColor = .black
+        tableView.backgroundColor = .black
+    }
+}
+
+// MARK: - SuperhumanViewInput
+
+extension SuperhumansListViewController: SuperhumanViewInput {
+    
+    func setupInitialState() {
+        setupTableView()
+    }
+    
+    func update(_ viewModels: [SuperhumanCellViewModelProtocol]) {
+        contentManager?.updateData(viewModels)
+    }
+    
+    func selectSuperhuman(_ code: String) {
+        //Later
     }
 }
 
@@ -66,6 +108,6 @@ extension SuperhumansListViewController {
 extension SuperhumansListViewController {
     
     enum LayoutConstants {
-        static let cellHeight: CGFloat = 196
+        static let contentInsets: UIEdgeInsets = UIEdgeInsets(top: 16, left: 0, bottom: 16, right: 0)
     }
 }

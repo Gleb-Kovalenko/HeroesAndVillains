@@ -2,7 +2,7 @@
 //  SceneDelegate.swift
 //  HeroesAndVillains
 //
-//  Created by Глеб Коваленко on 16.09.2022.
+//  Created by Gleb Kovalenko on 16.09.2022.
 //
 
 import UIKit

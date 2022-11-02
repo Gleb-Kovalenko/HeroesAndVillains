@@ -12,6 +12,9 @@ target "HeroesAndVillains" do
   pod "SDAO", :git => 'https://github.com/Incetro/DAO'
   pod "Monreau", :git => 'https://github.com/Incetro/Monreau'
   pod 'Swinject'
+  pod 'Kingfisher'
+  pod 'incetro-generic-cell-presenters', :git => 'https://github.com/Incetro/generic-cell-presenters'
+  pod 'VIPER', :git => 'https://github.com/Incetro/VIPER'
 end
 
 post_install do |installer|
