@@ -11,6 +11,7 @@
 		54054F7B290A711200379C22 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54054F7A290A711200379C22 /* UIColor.swift */; };
 		54054F7D2911541300379C22 /* StatPlainObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54054F7C2911541300379C22 /* StatPlainObject.swift */; };
 		5424AED428DA684D002F8DDF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5424AED328DA684D002F8DDF /* Assets.xcassets */; };
+		5440D740291D43720071BAE7 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5440D73F291D43720071BAE7 /* Data.swift */; };
 		546982D22901ECB9002AD3CF /* StatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 546982CA2901ECB9002AD3CF /* StatView.swift */; };
 		546982D32901ECB9002AD3CF /* SuperhumansListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 546982CB2901ECB9002AD3CF /* SuperhumansListViewController.swift */; };
 		546982D52901ECB9002AD3CF /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 546982CF2901ECB9002AD3CF /* View.swift */; };
@@ -29,6 +30,18 @@
 		54D60592290300D9004F3A50 /* SuperhumanContentManagerImplementation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D60591290300D9004F3A50 /* SuperhumanContentManagerImplementation.swift */; };
 		54D605942907FC1C004F3A50 /* SuperhumanViewInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D605932907FC1C004F3A50 /* SuperhumanViewInput.swift */; };
 		54D605962907FC6E004F3A50 /* SuperhumanViewOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D605952907FC6E004F3A50 /* SuperhumanViewOutput.swift */; };
+		54F67F2429124B5400DFB24D /* SuperhumanListModuleInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F67F2329124B5300DFB24D /* SuperhumanListModuleInput.swift */; };
+		54F67F2629124BDA00DFB24D /* SuperhumanListModuleOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F67F2529124BD900DFB24D /* SuperhumanListModuleOutput.swift */; };
+		54F67F2829124DA400DFB24D /* SuperhumanListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F67F2729124DA400DFB24D /* SuperhumanListPresenter.swift */; };
+		54F67F2B29124F4100DFB24D /* SuperhumanCellViewModelDesigner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F67F2A29124F4100DFB24D /* SuperhumanCellViewModelDesigner.swift */; };
+		54F67F2D29124FE800DFB24D /* SuperhumanCellViewModelDesignerImplementation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F67F2C29124FE800DFB24D /* SuperhumanCellViewModelDesignerImplementation.swift */; };
+		54F67F30291251AA00DFB24D /* SuperhumanListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F67F2F291251AA00DFB24D /* SuperhumanListInteractor.swift */; };
+		54F67F32291251B700DFB24D /* SuperhumanListInteractorInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F67F31291251B600DFB24D /* SuperhumanListInteractorInput.swift */; };
+		54F67F34291251CE00DFB24D /* SuperhumanListInteractorOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F67F33291251CE00DFB24D /* SuperhumanListInteractorOutput.swift */; };
+		54F67F37291254A600DFB24D /* SuperhumanListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F67F36291254A600DFB24D /* SuperhumanListRouter.swift */; };
+		54F67F39291254C700DFB24D /* SuperhumanListRouterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F67F38291254C700DFB24D /* SuperhumanListRouterInput.swift */; };
+		54F67F3E2912560200DFB24D /* SuperhumanService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F67F3D2912560200DFB24D /* SuperhumanService.swift */; };
+		54F67F402912569A00DFB24D /* SuperumanServiceImplementation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F67F3F2912569A00DFB24D /* SuperumanServiceImplementation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +51,7 @@
 		5424AEC728DA6844002F8DDF /* HeroesAndVillains.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HeroesAndVillains.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5424AED328DA684D002F8DDF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5424AED828DA684D002F8DDF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5440D73F291D43720071BAE7 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		546982CA2901ECB9002AD3CF /* StatView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatView.swift; sourceTree = "<group>"; };
 		546982CB2901ECB9002AD3CF /* SuperhumansListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuperhumansListViewController.swift; sourceTree = "<group>"; };
 		546982CF2901ECB9002AD3CF /* View.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
@@ -56,6 +70,18 @@
 		54D60591290300D9004F3A50 /* SuperhumanContentManagerImplementation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperhumanContentManagerImplementation.swift; sourceTree = "<group>"; };
 		54D605932907FC1C004F3A50 /* SuperhumanViewInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperhumanViewInput.swift; sourceTree = "<group>"; };
 		54D605952907FC6E004F3A50 /* SuperhumanViewOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperhumanViewOutput.swift; sourceTree = "<group>"; };
+		54F67F2329124B5300DFB24D /* SuperhumanListModuleInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperhumanListModuleInput.swift; sourceTree = "<group>"; };
+		54F67F2529124BD900DFB24D /* SuperhumanListModuleOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperhumanListModuleOutput.swift; sourceTree = "<group>"; };
+		54F67F2729124DA400DFB24D /* SuperhumanListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperhumanListPresenter.swift; sourceTree = "<group>"; };
+		54F67F2A29124F4100DFB24D /* SuperhumanCellViewModelDesigner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperhumanCellViewModelDesigner.swift; sourceTree = "<group>"; };
+		54F67F2C29124FE800DFB24D /* SuperhumanCellViewModelDesignerImplementation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperhumanCellViewModelDesignerImplementation.swift; sourceTree = "<group>"; };
+		54F67F2F291251AA00DFB24D /* SuperhumanListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperhumanListInteractor.swift; sourceTree = "<group>"; };
+		54F67F31291251B600DFB24D /* SuperhumanListInteractorInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperhumanListInteractorInput.swift; sourceTree = "<group>"; };
+		54F67F33291251CE00DFB24D /* SuperhumanListInteractorOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperhumanListInteractorOutput.swift; sourceTree = "<group>"; };
+		54F67F36291254A600DFB24D /* SuperhumanListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperhumanListRouter.swift; sourceTree = "<group>"; };
+		54F67F38291254C700DFB24D /* SuperhumanListRouterInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperhumanListRouterInput.swift; sourceTree = "<group>"; };
+		54F67F3D2912560200DFB24D /* SuperhumanService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperhumanService.swift; sourceTree = "<group>"; };
+		54F67F3F2912569A00DFB24D /* SuperumanServiceImplementation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperumanServiceImplementation.swift; sourceTree = "<group>"; };
 		57B83DF5B93C0AD90226F21A /* Pods-HeroesAndVillains.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HeroesAndVillains.release.xcconfig"; path = "Target Support Files/Pods-HeroesAndVillains/Pods-HeroesAndVillains.release.xcconfig"; sourceTree = "<group>"; };
 		68F98D429E02CAEA790F275B /* Pods_HeroesAndVillains.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HeroesAndVillains.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -120,6 +146,7 @@
 		546982C42901ECB8002AD3CF /* Application */ = {
 			isa = PBXGroup;
 			children = (
+				54F67F3A291255AA00DFB24D /* BusinessLayer */,
 				54D6057329020139004F3A50 /* Models */,
 				546982C62901ECB9002AD3CF /* PresentationLayer */,
 			);
@@ -148,6 +175,9 @@
 		546982C82901ECB9002AD3CF /* SuperhumansList */ = {
 			isa = PBXGroup;
 			children = (
+				54F67F352912549000DFB24D /* Router */,
+				54F67F2E2912517800DFB24D /* Interactor */,
+				54F67F2229124B0800DFB24D /* Presenter */,
 				546982C92901ECB9002AD3CF /* View */,
 			);
 			path = SuperhumansList;
@@ -177,6 +207,7 @@
 			children = (
 				546982CF2901ECB9002AD3CF /* View.swift */,
 				54054F7A290A711200379C22 /* UIColor.swift */,
+				5440D73F291D43720071BAE7 /* Data.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -253,6 +284,70 @@
 				546982CA2901ECB9002AD3CF /* StatView.swift */,
 			);
 			path = StatView;
+			sourceTree = "<group>";
+		};
+		54F67F2229124B0800DFB24D /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				54F67F2929124F2B00DFB24D /* SuperhumanListViewModelDesigner */,
+				54F67F2329124B5300DFB24D /* SuperhumanListModuleInput.swift */,
+				54F67F2529124BD900DFB24D /* SuperhumanListModuleOutput.swift */,
+				54F67F2729124DA400DFB24D /* SuperhumanListPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		54F67F2929124F2B00DFB24D /* SuperhumanListViewModelDesigner */ = {
+			isa = PBXGroup;
+			children = (
+				54F67F2A29124F4100DFB24D /* SuperhumanCellViewModelDesigner.swift */,
+				54F67F2C29124FE800DFB24D /* SuperhumanCellViewModelDesignerImplementation.swift */,
+			);
+			path = SuperhumanListViewModelDesigner;
+			sourceTree = "<group>";
+		};
+		54F67F2E2912517800DFB24D /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				54F67F2F291251AA00DFB24D /* SuperhumanListInteractor.swift */,
+				54F67F31291251B600DFB24D /* SuperhumanListInteractorInput.swift */,
+				54F67F33291251CE00DFB24D /* SuperhumanListInteractorOutput.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		54F67F352912549000DFB24D /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				54F67F36291254A600DFB24D /* SuperhumanListRouter.swift */,
+				54F67F38291254C700DFB24D /* SuperhumanListRouterInput.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		54F67F3A291255AA00DFB24D /* BusinessLayer */ = {
+			isa = PBXGroup;
+			children = (
+				54F67F3B291255C900DFB24D /* Services */,
+			);
+			path = BusinessLayer;
+			sourceTree = "<group>";
+		};
+		54F67F3B291255C900DFB24D /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				54F67F3C291255E900DFB24D /* SuperhumanService */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		54F67F3C291255E900DFB24D /* SuperhumanService */ = {
+			isa = PBXGroup;
+			children = (
+				54F67F3D2912560200DFB24D /* SuperhumanService.swift */,
+				54F67F3F2912569A00DFB24D /* SuperumanServiceImplementation.swift */,
+			);
+			path = SuperhumanService;
 			sourceTree = "<group>";
 		};
 		6149D01098D3476BCAD9ED50 /* Pods */ = {
@@ -380,19 +475,32 @@
 			files = (
 				546982D52901ECB9002AD3CF /* View.swift in Sources */,
 				54D605902902FDD5004F3A50 /* SuperhumanContentManager.swift in Sources */,
+				54F67F39291254C700DFB24D /* SuperhumanListRouterInput.swift in Sources */,
+				54F67F2B29124F4100DFB24D /* SuperhumanCellViewModelDesigner.swift in Sources */,
+				54F67F2829124DA400DFB24D /* SuperhumanListPresenter.swift in Sources */,
 				54D60588290204E5004F3A50 /* SuperhumanCellPresenter.swift in Sources */,
 				54D6057629020161004F3A50 /* SuperhumanPlainObject.swift in Sources */,
 				54D60581290202EB004F3A50 /* SuperhumanCellViewModel.swift in Sources */,
+				54F67F402912569A00DFB24D /* SuperumanServiceImplementation.swift in Sources */,
 				54D605962907FC6E004F3A50 /* SuperhumanViewOutput.swift in Sources */,
+				54F67F30291251AA00DFB24D /* SuperhumanListInteractor.swift in Sources */,
 				54D60586290203F8004F3A50 /* SuperhumanCell.swift in Sources */,
+				54F67F34291251CE00DFB24D /* SuperhumanListInteractorOutput.swift in Sources */,
+				5440D740291D43720071BAE7 /* Data.swift in Sources */,
 				546982D32901ECB9002AD3CF /* SuperhumansListViewController.swift in Sources */,
+				54F67F2429124B5400DFB24D /* SuperhumanListModuleInput.swift in Sources */,
 				54054F7B290A711200379C22 /* UIColor.swift in Sources */,
+				54F67F32291251B700DFB24D /* SuperhumanListInteractorInput.swift in Sources */,
 				54054F7D2911541300379C22 /* StatPlainObject.swift in Sources */,
+				54F67F2D29124FE800DFB24D /* SuperhumanCellViewModelDesignerImplementation.swift in Sources */,
 				54D6058E2902F762004F3A50 /* SuperhumanCellPresenterFactoryImpementation.swift in Sources */,
+				54F67F37291254A600DFB24D /* SuperhumanListRouter.swift in Sources */,
 				54D605942907FC1C004F3A50 /* SuperhumanViewInput.swift in Sources */,
+				54F67F2629124BDA00DFB24D /* SuperhumanListModuleOutput.swift in Sources */,
 				54D6058B2902F682004F3A50 /* SuperhumanCellPresenterFactory.swift in Sources */,
 				546982D22901ECB9002AD3CF /* StatView.swift in Sources */,
 				54D60592290300D9004F3A50 /* SuperhumanContentManagerImplementation.swift in Sources */,
+				54F67F3E2912560200DFB24D /* SuperhumanService.swift in Sources */,
 				546982D62901ECB9002AD3CF /* AppDelegate.swift in Sources */,
 				54D60584290203CC004F3A50 /* SuperhumanCellAppereance.swift in Sources */,
 				546982D72901ECB9002AD3CF /* SceneDelegate.swift in Sources */,

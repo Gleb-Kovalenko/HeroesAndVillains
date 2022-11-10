@@ -15,6 +15,7 @@ target "HeroesAndVillains" do
   pod 'Kingfisher'
   pod 'incetro-generic-cell-presenters', :git => 'https://github.com/Incetro/generic-cell-presenters'
   pod 'VIPER', :git => 'https://github.com/Incetro/VIPER'
+  pod 'service-core', :git => 'https://github.com/Incetro/service-core'
 end
 
 post_install do |installer|

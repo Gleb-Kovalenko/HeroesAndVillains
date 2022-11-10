@@ -13,6 +13,9 @@ final class SuperhumansListViewController: UIViewController {
     
     // MARK: - Properties
     
+    /// Presenter instance
+    var output: SuperhumanViewOutput?
+    
     /// Superhuman content manager
     var contentManager: SuperhumanContentManager?
     
@@ -28,39 +31,12 @@ final class SuperhumansListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         contentManager = SuperhumanContentManagerImplementation(tableView: tableView, presentersFactory: SuperhumanCellPresenterFactoryImplementation())
-        setupInitialState()
+        output = SuperhumanListPresenter(
+            superhumanCellViewModelDesigner: SuperhumanCellViewModelDesignerImplementation(),
+            superhumanViewInput: self
+        )
         design()
-        let superhumansPlainObjects = try! obtain()
-        let viewModels = viewModels(from: superhumansPlainObjects)
-        update(viewModels)
-    }
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-    }
-}
-
-// MARK: - For test
-
-extension SuperhumansListViewController {
-
-    func viewModels(from plainObjects: [SuperhumanPlainObject]) -> [SuperhumanCellViewModelProtocol] {
-        plainObjects.reduce(into: [SuperhumanCellViewModelProtocol]()) { result, elem in
-            result.append(SuperhumanCellViewModel(superhuman: elem))
-        }
-    }
-    
-    public func obtain() throws -> [SuperhumanPlainObject] {
-        
-        let decoder = JSONDecoder()
-        do {
-            let fileUrl = Bundle.main.url(forResource: "SuperhumansInfo", withExtension: "json")
-            let data = try? Data(contentsOf: fileUrl.unwrap())
-            let plains = try decoder.decode([SuperhumanPlainObject].self, from: data.unwrap())
-            return plains
-        } catch let error {
-            throw error
-        }
+        output?.didTriggerViewReadyEvent()
     }
 }
 
