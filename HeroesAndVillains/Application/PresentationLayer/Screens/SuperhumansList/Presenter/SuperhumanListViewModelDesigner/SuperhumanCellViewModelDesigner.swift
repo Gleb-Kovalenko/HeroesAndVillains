@@ -16,7 +16,7 @@ public protocol SuperhumanCellViewModelDesigner {
     func viewModel(from superhuman: SuperhumanPlainObject) -> SuperhumanCellViewModelProtocol
 }
 
-public extension SuperhumanCellViewModelDesigner {
+extension SuperhumanCellViewModelDesigner {
 
     func viewModels(from superhumans: [SuperhumanPlainObject]) -> [SuperhumanCellViewModelProtocol] {
         superhumans.map{ viewModel(from: $0) }

@@ -10,7 +10,6 @@ import Foundation
 // MARK: - SuperhumanListRouter
 
 public final class SuperhumanListRouter {
-    
 }
 
 // MARK: - SuperhumanListRouterInput

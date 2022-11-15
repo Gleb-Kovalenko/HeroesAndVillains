@@ -31,6 +31,7 @@ final public class StatView: UIView {
     
     // MARK: - StatView
     
+    /// Default initializer
     init() {
         super.init(frame: .zero)
         setupLayout()

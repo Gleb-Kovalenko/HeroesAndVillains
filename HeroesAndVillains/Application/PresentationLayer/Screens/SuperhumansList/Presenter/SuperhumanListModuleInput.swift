@@ -12,5 +12,4 @@ import SDAO
 // MARK: - SuperhumanListModuleInput
 
 public protocol SuperhumanListModuleInput: ModuleInput {
-    
 }

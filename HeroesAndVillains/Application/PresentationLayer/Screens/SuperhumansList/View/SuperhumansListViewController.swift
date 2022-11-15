@@ -9,7 +9,7 @@ import UIKit
 
 // MARK: - SuperhumansListViewController
 
-final class SuperhumansListViewController: UIViewController {
+public final class SuperhumansListViewController: UIViewController {
     
     // MARK: - Properties
     
@@ -28,7 +28,7 @@ final class SuperhumansListViewController: UIViewController {
     
     // MARK: - ViewController
     
-    override func viewDidLoad() {
+    public override func viewDidLoad() {
         super.viewDidLoad()
         contentManager = SuperhumanContentManagerImplementation(tableView: tableView, presentersFactory: SuperhumanCellPresenterFactoryImplementation())
         output = SuperhumanListPresenter(
@@ -66,15 +66,15 @@ extension SuperhumansListViewController {
 
 extension SuperhumansListViewController: SuperhumanViewInput {
     
-    func setupInitialState() {
+    public func setupInitialState() {
         setupTableView()
     }
     
-    func update(_ viewModels: [SuperhumanCellViewModelProtocol]) {
+    public func update(_ viewModels: [SuperhumanCellViewModelProtocol]) {
         contentManager?.updateData(viewModels)
     }
     
-    func selectSuperhuman(_ code: String) {
+    public func selectSuperhuman(_ code: String) {
         //Later
     }
 }

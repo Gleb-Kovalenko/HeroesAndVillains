@@ -10,7 +10,7 @@ import TransitionHandler
 
 // MARK: - SuperhumanListPresenter
 
-final class SuperhumanListPresenter {
+public final class SuperhumanListPresenter {
     
     // MARK: - Properties
 
@@ -27,7 +27,7 @@ final class SuperhumanListPresenter {
     var interactor: SuperhumanListInteractorInput?
 
     /// Router instance
-    //var router: SuperhumanRouterInput?
+    var router: SuperhumanListRouterInput?
 
     // MARK: - Initializers
 
@@ -51,11 +51,11 @@ final class SuperhumanListPresenter {
 
 extension SuperhumanListPresenter: SuperhumanViewOutput {
     
-    func didTriggerSelectSuperhumanEvent(_ superhuman: SuperhumanPlainObject) {
+    public func didTriggerSelectSuperhumanEvent(_ superhuman: SuperhumanPlainObject) {
         //Here something with router
     }
     
-    func didTriggerViewReadyEvent() {
+    public func didTriggerViewReadyEvent() {
         view.setupInitialState()
         interactor?.obtainSuperhumans()
     }
@@ -65,13 +65,12 @@ extension SuperhumanListPresenter: SuperhumanViewOutput {
 
 extension SuperhumanListPresenter: SuperhumanListInteractorOutput {
     
-    func obtainSuperhumanSuccess(_ superhumans: [SuperhumanPlainObject]) {
+    public func obtainSuperhumanSuccess(_ superhumans: [SuperhumanPlainObject]) {
         let viewModels = superhumanCellViewModelDesigner.viewModels(from: superhumans)
         view.update(viewModels)
     }
     
-    func processErrorMessage(_ errorMessage: String) {
-        
+    public func processErrorMessage(_ errorMessage: String) {
     }
 }
 

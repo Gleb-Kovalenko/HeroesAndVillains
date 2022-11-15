@@ -10,7 +10,6 @@ import Foundation
 // MARK: - SuperhumanCellViewModelDesignerImplementation
 
 final public class SuperhumanCellViewModelDesignerImplementation {
-    
 }
 
 // MARK: - SuperhumanCellViewModelDesigner

@@ -19,6 +19,13 @@ public final class SuperhumanListInteractor {
     /// Superhuman service instance
     private let superhumanService: SuperhumanService
     
+    // MARK: - Initializers
+    
+    /// Default initializer
+    ///
+    /// - Parameters:
+    ///    - superhumanService: service instance
+    ///    - superhumanPresenter: presenter instance
     init(superhumanService: SuperhumanService, superhumanPresenter: SuperhumanListInteractorOutput) {
         self.superhumanService = superhumanService
         self.output = superhumanPresenter

@@ -11,5 +11,4 @@ import TransitionHandler
 // MARK: - SuperhumanListModuleOutput
 
 public protocol SuperhumanListModuleOutput: ModuleOutput {
-
 }

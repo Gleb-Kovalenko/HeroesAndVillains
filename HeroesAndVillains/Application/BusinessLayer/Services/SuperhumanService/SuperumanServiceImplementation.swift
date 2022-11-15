@@ -11,7 +11,6 @@ import ServiceCore
 // MARK: - SuperumanServiceImplementation
 
 public final class SuperumanServiceImplementation: Service {
-    
 }
 
 // MARK: - SuperhumanService
