@@ -11,7 +11,6 @@ import UIKit
 // MARK: - SuperhumanCellPresenterFactoryImplementation
 
 final public class SuperhumanCellPresenterFactoryImplementation {
-    
 }
 
 // MARK: - SuperhumanCellPresenterFactory
