@@ -30,11 +30,6 @@ public final class SuperhumansListViewController: UIViewController {
     
     public override func viewDidLoad() {
         super.viewDidLoad()
-        contentManager = SuperhumanContentManagerImplementation(tableView: tableView, presentersFactory: SuperhumanCellPresenterFactoryImplementation())
-        output = SuperhumanListPresenter(
-            superhumanCellViewModelDesigner: SuperhumanCellViewModelDesignerImplementation(),
-            superhumanViewInput: self
-        )
         design()
         output?.didTriggerViewReadyEvent()
     }

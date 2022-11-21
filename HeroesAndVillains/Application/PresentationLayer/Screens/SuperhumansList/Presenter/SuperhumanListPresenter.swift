@@ -18,13 +18,13 @@ public final class SuperhumanListPresenter {
     weak var output: SuperhumanListModuleOutput?
 
     /// View instance
-    var view: SuperhumanViewInput
+    private unowned var view: SuperhumanViewInput
 
     /// SuperhumanCellViewModelProtocol factory
     private let superhumanCellViewModelDesigner: SuperhumanCellViewModelDesigner
 
     /// Interactor instance
-    var interactor: SuperhumanListInteractorInput?
+    private var interactor: SuperhumanListInteractorInput?
 
     /// Router instance
     var router: SuperhumanListRouterInput?
@@ -32,18 +32,17 @@ public final class SuperhumanListPresenter {
     // MARK: - Initializers
 
     /// Default initializer
-    ///
-    /// - Parameter superhumanCellViewModelDesigner: SuperhumanCellViewModelProtocol factory
-    public init(
-        superhumanCellViewModelDesigner: SuperhumanCellViewModelDesigner,
-        superhumanViewInput: SuperhumanViewInput
+    /// - Parameters:
+    ///   - view: SuperhumanViewInput instance
+    ///   - interactor: SuperhumanListInteractorInput instance
+    init(
+        view: SuperhumanViewInput,
+        interactor: SuperhumanListInteractorInput,
+        superhumanCellViewModelDesigner: SuperhumanCellViewModelDesigner
     ) {
+        self.view = view
+        self.interactor = interactor
         self.superhumanCellViewModelDesigner = superhumanCellViewModelDesigner
-        self.view = superhumanViewInput
-        interactor = SuperhumanListInteractor(
-            superhumanService: SuperumanServiceImplementation(),
-            superhumanPresenter: self
-        )
     }
 }
 

@@ -6,10 +6,12 @@
 //
 
 import Foundation
+import TransitionHandler
+import VIPER
 
 // MARK: - SuperhumanListRouter
 
-public final class SuperhumanListRouter {
+public final class SuperhumanListRouter: Router {
 }
 
 // MARK: - SuperhumanListRouterInput

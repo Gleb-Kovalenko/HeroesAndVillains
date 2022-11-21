@@ -22,24 +22,17 @@ final public class SuperhumanContentManagerImplementation: IntermediateContentMa
     /// Current controllers which manipulates tableView's cells
     private var controllers: [SuperhumanCellPresenter] = []
     
-    /// Table view instance
-    private let tableView: UITableView
-    
     // MARK: - Initializers
     
     /// Default initializer
     ///
     /// - Parameters:
     ///    - presentersFactory: superhuman presenters factory
-    ///    - tableView: table view with superhuman's
     public init(
-        tableView: UITableView,
         presentersFactory: SuperhumanCellPresenterFactory
     ) {
-        self.tableView = tableView
         self.presentersFactory = presentersFactory
         super.init()
-        configure(withContentView: self.tableView)
     }
 }
 
@@ -52,7 +45,9 @@ extension SuperhumanContentManagerImplementation: SuperhumanContentManager {
     }
     
     public func updateData(_ viewModels: [SuperhumanCellViewModelProtocol]) {
-        
+        guard let tableView = contentView else {
+            return
+        }
         controllers = presentersFactory.controllers(with: viewModels, tableView: tableView)
         tableView.reloadData()
     }

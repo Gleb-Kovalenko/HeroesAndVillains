@@ -14,7 +14,7 @@ public final class SuperhumanListInteractor {
     // MARK: - Properties
     
     /// Presenter instance
-    var output: SuperhumanListInteractorOutput
+    weak var output: SuperhumanListInteractorOutput?
     
     /// Superhuman service instance
     private let superhumanService: SuperhumanService
@@ -25,10 +25,8 @@ public final class SuperhumanListInteractor {
     ///
     /// - Parameters:
     ///    - superhumanService: service instance
-    ///    - superhumanPresenter: presenter instance
-    init(superhumanService: SuperhumanService, superhumanPresenter: SuperhumanListInteractorOutput) {
+    init(superhumanService: SuperhumanService) {
         self.superhumanService = superhumanService
-        self.output = superhumanPresenter
     }
 }
 
@@ -40,7 +38,7 @@ extension SuperhumanListInteractor: SuperhumanListInteractorInput {
         superhumanService
             .obtain()
             .async()
-            .success(output.obtainSuperhumanSuccess)
-            .failure(output.processError)
+            .success(output?.obtainSuperhumanSuccess)
+            .failure(output?.processError)
     }
 }
