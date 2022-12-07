@@ -10,6 +10,7 @@
 		2D1BAF73F4F93F8DFEB6D657 /* Pods_HeroesAndVillains.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68F98D429E02CAEA790F275B /* Pods_HeroesAndVillains.framework */; };
 		54054F7B290A711200379C22 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54054F7A290A711200379C22 /* UIColor.swift */; };
 		54054F7D2911541300379C22 /* StatPlainObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54054F7C2911541300379C22 /* StatPlainObject.swift */; };
+		540577BA2940FD0F001AE6EC /* HeroesAndVillainsServiceLayerAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 540577B92940FD0F001AE6EC /* HeroesAndVillainsServiceLayerAssembly.swift */; };
 		5424AED428DA684D002F8DDF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5424AED328DA684D002F8DDF /* Assets.xcassets */; };
 		542970062927C79B002C7786 /* SuperhumanListModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 542970052927C79A002C7786 /* SuperhumanListModule.swift */; };
 		5429700A2927CC57002C7786 /* SuperhumanListAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 542970092927CC57002C7786 /* SuperhumanListAssembly.swift */; };
@@ -53,6 +54,7 @@
 		06FEB553845546154A746D1A /* Pods-HeroesAndVillains.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HeroesAndVillains.debug.xcconfig"; path = "Target Support Files/Pods-HeroesAndVillains/Pods-HeroesAndVillains.debug.xcconfig"; sourceTree = "<group>"; };
 		54054F7A290A711200379C22 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		54054F7C2911541300379C22 /* StatPlainObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatPlainObject.swift; sourceTree = "<group>"; };
+		540577B92940FD0F001AE6EC /* HeroesAndVillainsServiceLayerAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroesAndVillainsServiceLayerAssembly.swift; sourceTree = "<group>"; };
 		5424AEC728DA6844002F8DDF /* HeroesAndVillains.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HeroesAndVillains.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5424AED328DA684D002F8DDF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5424AED828DA684D002F8DDF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -114,6 +116,14 @@
 				68F98D429E02CAEA790F275B /* Pods_HeroesAndVillains.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		540577B82940FCCA001AE6EC /* Assemblies */ = {
+			isa = PBXGroup;
+			children = (
+				540577B92940FD0F001AE6EC /* HeroesAndVillainsServiceLayerAssembly.swift */,
+			);
+			path = Assemblies;
 			sourceTree = "<group>";
 		};
 		5424AEBE28DA6844002F8DDF = {
@@ -375,6 +385,7 @@
 		54F67F3A291255AA00DFB24D /* BusinessLayer */ = {
 			isa = PBXGroup;
 			children = (
+				540577B82940FCCA001AE6EC /* Assemblies */,
 				54F67F3B291255C900DFB24D /* Services */,
 			);
 			path = BusinessLayer;
@@ -537,6 +548,7 @@
 				54F67F34291251CE00DFB24D /* SuperhumanListInteractorOutput.swift in Sources */,
 				542970152927E200002C7786 /* AssembliesCollector.swift in Sources */,
 				5440D740291D43720071BAE7 /* Data.swift in Sources */,
+				540577BA2940FD0F001AE6EC /* HeroesAndVillainsServiceLayerAssembly.swift in Sources */,
 				546982D32901ECB9002AD3CF /* SuperhumansListViewController.swift in Sources */,
 				54F67F2429124B5400DFB24D /* SuperhumanListModuleInput.swift in Sources */,
 				54054F7B290A711200379C22 /* UIColor.swift in Sources */,

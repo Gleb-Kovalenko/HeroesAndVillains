@@ -9,7 +9,6 @@ import Foundation
 import Swinject
 import TransitionHandler
 import UIKit
-import SwiftUI
 
 // MARK: - SuperhumanListAssembly
 
@@ -54,10 +53,6 @@ final public class SuperhumanListAssembly: CollectableAssembly {
             )
             interactor.output = presenter
             return presenter
-        }
-        
-        container.register(SuperhumanService.self) { _ in
-            SuperumanServiceImplementation()
         }
         
         container.register(SuperhumanListInteractorInput.self) { resolver in
