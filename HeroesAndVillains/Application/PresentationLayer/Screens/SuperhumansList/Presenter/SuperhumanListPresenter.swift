@@ -18,13 +18,16 @@ public final class SuperhumanListPresenter {
     weak var output: SuperhumanListModuleOutput?
 
     /// View instance
-    private unowned var view: SuperhumanViewInput
+    private unowned let view: SuperhumanViewInput
 
     /// SuperhumanCellViewModelProtocol factory
     private let superhumanCellViewModelDesigner: SuperhumanCellViewModelDesigner
 
     /// Interactor instance
-    private var interactor: SuperhumanListInteractorInput?
+    private let interactor: SuperhumanListInteractorInput?
+    
+    /// Content manager instance
+    private let contentManager: SuperhumanContentManager?
 
     /// Router instance
     var router: SuperhumanListRouterInput?
@@ -38,10 +41,12 @@ public final class SuperhumanListPresenter {
     init(
         view: SuperhumanViewInput,
         interactor: SuperhumanListInteractorInput,
+        contentManager: SuperhumanContentManager,
         superhumanCellViewModelDesigner: SuperhumanCellViewModelDesigner
     ) {
         self.view = view
         self.interactor = interactor
+        self.contentManager = contentManager
         self.superhumanCellViewModelDesigner = superhumanCellViewModelDesigner
     }
 }
@@ -66,7 +71,7 @@ extension SuperhumanListPresenter: SuperhumanListInteractorOutput {
     
     public func obtainSuperhumanSuccess(_ superhumans: [SuperhumanPlainObject]) {
         let viewModels = superhumanCellViewModelDesigner.viewModels(from: superhumans)
-        view.update(viewModels)
+        contentManager?.updateData(viewModels)
     }
     
     public func processErrorMessage(_ errorMessage: String) {

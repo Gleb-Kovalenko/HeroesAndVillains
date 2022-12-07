@@ -16,11 +16,8 @@ public final class SuperhumansListViewController: UIViewController {
     /// Presenter instance
     var output: SuperhumanViewOutput?
     
-    /// Superhuman content manager
-    var contentManager: SuperhumanContentManager?
-    
     /// Table with superhuman cells
-    private var tableView: UITableView = {
+    var tableView: UITableView = {
         let tableView = UITableView()
         tableView.contentInset = LayoutConstants.contentInsets
         return tableView
@@ -44,7 +41,6 @@ extension SuperhumansListViewController {
         tableView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(tableView)
         tableView.fullPinTo(view: view)
-        contentManager?.configure(withContentView: tableView)
     }
 }
 
@@ -63,10 +59,6 @@ extension SuperhumansListViewController: SuperhumanViewInput {
     
     public func setupInitialState() {
         setupTableView()
-    }
-    
-    public func update(_ viewModels: [SuperhumanCellViewModelProtocol]) {
-        contentManager?.updateData(viewModels)
     }
     
     public func selectSuperhuman(_ code: String) {

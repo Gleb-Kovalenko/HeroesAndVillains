@@ -8,6 +8,8 @@
 import Foundation
 import Swinject
 import TransitionHandler
+import UIKit
+import SwiftUI
 
 // MARK: - SuperhumanListAssembly
 
@@ -30,8 +32,7 @@ final public class SuperhumanListAssembly: CollectableAssembly {
         
         container.register(SuperhumansListViewController.self) { resolver in
             let controller = SuperhumansListViewController()
-            controller.output = resolver.resolve(SuperhumanViewOutput.self, argument: controller as SuperhumanViewInput)
-            controller.contentManager = resolver.resolve(SuperhumanContentManager.self, argument: controller as TransitionHandler)
+            controller.output = resolver.resolve(SuperhumanViewOutput.self, argument: controller)
             return controller
         }
         
@@ -39,14 +40,16 @@ final public class SuperhumanListAssembly: CollectableAssembly {
             SuperhumanListRouter(transitionHandler: transitionHandler)
         }
         
-        container.register(SuperhumanViewOutput.self) { (resolver, view: SuperhumanViewInput) in
+        container.register(SuperhumanViewOutput.self) { (resolver, view: SuperhumansListViewController) in
             let interactor = resolver
                 .resolve(SuperhumanListInteractorInput.self)
                 .unwrap(as: SuperhumanListInteractor.self)
             let superhumanCellViewModelDesigner = resolver.resolve(SuperhumanCellViewModelDesigner.self).unwrap()
+            let contentManager = resolver.resolve(SuperhumanContentManager.self, argument: view).unwrap()
             let presenter = SuperhumanListPresenter(
-                view: view,
+                view: view as SuperhumanViewInput,
                 interactor: interactor,
+                contentManager: contentManager,
                 superhumanCellViewModelDesigner: superhumanCellViewModelDesigner
             )
             interactor.output = presenter
@@ -71,11 +74,12 @@ final public class SuperhumanListAssembly: CollectableAssembly {
             SuperhumanCellViewModelDesignerImplementation()
         }
 
-        container.register(SuperhumanContentManager.self) { (resolver, transitionHandler: TransitionHandler) in
+        container.register(SuperhumanContentManager.self) { (resolver, controller: SuperhumansListViewController) in
             let presentersFactory = resolver.resolve(SuperhumanCellPresenterFactory.self).unwrap()
             let contentManager = SuperhumanContentManagerImplementation(
                 presentersFactory: presentersFactory
             )
+            contentManager.configure(withContentView: controller.tableView)
             return contentManager
         }
     }

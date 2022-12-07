@@ -6,11 +6,12 @@
 //
 
 import Foundation
+import UIKit
 
 // MARK: - SuperhumanViewOutput
 
 public protocol SuperhumanViewOutput {
-
+    
     /// View is ready
     func didTriggerViewReadyEvent()
 
