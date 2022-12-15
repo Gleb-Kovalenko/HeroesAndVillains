@@ -7,12 +7,20 @@
 
 import Foundation
 import UIKit
+import VIPER
+import TransitionHandler
 
 // MARK: - SuperhumanInfoViewController
 
-final class SuperhumanInfoViewController: UIViewController {
+public final class SuperhumanInfoViewController: UIViewController {
     
     // MARK: - Properties
+    
+    /// Presenter instance
+    var output: SuperhumanInfoViewOutput?
+    
+    /// Selected superhuman's data
+    private var data: SuperhumanInfoModule.Data
     
     /// Header label instance
     private let headerLabelView: UILabel =  {
@@ -44,12 +52,36 @@ final class SuperhumanInfoViewController: UIViewController {
         return button
     }()
     
-    func setup(with viewModel: SuperhumanCellViewModelProtocol) {
-        headerLabelView.text = viewModel.name
-        superhumanImageView.kf.setImage(with: viewModel.imageURL)
-        fillStackView(with: viewModel.stats)
-        setGradient(startColor: UIColor(hex: viewModel.backgroundColorHex) ?? UIColor(.blue))
+    // MARK: - Initializers
+
+    /// Default initializer
+    /// - Parameters:
+    ///   - data: Selected superhuman's data
+    init(data: SuperhumanInfoModule.Data) {
+        self.data = data
+        super.init(nibName: nil, bundle: nil)
     }
+    
+    required convenience init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    // MARK: - ViewController
+    
+    public override func viewDidLoad() {
+        super.viewDidLoad()
+        setupLayout()
+        design()
+        localize()
+        output?.didTriggerViewReadyEvent()
+    }
+    
+    public override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        favoriteButton.layer.cornerRadius = LayoutConstants.favoriteButtonBorderRadius
+    }
+    
+    // MARK: - Private
     
     private func setGradient(startColor: UIColor, endColor: UIColor = UIColor(.black)) {
         let gradientLayer = CAGradientLayer()
@@ -73,21 +105,11 @@ final class SuperhumanInfoViewController: UIViewController {
         }
     }
     
-    // MARK: - ViewController
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        setupLayout()
-        localize()
-        design()
-        let superhumansPlainObjects = try! obtain()
-        let viewModels = viewModels(from: superhumansPlainObjects)
-        setup(with: viewModels[0])
-    }
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        favoriteButton.layer.cornerRadius = LayoutConstants.favoriteButtonBorderRadius
+    private func setupInfo(with superhumanPlain: SuperhumanPlainObject) {
+        headerLabelView.text = superhumanPlain.name
+        superhumanImageView.kf.setImage(with: superhumanPlain.imageURL)
+        fillStackView(with: superhumanPlain.stats)
+        setGradient(startColor: UIColor(hex: superhumanPlain.backgroundColorHex) ?? UIColor(.blue))
     }
 }
 
@@ -147,6 +169,33 @@ extension SuperhumanInfoViewController {
     }
 }
 
+// MARK: - SuperhumanInfoViewInput
+
+extension SuperhumanInfoViewController: SuperhumanInfoViewInput {
+
+    public func setupInitialState() {
+        setupInfo(with: data)
+    }
+}
+
+// MARK: - ViperViewOutputProvider
+
+extension SuperhumanInfoViewController: ViewOutputProvider {
+
+    public var viewOutput: ModuleInput? {
+        output as? ModuleInput
+    }
+}
+
+// MARK: - Localization
+
+extension SuperhumanInfoViewController {
+    
+    func localize() {
+        favoriteButton.setTitle("Add to favorite", for: .normal)
+    }
+}
+
 // MARK: - Constants
 
 extension SuperhumanInfoViewController {
@@ -164,40 +213,3 @@ extension SuperhumanInfoViewController {
         static let favoriteButtonHeight: CGFloat = 60
     }
 }
-
-// MARK: Localization
-
-extension SuperhumanInfoViewController {
-    
-    func localize() {
-        favoriteButton.setTitle("Add to favorite", for: .normal)
-    }
-}
-
-
-// MARK: - For test
-
-extension SuperhumanInfoViewController {
-
-    func viewModels(from plainObjects: [SuperhumanPlainObject]) -> [SuperhumanCellViewModelProtocol] {
-        plainObjects.reduce(into: [SuperhumanCellViewModelProtocol]()) { result, elem in
-            result.append(SuperhumanCellViewModel(superhuman: elem))
-        }
-    }
-    
-    public func obtain() throws -> [SuperhumanPlainObject] {
-        
-        let decoder = JSONDecoder()
-        do {
-            let fileUrl = Bundle.main.url(forResource: "SuperhumansInfo", withExtension: "json")
-            let data = try? Data(contentsOf: fileUrl.unwrap())
-            let plains = try decoder.decode([SuperhumanPlainObject].self, from: data.unwrap())
-            return plains
-        } catch let error {
-            throw error
-        }
-    }
-}
-
-
-
