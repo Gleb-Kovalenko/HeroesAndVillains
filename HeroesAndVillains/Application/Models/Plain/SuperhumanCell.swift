@@ -48,10 +48,9 @@ final public class SuperhumanCell: UITableViewCell {
     }()
 
     /// Header label instance
-    private let headerLabelView: UILabel =  {
+    let headerLabelView: UILabel =  {
         let label = UILabel()
         label.minimumScaleFactor = 0.38
-        label.font = UIFont.systemFont(ofSize: 22, weight: .semibold)
         return label
     }()
 
@@ -178,6 +177,7 @@ extension SuperhumanCell {
         headerLabelView.textColor = .white
         backgroundColor = .clear
         contentView.backgroundColor = .clear
+        headerLabelView.font = UIFont.systemFont(ofSize: 22, weight: .semibold)
     }
 }
 
