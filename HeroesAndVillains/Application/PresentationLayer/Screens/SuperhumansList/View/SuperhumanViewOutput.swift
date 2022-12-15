@@ -10,7 +10,7 @@ import Foundation
 // MARK: - SuperhumanViewOutput
 
 public protocol SuperhumanViewOutput {
-
+    
     /// View is ready
     func didTriggerViewReadyEvent()
 

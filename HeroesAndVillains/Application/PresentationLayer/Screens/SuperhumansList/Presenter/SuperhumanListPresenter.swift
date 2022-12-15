@@ -18,13 +18,16 @@ public final class SuperhumanListPresenter {
     weak var output: SuperhumanListModuleOutput?
 
     /// View instance
-    var view: SuperhumanViewInput
+    private unowned let view: SuperhumanViewInput
 
     /// SuperhumanCellViewModelProtocol factory
     private let superhumanCellViewModelDesigner: SuperhumanCellViewModelDesigner
 
     /// Interactor instance
-    var interactor: SuperhumanListInteractorInput?
+    private let interactor: SuperhumanListInteractorInput?
+    
+    /// Content manager instance
+    private let contentManager: SuperhumanContentManager?
 
     /// Router instance
     var router: SuperhumanListRouterInput?
@@ -32,18 +35,19 @@ public final class SuperhumanListPresenter {
     // MARK: - Initializers
 
     /// Default initializer
-    ///
-    /// - Parameter superhumanCellViewModelDesigner: SuperhumanCellViewModelProtocol factory
+    /// - Parameters:
+    ///   - view: SuperhumanViewInput instance
+    ///   - interactor: SuperhumanListInteractorInput instance
     public init(
-        superhumanCellViewModelDesigner: SuperhumanCellViewModelDesigner,
-        superhumanViewInput: SuperhumanViewInput
+        view: SuperhumanViewInput,
+        interactor: SuperhumanListInteractorInput,
+        contentManager: SuperhumanContentManager,
+        superhumanCellViewModelDesigner: SuperhumanCellViewModelDesigner
     ) {
+        self.view = view
+        self.interactor = interactor
+        self.contentManager = contentManager
         self.superhumanCellViewModelDesigner = superhumanCellViewModelDesigner
-        self.view = superhumanViewInput
-        interactor = SuperhumanListInteractor(
-            superhumanService: SuperumanServiceImplementation(),
-            superhumanPresenter: self
-        )
     }
 }
 
@@ -67,7 +71,7 @@ extension SuperhumanListPresenter: SuperhumanListInteractorOutput {
     
     public func obtainSuperhumanSuccess(_ superhumans: [SuperhumanPlainObject]) {
         let viewModels = superhumanCellViewModelDesigner.viewModels(from: superhumans)
-        view.update(viewModels)
+        contentManager?.updateData(viewModels)
     }
     
     public func processErrorMessage(_ errorMessage: String) {

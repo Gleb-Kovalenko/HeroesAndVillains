@@ -15,8 +15,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         if let windowScene = scene as? UIWindowScene {
             
+            let assemblyCollector = HeroesAndVillainsAssembliesCollector()
+            assemblyCollector.collect()
+            
             let window = UIWindow(windowScene: windowScene)
-            window.rootViewController = UINavigationController(rootViewController: SuperhumansListViewController())
+            window.rootViewController = UINavigationController(rootViewController: SuperhumanListModule.instantiate())
             
             self.window = window
             window.makeKeyAndVisible()

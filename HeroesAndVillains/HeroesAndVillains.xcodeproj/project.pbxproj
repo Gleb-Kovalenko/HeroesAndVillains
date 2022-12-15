@@ -10,7 +10,13 @@
 		2D1BAF73F4F93F8DFEB6D657 /* Pods_HeroesAndVillains.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68F98D429E02CAEA790F275B /* Pods_HeroesAndVillains.framework */; };
 		54054F7B290A711200379C22 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54054F7A290A711200379C22 /* UIColor.swift */; };
 		54054F7D2911541300379C22 /* StatPlainObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54054F7C2911541300379C22 /* StatPlainObject.swift */; };
+		540577BA2940FD0F001AE6EC /* HeroesAndVillainsServiceLayerAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 540577B92940FD0F001AE6EC /* HeroesAndVillainsServiceLayerAssembly.swift */; };
 		5424AED428DA684D002F8DDF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5424AED328DA684D002F8DDF /* Assets.xcassets */; };
+		542970062927C79B002C7786 /* SuperhumanListModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 542970052927C79A002C7786 /* SuperhumanListModule.swift */; };
+		5429700A2927CC57002C7786 /* SuperhumanListAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 542970092927CC57002C7786 /* SuperhumanListAssembly.swift */; };
+		5429700E2927CFC9002C7786 /* AssembliesHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5429700D2927CFC9002C7786 /* AssembliesHolder.swift */; };
+		542970132927DE5D002C7786 /* HeroesAndVillainsAssembliesCollector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 542970122927DE5D002C7786 /* HeroesAndVillainsAssembliesCollector.swift */; };
+		542970152927E200002C7786 /* AssembliesCollector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 542970142927E200002C7786 /* AssembliesCollector.swift */; };
 		5440D740291D43720071BAE7 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5440D73F291D43720071BAE7 /* Data.swift */; };
 		546982D22901ECB9002AD3CF /* StatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 546982CA2901ECB9002AD3CF /* StatView.swift */; };
 		546982D32901ECB9002AD3CF /* SuperhumansListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 546982CB2901ECB9002AD3CF /* SuperhumansListViewController.swift */; };
@@ -48,9 +54,15 @@
 		06FEB553845546154A746D1A /* Pods-HeroesAndVillains.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HeroesAndVillains.debug.xcconfig"; path = "Target Support Files/Pods-HeroesAndVillains/Pods-HeroesAndVillains.debug.xcconfig"; sourceTree = "<group>"; };
 		54054F7A290A711200379C22 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		54054F7C2911541300379C22 /* StatPlainObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatPlainObject.swift; sourceTree = "<group>"; };
+		540577B92940FD0F001AE6EC /* HeroesAndVillainsServiceLayerAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroesAndVillainsServiceLayerAssembly.swift; sourceTree = "<group>"; };
 		5424AEC728DA6844002F8DDF /* HeroesAndVillains.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HeroesAndVillains.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5424AED328DA684D002F8DDF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5424AED828DA684D002F8DDF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		542970052927C79A002C7786 /* SuperhumanListModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperhumanListModule.swift; sourceTree = "<group>"; };
+		542970092927CC57002C7786 /* SuperhumanListAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperhumanListAssembly.swift; sourceTree = "<group>"; };
+		5429700D2927CFC9002C7786 /* AssembliesHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssembliesHolder.swift; sourceTree = "<group>"; };
+		542970122927DE5D002C7786 /* HeroesAndVillainsAssembliesCollector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroesAndVillainsAssembliesCollector.swift; sourceTree = "<group>"; };
+		542970142927E200002C7786 /* AssembliesCollector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssembliesCollector.swift; sourceTree = "<group>"; };
 		5440D73F291D43720071BAE7 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		546982CA2901ECB9002AD3CF /* StatView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatView.swift; sourceTree = "<group>"; };
 		546982CB2901ECB9002AD3CF /* SuperhumansListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuperhumansListViewController.swift; sourceTree = "<group>"; };
@@ -106,6 +118,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		540577B82940FCCA001AE6EC /* Assemblies */ = {
+			isa = PBXGroup;
+			children = (
+				540577B92940FD0F001AE6EC /* HeroesAndVillainsServiceLayerAssembly.swift */,
+			);
+			path = Assemblies;
+			sourceTree = "<group>";
+		};
 		5424AEBE28DA6844002F8DDF = {
 			isa = PBXGroup;
 			children = (
@@ -124,6 +144,40 @@
 				5424AEC728DA6844002F8DDF /* HeroesAndVillains.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		542970042927C77E002C7786 /* Module */ = {
+			isa = PBXGroup;
+			children = (
+				542970052927C79A002C7786 /* SuperhumanListModule.swift */,
+			);
+			path = Module;
+			sourceTree = "<group>";
+		};
+		542970082927CC2F002C7786 /* Assembly */ = {
+			isa = PBXGroup;
+			children = (
+				542970092927CC57002C7786 /* SuperhumanListAssembly.swift */,
+			);
+			path = Assembly;
+			sourceTree = "<group>";
+		};
+		5429700B2927CF9D002C7786 /* CoreLayer */ = {
+			isa = PBXGroup;
+			children = (
+				5429700C2927CFAF002C7786 /* Common */,
+			);
+			path = CoreLayer;
+			sourceTree = "<group>";
+		};
+		5429700C2927CFAF002C7786 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				542970122927DE5D002C7786 /* HeroesAndVillainsAssembliesCollector.swift */,
+				5429700D2927CFC9002C7786 /* AssembliesHolder.swift */,
+				542970142927E200002C7786 /* AssembliesCollector.swift */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 		546982C12901EACC002AD3CF /* Supporting Files */ = {
@@ -146,6 +200,7 @@
 		546982C42901ECB8002AD3CF /* Application */ = {
 			isa = PBXGroup;
 			children = (
+				5429700B2927CF9D002C7786 /* CoreLayer */,
 				54F67F3A291255AA00DFB24D /* BusinessLayer */,
 				54D6057329020139004F3A50 /* Models */,
 				546982C62901ECB9002AD3CF /* PresentationLayer */,
@@ -175,6 +230,8 @@
 		546982C82901ECB9002AD3CF /* SuperhumansList */ = {
 			isa = PBXGroup;
 			children = (
+				542970082927CC2F002C7786 /* Assembly */,
+				542970042927C77E002C7786 /* Module */,
 				54F67F352912549000DFB24D /* Router */,
 				54F67F2E2912517800DFB24D /* Interactor */,
 				54F67F2229124B0800DFB24D /* Presenter */,
@@ -328,6 +385,7 @@
 		54F67F3A291255AA00DFB24D /* BusinessLayer */ = {
 			isa = PBXGroup;
 			children = (
+				540577B82940FCCA001AE6EC /* Assemblies */,
 				54F67F3B291255C900DFB24D /* Services */,
 			);
 			path = BusinessLayer;
@@ -482,16 +540,21 @@
 				54D6057629020161004F3A50 /* SuperhumanPlainObject.swift in Sources */,
 				54D60581290202EB004F3A50 /* SuperhumanCellViewModel.swift in Sources */,
 				54F67F402912569A00DFB24D /* SuperumanServiceImplementation.swift in Sources */,
+				542970062927C79B002C7786 /* SuperhumanListModule.swift in Sources */,
 				54D605962907FC6E004F3A50 /* SuperhumanViewOutput.swift in Sources */,
 				54F67F30291251AA00DFB24D /* SuperhumanListInteractor.swift in Sources */,
 				54D60586290203F8004F3A50 /* SuperhumanCell.swift in Sources */,
+				542970132927DE5D002C7786 /* HeroesAndVillainsAssembliesCollector.swift in Sources */,
 				54F67F34291251CE00DFB24D /* SuperhumanListInteractorOutput.swift in Sources */,
+				542970152927E200002C7786 /* AssembliesCollector.swift in Sources */,
 				5440D740291D43720071BAE7 /* Data.swift in Sources */,
+				540577BA2940FD0F001AE6EC /* HeroesAndVillainsServiceLayerAssembly.swift in Sources */,
 				546982D32901ECB9002AD3CF /* SuperhumansListViewController.swift in Sources */,
 				54F67F2429124B5400DFB24D /* SuperhumanListModuleInput.swift in Sources */,
 				54054F7B290A711200379C22 /* UIColor.swift in Sources */,
 				54F67F32291251B700DFB24D /* SuperhumanListInteractorInput.swift in Sources */,
 				54054F7D2911541300379C22 /* StatPlainObject.swift in Sources */,
+				5429700E2927CFC9002C7786 /* AssembliesHolder.swift in Sources */,
 				54F67F2D29124FE800DFB24D /* SuperhumanCellViewModelDesignerImplementation.swift in Sources */,
 				54D6058E2902F762004F3A50 /* SuperhumanCellPresenterFactoryImpementation.swift in Sources */,
 				54F67F37291254A600DFB24D /* SuperhumanListRouter.swift in Sources */,
@@ -504,6 +567,7 @@
 				546982D62901ECB9002AD3CF /* AppDelegate.swift in Sources */,
 				54D60584290203CC004F3A50 /* SuperhumanCellAppereance.swift in Sources */,
 				546982D72901ECB9002AD3CF /* SceneDelegate.swift in Sources */,
+				5429700A2927CC57002C7786 /* SuperhumanListAssembly.swift in Sources */,
 				54D6057F290202BF004F3A50 /* SuperhumanCellViewModelProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

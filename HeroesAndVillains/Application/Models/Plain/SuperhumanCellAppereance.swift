@@ -17,4 +17,7 @@ public struct SuperhumanCellAppereance {
     public let headerLabelViewTextColor: UIColor
     public let statValueLabelTextColor: UIColor
     public let statNameLabelTextColor: UIColor
+    public let statValueLabelFont: UIFont
+    public let statNameLabelFont: UIFont
+    public let headerLabelViewFont: UIFont
 }

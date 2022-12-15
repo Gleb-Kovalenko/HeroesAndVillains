@@ -17,17 +17,12 @@ final public class StatView: UIView {
     /// Label with superhuman's stat value
     private let statValueLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 17, weight: .semibold)
         label.textAlignment = .right
         return label
     }()
     
     /// Label with superhuman's stat name
-    private let statNameLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 17, weight: .semibold)
-        return label
-    }()
+    private let statNameLabel = UILabel()
     
     // MARK: - StatView
     
@@ -83,6 +78,8 @@ extension StatView {
     private func design() {
         statValueLabel.textColor = .white
         statNameLabel.textColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.38)
+        statValueLabel.font = UIFont.systemFont(ofSize: 17, weight: .semibold)
+        statNameLabel.font = UIFont.systemFont(ofSize: 17, weight: .semibold)
     }
 }
 
