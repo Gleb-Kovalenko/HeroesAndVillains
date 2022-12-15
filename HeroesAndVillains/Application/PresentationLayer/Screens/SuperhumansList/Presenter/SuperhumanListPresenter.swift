@@ -38,7 +38,7 @@ public final class SuperhumanListPresenter {
     /// - Parameters:
     ///   - view: SuperhumanViewInput instance
     ///   - interactor: SuperhumanListInteractorInput instance
-    init(
+    public init(
         view: SuperhumanViewInput,
         interactor: SuperhumanListInteractorInput,
         contentManager: SuperhumanContentManager,

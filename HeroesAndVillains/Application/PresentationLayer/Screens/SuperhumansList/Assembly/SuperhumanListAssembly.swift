@@ -71,9 +71,7 @@ final public class SuperhumanListAssembly: CollectableAssembly {
 
         container.register(SuperhumanContentManager.self) { (resolver, controller: SuperhumansListViewController) in
             let presentersFactory = resolver.resolve(SuperhumanCellPresenterFactory.self).unwrap()
-            let contentManager = SuperhumanContentManagerImplementation(
-                presentersFactory: presentersFactory
-            )
+            let contentManager = SuperhumanContentManagerImplementation(presentersFactory: presentersFactory)
             contentManager.configure(withContentView: controller.tableView)
             return contentManager
         }

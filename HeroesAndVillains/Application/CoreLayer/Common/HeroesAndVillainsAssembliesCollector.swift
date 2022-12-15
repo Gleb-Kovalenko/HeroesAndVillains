@@ -21,8 +21,6 @@ final class HeroesAndVillainsAssembliesCollector: AssembliesCollector {
         objc_getClassList(autoreleasingTypes, Int32(typeCount))
         
         let priorityAssemblies: [CollectableAssembly.Type] = [
-            HeroesAndVillainsServiceLayerAssembly.self,
-            SuperhumanListAssembly.self
         ]
         
         priorityAssemblies.forEach {

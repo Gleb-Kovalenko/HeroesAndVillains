@@ -14,7 +14,7 @@ final class SuperhumanListModule {
 
     // MARK: - Module
 
-    static func instantiate() -> SuperhumansListViewController {
+    public static func instantiate() -> SuperhumansListViewController {
         SuperhumanListAssembly().obtainViewController()
     }
 }
