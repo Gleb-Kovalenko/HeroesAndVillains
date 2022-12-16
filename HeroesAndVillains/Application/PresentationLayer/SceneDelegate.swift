@@ -19,7 +19,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             assemblyCollector.collect()
             
             let window = UIWindow(windowScene: windowScene)
-            window.rootViewController = UINavigationController(rootViewController: SuperhumanListModule.instantiate())
+            let decoder = JSONDecoder()
+            let fileUrl = Bundle.main.url(forResource: "SuperhumansInfo", withExtension: "json")
+            let data = try? Data(contentsOf: fileUrl.unwrap())
+            let plains = try? decoder.decode([SuperhumanPlainObject].self, from: data.unwrap())
+            
+            //window.rootViewController = UINavigationController(rootViewController: SuperhumanListModule.instantiate())
+            window.rootViewController = UINavigationController(rootViewController: SuperhumanInfoModule.instantiate(withData: plains![0]))
             
             self.window = window
             window.makeKeyAndVisible()
