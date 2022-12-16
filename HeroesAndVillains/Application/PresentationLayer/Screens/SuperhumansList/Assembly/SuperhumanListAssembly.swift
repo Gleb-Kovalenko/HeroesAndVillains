@@ -21,17 +21,20 @@ final public class SuperhumanListAssembly: CollectableAssembly {
 
     // MARK: - Useful
 
-    public func obtainViewController() -> SuperhumansListViewController {
-        container.resolve(SuperhumansListViewController.self).unwrap()
+    public func obtainViewController(with data: SuperhumanListModule.Data) -> SuperhumansListViewController {
+        container.resolve(SuperhumansListViewController.self, argument: data).unwrap()
     }
 
     // MARK: - Assembly
 
     public func assemble(inContainer container: Container) {
         
-        container.register(SuperhumansListViewController.self) { resolver in
-            let controller = SuperhumansListViewController()
-            controller.output = resolver.resolve(SuperhumanViewOutput.self, argument: controller)
+        container.register(SuperhumansListViewController.self) { (
+            resolver,
+            data: SuperhumanListModule.Data
+        ) in
+            let controller = SuperhumansListViewController(data: data)
+            controller.output = resolver.resolve(SuperhumanViewOutput.self, arguments: controller, data)
             return controller
         }
         
@@ -39,25 +42,35 @@ final public class SuperhumanListAssembly: CollectableAssembly {
             SuperhumanListRouter(transitionHandler: transitionHandler)
         }
         
-        container.register(SuperhumanViewOutput.self) { (resolver, view: SuperhumansListViewController) in
+        container.register(SuperhumanViewOutput.self) { (
+            resolver,
+            view: SuperhumansListViewController,
+            data: SuperhumanListModule.Data
+        ) in
             let interactor = resolver
-                .resolve(SuperhumanListInteractorInput.self)
+                .resolve(SuperhumanListInteractorInput.self, argument: data)
                 .unwrap(as: SuperhumanListInteractor.self)
             let superhumanCellViewModelDesigner = resolver.resolve(SuperhumanCellViewModelDesigner.self).unwrap()
-            let contentManager = resolver.resolve(SuperhumanContentManager.self, argument: view).unwrap()
+            var contentManager = resolver.resolve(SuperhumanContentManager.self, argument: view).unwrap()
+            let transitionHandler = view as TransitionHandler
             let presenter = SuperhumanListPresenter(
                 view: view as SuperhumanViewInput,
                 interactor: interactor,
                 contentManager: contentManager,
                 superhumanCellViewModelDesigner: superhumanCellViewModelDesigner
             )
+            presenter.router = resolver.resolve(SuperhumanListRouterInput.self, argument: transitionHandler)
+            contentManager.delegate = presenter as SuperhumanContentManagerDelegate
             interactor.output = presenter
             return presenter
         }
         
-        container.register(SuperhumanListInteractorInput.self) { resolver in
+        container.register(SuperhumanListInteractorInput.self) { (
+            resolver,
+            data: SuperhumanListModule.Data
+        ) in
             let superhumanService = resolver.resolve(SuperhumanService.self).unwrap()
-            let interactor = SuperhumanListInteractor(superhumanService: superhumanService)
+            let interactor = SuperhumanListInteractor(superhumanService: superhumanService, data: data)
             return interactor
         }
         

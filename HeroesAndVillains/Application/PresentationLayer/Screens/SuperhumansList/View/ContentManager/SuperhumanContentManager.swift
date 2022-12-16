@@ -13,6 +13,9 @@ import SDAO
 
 public protocol SuperhumanContentManager: GeneralContentManager {
 
+    /// Delegate instance
+    var delegate: SuperhumanContentManagerDelegate? { get set }
+    
     /// Update table's data using some new viewModels
     ///
     /// - Parameter viewModels: new data

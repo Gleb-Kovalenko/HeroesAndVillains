@@ -17,14 +17,14 @@ public final class SuperumanServiceImplementation: Service {
 
 extension SuperumanServiceImplementation: SuperhumanService {
     
-    public func obtain() -> ServiceCall<[SuperhumanPlainObject]> {
+    public func obtain(with filter: SuperhumanType) -> ServiceCall<[SuperhumanPlainObject]> {
         createCall {
             guard let fileUrl = Bundle.main.url(forResource: "SuperhumansInfo", withExtension: "json") else {
                 return .success([])
             }
             let data = try Data(contentsOf: fileUrl)
             let plains = try data.jsonDecoded() as [SuperhumanPlainObject]
-            return .success(plains)
+            return .success(plains.filter{ $0.type == filter })
         }
     }
 }

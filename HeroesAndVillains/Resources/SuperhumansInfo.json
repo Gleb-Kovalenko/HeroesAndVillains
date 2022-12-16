@@ -1,7 +1,7 @@
 [
   {
     "name": "Spiderman",
-    "type": "Superhero",
+    "type": 0,
     "imageURL": "https://i.postimg.cc/mDdCc5GM/spiderman.png",
     "backgroundColorHex": "#58050E",
     "stats": [
@@ -39,7 +39,7 @@
   },
   {
     "name": "Yoda",
-    "type": "Superhero",
+    "type": 0,
     "imageURL": "https://i.postimg.cc/kDP4DQDK/yoda.png",
     "backgroundColorHex": "#425D17",
     "stats": [
@@ -77,7 +77,7 @@
   },
   {
     "name": "Thing",
-    "type": "Superhero",
+    "type": 0,
     "imageURL": "https://i.postimg.cc/FF8TFDg8/thing.png",
     "backgroundColorHex": "#5A3207",
     "stats": [
@@ -115,7 +115,7 @@
   },
   {
     "name": "Venom",
-    "type": "Supervillian",
+    "type": 1,
     "imageURL": "https://i.postimg.cc/k4ZDP3mj/venom.png",
     "backgroundColorHex": "#1C1C1C",
     "stats": [
@@ -153,7 +153,7 @@
   },
   {
     "name": "Alien",
-    "type": "Supervillian",
+    "type": 1,
     "imageURL": "https://i.postimg.cc/2jKnrMGN/alien.png",
     "backgroundColorHex": "#155915",
     "stats": [
@@ -191,7 +191,7 @@
   },
   {
     "name": "Krang",
-    "type": "Supervillian",
+    "type": 1,
     "imageURL": "https://i.postimg.cc/8kjyVqWL/krang.png",
     "backgroundColorHex": "#610C25",
     "stats": [
@@ -229,7 +229,7 @@
   },
   {
     "name": "Joker",
-    "type": "Supervillian",
+    "type": 1,
     "imageURL": "https://i.postimg.cc/BbKbqYZJ/joker.png",
     "backgroundColorHex": "#242357",
     "stats": [

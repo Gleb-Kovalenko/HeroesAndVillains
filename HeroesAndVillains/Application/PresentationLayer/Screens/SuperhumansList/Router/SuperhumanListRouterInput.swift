@@ -11,4 +11,7 @@ public protocol SuperhumanListRouterInput {
     
     /// Close current module
     func close()
+    
+    /// Open selected superhuman detailed info
+    func openDetailInfo(with data: SuperhumanInfoModule.Data)
 }

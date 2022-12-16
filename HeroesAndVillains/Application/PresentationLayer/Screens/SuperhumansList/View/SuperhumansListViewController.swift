@@ -16,6 +16,9 @@ public final class SuperhumansListViewController: UIViewController {
     /// Presenter instance
     var output: SuperhumanViewOutput?
     
+    /// Current superhumans type
+    private var data: SuperhumanListModule.Data
+    
     /// Table with superhuman cells
     var tableView: UITableView = {
         let tableView = UITableView()
@@ -23,12 +26,43 @@ public final class SuperhumansListViewController: UIViewController {
         return tableView
     }()
     
+    // MARK: - Initializers
+
+    /// Default initializer
+    /// - Parameters:
+    ///   - data: Selected superhuman's data
+    public init(data: SuperhumanListModule.Data) {
+        self.data = data
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required convenience init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     // MARK: - ViewController
     
     public override func viewDidLoad() {
         super.viewDidLoad()
         design()
+        localize()
+        setupLayout()
         output?.didTriggerViewReadyEvent()
+    }
+}
+
+// MARK: - Localization
+
+extension SuperhumansListViewController {
+    
+    private func localize() {
+        switch data {
+        case .villains:
+            navigationItem.title = "Supervillains"
+        case .heroes:
+            navigationItem.title = "Superheroes"
+        }
+        // TODO: - Сделать в енуме свойство и там брать тайтл
     }
 }
 
@@ -36,11 +70,20 @@ public final class SuperhumansListViewController: UIViewController {
 
 extension SuperhumansListViewController {
     
+    private func setupLayout() {
+        setupNavigatioBar()
+    }
+    
     /// Setup table with superhumans cards
     private func setupTableView() {
         tableView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(tableView)
         tableView.fullPinTo(view: view)
+    }
+    
+    private func setupNavigatioBar() {
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationItem.largeTitleDisplayMode = .automatic
     }
 }
 

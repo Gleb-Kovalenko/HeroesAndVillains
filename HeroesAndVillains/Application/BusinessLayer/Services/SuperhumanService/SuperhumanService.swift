@@ -13,5 +13,5 @@ import ServiceCore
 public protocol SuperhumanService {
     
     /// Obtain all superhumans
-    func obtain() -> ServiceCall<[SuperhumanPlainObject]>
+    func obtain(with filter: SuperhumanType) -> ServiceCall<[SuperhumanPlainObject]>
 }

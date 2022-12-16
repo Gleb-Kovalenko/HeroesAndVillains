@@ -27,4 +27,7 @@ public protocol SuperhumanCellViewModelProtocol {
     
     /// Background color of superhuman's card
     var backgroundColorHex: String { get }
+    
+    /// Superhuman object instance
+    var superhuman: SuperhumanPlainObject { get }
 }
