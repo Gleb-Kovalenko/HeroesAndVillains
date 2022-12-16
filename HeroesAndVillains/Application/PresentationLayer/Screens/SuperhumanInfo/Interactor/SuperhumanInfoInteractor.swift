@@ -25,7 +25,7 @@ final public class SuperhumanInfoInteractor {
     ///
     /// - Parameters:
     ///    - superhumanService: service instance
-    init(superhumanService: SuperhumanService) {
+    public init(superhumanService: SuperhumanService) {
         self.superhumanService = superhumanService
     }
 }

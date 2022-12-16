@@ -49,6 +49,7 @@ public final class SuperhumanInfoViewController: UIViewController {
     private let favoriteButton : UIButton = {
         let button = UIButton()
         button.layer.borderWidth = LayoutConstants.favoriteButtonBorderWidth
+        button.layer.cornerRadius = LayoutConstants.favoriteButtonBorderRadius
         return button
     }()
     
@@ -57,7 +58,7 @@ public final class SuperhumanInfoViewController: UIViewController {
     /// Default initializer
     /// - Parameters:
     ///   - data: Selected superhuman's data
-    init(data: SuperhumanInfoModule.Data) {
+    public init(data: SuperhumanInfoModule.Data) {
         self.data = data
         super.init(nibName: nil, bundle: nil)
     }
@@ -74,11 +75,6 @@ public final class SuperhumanInfoViewController: UIViewController {
         design()
         localize()
         output?.didTriggerViewReadyEvent()
-    }
-    
-    public override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        favoriteButton.layer.cornerRadius = LayoutConstants.favoriteButtonBorderRadius
     }
     
     // MARK: - Private
@@ -105,11 +101,11 @@ public final class SuperhumanInfoViewController: UIViewController {
         }
     }
     
-    private func setupInfo(with superhumanPlain: SuperhumanPlainObject) {
-        headerLabelView.text = superhumanPlain.name
-        superhumanImageView.kf.setImage(with: superhumanPlain.imageURL)
-        fillStackView(with: superhumanPlain.stats)
-        setGradient(startColor: UIColor(hex: superhumanPlain.backgroundColorHex) ?? UIColor(.blue))
+    private func setContent(from data: SuperhumanInfoModule.Data) {
+        headerLabelView.text = data.name
+        superhumanImageView.kf.setImage(with: data.imageURL)
+        fillStackView(with: data.stats)
+        setGradient(startColor: UIColor(hex: data.backgroundColorHex) ?? UIColor(.blue))
     }
 }
 
@@ -174,7 +170,7 @@ extension SuperhumanInfoViewController {
 extension SuperhumanInfoViewController: SuperhumanInfoViewInput {
 
     public func setupInitialState() {
-        setupInfo(with: data)
+        setContent(from: data)
     }
 }
 
