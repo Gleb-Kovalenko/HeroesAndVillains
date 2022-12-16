@@ -33,7 +33,7 @@ final public class SuperhumanListAssembly: CollectableAssembly {
             resolver,
             data: SuperhumanListModule.Data
         ) in
-            let controller = SuperhumansListViewController()
+            let controller = SuperhumansListViewController(data: data)
             controller.output = resolver.resolve(SuperhumanViewOutput.self, arguments: controller, data)
             return controller
         }

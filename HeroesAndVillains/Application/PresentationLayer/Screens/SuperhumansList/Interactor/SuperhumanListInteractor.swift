@@ -39,14 +39,9 @@ extension SuperhumanListInteractor: SuperhumanListInteractorInput {
     
     public func obtainSuperhumans() {
         superhumanService
-            .obtain()
+            .obtain(with: data)
             .async()
-            .success{ [weak self] plains in
-                guard let self = `self` else { return }
-                self.output?.obtainSuperhumanSuccess(
-                    plains.filter { $0.type == self.data }
-                )
-            }
+            .success(output?.obtainSuperhumanSuccess)
             .failure(output?.processError)
     }
 }

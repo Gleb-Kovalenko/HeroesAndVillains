@@ -7,7 +7,12 @@
 
 import Foundation
 
+// MARK: - SuperhumanType
+
 public enum SuperhumanType: Int, Decodable {
-    case heroes = 0
+    
+    // MARK: - Cases
+    
+    case heroes
     case villains
 }

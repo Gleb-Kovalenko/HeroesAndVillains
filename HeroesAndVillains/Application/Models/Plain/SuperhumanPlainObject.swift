@@ -16,7 +16,7 @@ public struct SuperhumanPlainObject: Decodable, Plain {
     
     /// Unique id for each superhuman
     public var uniqueId: UniqueID {
-        UniqueID(rawValue: name)
+        UniqueID(rawValue: name + String(type.rawValue))
     }
     
     /// Superhuman's name
