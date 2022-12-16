@@ -6,15 +6,23 @@
 //
 
 import Foundation
+import TransitionHandler
 
 
 // MARK: - SuperhumanListModule
 
-final class SuperhumanListModule {
-
+public final class SuperhumanListModule: AdvancedModule {
+    
+    // MARK: - Aliases
+    
+    public typealias View = SuperhumansListViewController
+    public typealias Input = SuperhumanListModuleInput
+    public typealias Data = SuperhumanType
+    
+    
     // MARK: - Module
-
-    public static func instantiate() -> SuperhumansListViewController {
-        SuperhumanListAssembly().obtainViewController()
+    
+    public static func instantiate(withData data: SuperhumanType) -> View {
+        SuperhumanListAssembly().obtainViewController(with: data)
     }
 }

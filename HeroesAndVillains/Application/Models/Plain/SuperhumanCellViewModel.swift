@@ -14,7 +14,7 @@ public struct SuperhumanCellViewModel: SuperhumanCellViewModelProtocol {
     // MARK: - Properties
     
     /// Superhuman object instance
-    let superhuman: SuperhumanPlainObject
+    public let superhuman: SuperhumanPlainObject
     
     /// Superhuman's name instance
     public var name: String {

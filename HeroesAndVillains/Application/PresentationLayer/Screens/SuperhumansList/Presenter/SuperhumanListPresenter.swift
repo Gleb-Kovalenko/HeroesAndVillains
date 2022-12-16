@@ -65,6 +65,15 @@ extension SuperhumanListPresenter: SuperhumanViewOutput {
     }
 }
 
+// MARK: - SuperhumanContentManagerDelegate
+
+extension SuperhumanListPresenter: SuperhumanContentManagerDelegate {
+    
+    public func didSelectSuperhuman(_ superhuman: SuperhumanPlainObject) {
+        router?.openDetailInfo(with: superhuman)
+    }
+}
+
 // MARK: - SuperhumanListInteractorOutput
 
 extension SuperhumanListPresenter: SuperhumanListInteractorOutput {

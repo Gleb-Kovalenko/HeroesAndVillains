@@ -16,14 +16,14 @@ public struct SuperhumanPlainObject: Decodable, Plain {
     
     /// Unique id for each superhuman
     public var uniqueId: UniqueID {
-        UniqueID(rawValue: name + type)
+        UniqueID(rawValue: name)
     }
     
     /// Superhuman's name
     let name: String
     
     /// Superhuman's type: superhero, supervillains, etc.
-    let type: String
+    let type: SuperhumanType
     
     /// URL of image with superhuman
     let imageURL: URL

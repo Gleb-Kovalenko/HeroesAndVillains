@@ -21,4 +21,11 @@ extension SuperhumanListRouter: SuperhumanListRouterInput {
     public func close() {
         //Later
     }
+    
+    public func openDetailInfo(with data: SuperhumanInfoModule.Data) {
+        transitionHandler
+            .openModule(SuperhumanInfoModule.self, withData: data)
+            .to(.navigation(style: .push))
+            .perform()
+    }
 }

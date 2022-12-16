@@ -19,14 +19,17 @@ public final class SuperhumanListInteractor {
     /// Superhuman service instance
     private let superhumanService: SuperhumanService
     
+    private let data: SuperhumanListModule.Data
+    
     // MARK: - Initializers
     
     /// Default initializer
     ///
     /// - Parameters:
     ///    - superhumanService: service instance
-    public init(superhumanService: SuperhumanService) {
+    public init(superhumanService: SuperhumanService, data: SuperhumanListModule.Data) {
         self.superhumanService = superhumanService
+        self.data = data
     }
 }
 
@@ -38,7 +41,12 @@ extension SuperhumanListInteractor: SuperhumanListInteractorInput {
         superhumanService
             .obtain()
             .async()
-            .success(output?.obtainSuperhumanSuccess)
+            .success{ [weak self] plains in
+                guard let self = `self` else { return }
+                self.output?.obtainSuperhumanSuccess(
+                    plains.filter { $0.type == self.data }
+                )
+            }
             .failure(output?.processError)
     }
 }

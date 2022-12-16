@@ -19,13 +19,30 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             assemblyCollector.collect()
             
             let window = UIWindow(windowScene: windowScene)
-            let decoder = JSONDecoder()
-            let fileUrl = Bundle.main.url(forResource: "SuperhumansInfo", withExtension: "json")
-            let data = try? Data(contentsOf: fileUrl.unwrap())
-            let plains = try? decoder.decode([SuperhumanPlainObject].self, from: data.unwrap())
             
-            //window.rootViewController = UINavigationController(rootViewController: SuperhumanListModule.instantiate())
-            window.rootViewController = UINavigationController(rootViewController: SuperhumanInfoModule.instantiate(withData: plains![0]))
+            let tabController = UITabBarController()
+            
+            let superhumanListHeroesController = SuperhumanListModule.instantiate(withData: .heroes)
+            superhumanListHeroesController.tabBarItem = UITabBarItem(
+                title: "Superheroes",
+                image: nil,
+                selectedImage: nil
+            )
+            
+            let superhumanListVillainsContoller = SuperhumanListModule.instantiate(withData: .villains)
+            superhumanListVillainsContoller.tabBarItem = UITabBarItem(
+                title: "Supervillains",
+                image: nil,
+                selectedImage: nil
+            )
+            
+            let controllers = [
+                superhumanListHeroesController,
+                superhumanListVillainsContoller
+            ]
+            tabController.viewControllers = controllers
+            
+            window.rootViewController = UINavigationController(rootViewController: tabController)
             
             self.window = window
             window.makeKeyAndVisible()

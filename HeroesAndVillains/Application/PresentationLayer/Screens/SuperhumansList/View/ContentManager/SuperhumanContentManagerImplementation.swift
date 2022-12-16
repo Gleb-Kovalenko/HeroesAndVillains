@@ -19,6 +19,9 @@ final public class SuperhumanContentManagerImplementation: IntermediateContentMa
     /// Superhuman presenters factory
     private let presentersFactory: SuperhumanCellPresenterFactory
 
+    /// Delegate instance
+    public weak var delegate: SuperhumanContentManagerDelegate?
+    
     /// Current controllers which manipulates tableView's cells
     private var controllers: [SuperhumanCellPresenter] = []
     
@@ -62,7 +65,8 @@ extension SuperhumanContentManagerImplementation: UITableViewDelegate {
     }
 
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // Later
+        let controller = controllers[indexPath.row]
+        delegate?.didSelectSuperhuman(controller.viewModel.superhuman)
     }
 }
 
