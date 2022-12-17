@@ -14,4 +14,7 @@ public protocol SuperhumanService {
     
     /// Obtain all superhumans
     func obtain(with filter: SuperhumanType) -> ServiceCall<[SuperhumanPlainObject]>
+    
+    /// Obtain cache with superhumans
+    func obtainCache(with filter: SuperhumanType) throws -> [SuperhumanPlainObject]
 }
