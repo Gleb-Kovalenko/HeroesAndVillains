@@ -11,12 +11,14 @@ import RealmSwift
 
 // MARK: - InfrastructureAssembly
 
-final class InfrastructureAssembly: CollectableAssembly {
+public final class InfrastructureAssembly: CollectableAssembly {
 
+    // MARK: - Initializers
+    
     required init() {
     }
 
-    func assemble(inContainer container: Container) {
+    public func assemble(inContainer container: Container) {
 
         container.register(Realm.self) { resolver in
             do {

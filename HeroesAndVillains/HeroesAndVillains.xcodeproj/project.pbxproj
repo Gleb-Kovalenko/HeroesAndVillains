@@ -46,6 +46,7 @@
 		54D17970294DFB3100B04720 /* SuperhumanTranslator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D1796F294DFB3100B04720 /* SuperhumanTranslator.swift */; };
 		54D17974294E1CE600B04720 /* InfrastructureAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D17973294E1CE600B04720 /* InfrastructureAssembly.swift */; };
 		54D17976294E1DF700B04720 /* DAOAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D17975294E1DF700B04720 /* DAOAssembly.swift */; };
+		54D17978294E238C00B04720 /* TranslatorsAssemly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D17977294E238C00B04720 /* TranslatorsAssemly.swift */; };
 		54D6056E2901FF3E004F3A50 /* SuperhumansInfo.json in Resources */ = {isa = PBXBuildFile; fileRef = 54D6056D2901FF3E004F3A50 /* SuperhumansInfo.json */; };
 		54D6057629020161004F3A50 /* SuperhumanPlainObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D6057529020161004F3A50 /* SuperhumanPlainObject.swift */; };
 		54D6057F290202BF004F3A50 /* SuperhumanCellViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D6057E290202BF004F3A50 /* SuperhumanCellViewModelProtocol.swift */; };
@@ -115,6 +116,7 @@
 		54D1796F294DFB3100B04720 /* SuperhumanTranslator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperhumanTranslator.swift; sourceTree = "<group>"; };
 		54D17973294E1CE600B04720 /* InfrastructureAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfrastructureAssembly.swift; sourceTree = "<group>"; };
 		54D17975294E1DF700B04720 /* DAOAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DAOAssembly.swift; sourceTree = "<group>"; };
+		54D17977294E238C00B04720 /* TranslatorsAssemly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslatorsAssemly.swift; sourceTree = "<group>"; };
 		54D6056D2901FF3E004F3A50 /* SuperhumansInfo.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = SuperhumansInfo.json; sourceTree = "<group>"; };
 		54D6057529020161004F3A50 /* SuperhumanPlainObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperhumanPlainObject.swift; sourceTree = "<group>"; };
 		54D6057E290202BF004F3A50 /* SuperhumanCellViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SuperhumanCellViewModelProtocol.swift; path = Application/Models/Plain/SuperhumanCellViewModelProtocol.swift; sourceTree = SOURCE_ROOT; };
@@ -169,6 +171,7 @@
 			children = (
 				540577B92940FD0F001AE6EC /* HeroesAndVillainsServiceLayerAssembly.swift */,
 				54D17975294E1DF700B04720 /* DAOAssembly.swift */,
+				54D17977294E238C00B04720 /* TranslatorsAssemly.swift */,
 			);
 			path = Assemblies;
 			sourceTree = "<group>";
@@ -702,6 +705,7 @@
 				54F67F2B29124F4100DFB24D /* SuperhumanCellViewModelDesigner.swift in Sources */,
 				54F67F2829124DA400DFB24D /* SuperhumanListPresenter.swift in Sources */,
 				54D60588290204E5004F3A50 /* SuperhumanCellPresenter.swift in Sources */,
+				54D17978294E238C00B04720 /* TranslatorsAssemly.swift in Sources */,
 				54D1795D294BBB5B00B04720 /* SuperhumanInfoViewInput.swift in Sources */,
 				54D6057629020161004F3A50 /* SuperhumanPlainObject.swift in Sources */,
 				54D60581290202EB004F3A50 /* SuperhumanCellViewModel.swift in Sources */,

@@ -21,11 +21,14 @@ final public class DAOAssembly: CollectableAssembly {
 
     public func assemble(inContainer container: Container) {
         
-        container.register(SuperhumanDao.self) { (resolver, configuration: RealmConfiguration) in
-            SuperhumanDao(
+        container.register(SuperhumanDAO.self) { resolver in
+            let configuration = resolver.resolve(RealmConfiguration.self).unwrap()
+            let superhumanTranslator = resolver.resolve(SuperhumanTranslator.self).unwrap()
+            let superhumanDAO = SuperhumanDAO(
                 storage: .init(configuration: configuration),
-                translator: SuperhumanTranslator(configuration: configuration)
+                translator: superhumanTranslator
             )
+            return superhumanDAO
         }
     }
 }

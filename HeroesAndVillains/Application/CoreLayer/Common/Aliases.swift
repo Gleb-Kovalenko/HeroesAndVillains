@@ -11,5 +11,5 @@ import Monreau
 
 // MARK: - Aliaes
 
-typealias StatDao = DAO<RealmStorage<StatDatabaseModel>, StatTranslator>
-typealias SuperhumanDao = DAO<RealmStorage<SuperhumanDatabaseModel>, SuperhumanTranslator>
+typealias StatDAO = DAO<RealmStorage<StatDatabaseModel>, StatTranslator>
+typealias SuperhumanDAO = DAO<RealmStorage<SuperhumanDatabaseModel>, SuperhumanTranslator>

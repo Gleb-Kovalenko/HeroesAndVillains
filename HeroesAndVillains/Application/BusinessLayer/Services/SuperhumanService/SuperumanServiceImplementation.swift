@@ -15,13 +15,13 @@ public final class SuperumanServiceImplementation: Service {
     
     // MARK: - Properties
     
-    private let superhumanDao: SuperhumanDao
+    private let superhumanDAO: SuperhumanDAO
     
     /// Default initializer
     /// - Parameters:
-    ///   - superhumanDao: superhuman dao instance
-    init(superhumanDao: SuperhumanDao) {
-        self.superhumanDao = superhumanDao
+    ///   - superhumanDAO: superhuman dao instance
+    init(superhumanDAO: SuperhumanDAO) {
+        self.superhumanDAO = superhumanDAO
     }
 }
 
@@ -36,12 +36,12 @@ extension SuperumanServiceImplementation: SuperhumanService {
             }
             let data = try Data(contentsOf: fileUrl)
             let plains = try data.jsonDecoded() as [SuperhumanPlainObject]
-            try self.superhumanDao.persist(plains)
+            try self.superhumanDAO.persist(plains)
             return .success(plains.filter{ $0.type == filter })
         }
     }
     
     public func obtainCache(with filter: SuperhumanType) throws -> [SuperhumanPlainObject] {
-        try superhumanDao.read(predicatedBy: "type == \(filter.rawValue)")
+        try superhumanDAO.read(predicatedBy: "type == \(filter.rawValue)")
     }
 }

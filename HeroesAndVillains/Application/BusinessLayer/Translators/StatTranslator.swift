@@ -11,12 +11,12 @@ import Monreau
 
 // MARK: - StatTranslator
 
-final class StatTranslator {
+public final class StatTranslator {
     
     // MARK: - Aliases
     
-    typealias PlainModel = StatPlainObject
-    typealias DatabaseModel = StatDatabaseModel
+    public typealias PlainModel = StatPlainObject
+    public typealias DatabaseModel = StatDatabaseModel
     
     // MARK: - Properties
     
@@ -33,7 +33,7 @@ final class StatTranslator {
 
 extension StatTranslator: Translator {
     
-    func translate(model: StatDatabaseModel) throws -> StatPlainObject {
+    public func translate(model: StatDatabaseModel) throws -> StatPlainObject {
         StatPlainObject(
             longName: model.longName,
             shortName: model.shortName,
@@ -41,13 +41,13 @@ extension StatTranslator: Translator {
         )
     }
     
-    func translate(plain: StatPlainObject) throws -> StatDatabaseModel {
+    public func translate(plain: StatPlainObject) throws -> StatDatabaseModel {
         let model = try statStorage.read(byPrimaryKey: plain.uniqueId.rawValue) ?? StatDatabaseModel()
         try translate(from: plain, to: model)
         return model
     }
     
-    func translate(from plain: StatPlainObject, to databaseModel: StatDatabaseModel) throws {
+    public func translate(from plain: StatPlainObject, to databaseModel: StatDatabaseModel) throws {
         if databaseModel.uniqueId.isEmpty {
             databaseModel.uniqueId = plain.uniqueId.rawValue
         }

@@ -11,12 +11,12 @@ import Monreau
 
 // MARK: - SuperhumanTranslator
 
-final class SuperhumanTranslator {
+public final class SuperhumanTranslator {
     
     // MARK: - Aliases
     
-    typealias PlainModel = SuperhumanPlainObject
-    typealias DatabaseModel = SuperhumanDatabaseModel
+    public typealias PlainModel = SuperhumanPlainObject
+    public typealias DatabaseModel = SuperhumanDatabaseModel
     
     // MARK: - Properties
     
@@ -33,7 +33,7 @@ final class SuperhumanTranslator {
 
 extension SuperhumanTranslator: Translator {
     
-    func translate(model: SuperhumanDatabaseModel) throws -> SuperhumanPlainObject {
+    public func translate(model: SuperhumanDatabaseModel) throws -> SuperhumanPlainObject {
         SuperhumanPlainObject(
             name: model.name,
             type: SuperhumanType(rawValue: model.type).unsafelyUnwrapped,
@@ -45,13 +45,13 @@ extension SuperhumanTranslator: Translator {
         )
     }
     
-    func translate(plain: SuperhumanPlainObject) throws -> SuperhumanDatabaseModel {
+    public func translate(plain: SuperhumanPlainObject) throws -> SuperhumanDatabaseModel {
         let model = try superhumanStorage.read(byPrimaryKey: plain.uniqueId.rawValue) ?? SuperhumanDatabaseModel()
         try translate(from: plain, to: model)
         return model
     }
     
-    func translate(from plain: SuperhumanPlainObject, to databaseModel: SuperhumanDatabaseModel) throws {
+    public func translate(from plain: SuperhumanPlainObject, to databaseModel: SuperhumanDatabaseModel) throws {
         if databaseModel.uniqueId.isEmpty {
             databaseModel.uniqueId = plain.uniqueId.rawValue
         }

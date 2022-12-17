@@ -32,9 +32,8 @@ final public class HeroesAndVillainsServiceLayerAssembly: CollectableAssembly {
         }.inObjectScope(.container)
         
         container.register(SuperhumanService.self) { resolver in
-            let realmConfiguration = resolver.resolve(RealmConfiguration.self).unwrap()
-            let superhumanDao = resolver.resolve(SuperhumanDao.self, argument: realmConfiguration).unwrap()
-            let service = SuperumanServiceImplementation(superhumanDao: superhumanDao)
+            let superhumanDAO = resolver.resolve(SuperhumanDAO.self).unwrap()
+            let service = SuperumanServiceImplementation(superhumanDAO: superhumanDAO)
             return service
         }
     }
