@@ -37,4 +37,16 @@ extension UIView {
         maskLayer.path = roundPath.cgPath
         layer.mask = maskLayer
     }
+    
+    func setGradient(startColor: UIColor, endColor: UIColor = UIColor(.black)) {
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.colors = [startColor.cgColor, endColor.cgColor]
+        gradientLayer.locations = [0, 1]
+        gradientLayer.startPoint = CGPoint(x: 0.25, y: 0.5)
+        gradientLayer.endPoint = CGPoint(x: 0.75, y: 0.5)
+        gradientLayer.transform = CATransform3DMakeAffineTransform(CGAffineTransform(a: 0, b: 1, c: -1, d: 0, tx: 1, ty: 0))
+        gradientLayer.position = self.center
+        gradientLayer.frame = self.bounds
+        self.layer.insertSublayer(gradientLayer, at: 0)
+    }
 }

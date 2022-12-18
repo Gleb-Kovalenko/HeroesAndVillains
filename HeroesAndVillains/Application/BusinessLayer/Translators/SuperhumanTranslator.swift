@@ -38,6 +38,7 @@ extension SuperhumanTranslator: Translator {
             name: model.name,
             type: SuperhumanType(rawValue: model.type).unsafelyUnwrapped,
             imageURL: URL(string: model.imageURL).unsafelyUnwrapped,
+            isFavorite: model.isFavotire,
             backgroundColorHex: model.backgroundColorHex,
             stats: try StatTranslator(configuration: configuration).translate(
                 models: Array(model.stats)
@@ -60,6 +61,7 @@ extension SuperhumanTranslator: Translator {
         databaseModel.type = plain.type.rawValue
         databaseModel.imageURL = plain.imageURL.absoluteString
         databaseModel.backgroundColorHex = plain.backgroundColorHex
+        databaseModel.isFavotire = plain.isFavorite
         databaseModel.stats.removeAll()
         databaseModel.stats.append(
             objectsIn: try StatTranslator(configuration: configuration).translate(

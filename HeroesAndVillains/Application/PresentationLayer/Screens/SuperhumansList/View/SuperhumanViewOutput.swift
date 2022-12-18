@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import TransitionHandler
 
 // MARK: - SuperhumanViewOutput
 
@@ -13,8 +14,4 @@ public protocol SuperhumanViewOutput {
     
     /// View is ready
     func didTriggerViewReadyEvent()
-
-    /// Some superhuman was selected
-    /// - Parameter superhumanName: some superhuman
-    func didTriggerSelectSuperhumanEvent(_ superhuman: SuperhumanPlainObject)
 }

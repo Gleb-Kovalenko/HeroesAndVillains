@@ -17,6 +17,6 @@ final public class SuperhumanCellViewModelDesignerImplementation {
 extension SuperhumanCellViewModelDesignerImplementation: SuperhumanCellViewModelDesigner {
 
     public func viewModel(from superhuman: SuperhumanPlainObject) -> SuperhumanCellViewModelProtocol {
-        SuperhumanCellViewModel(superhuman: superhuman)
+        SuperhumanCellViewModel(superhumanPlainObject: superhuman)
     }
 }

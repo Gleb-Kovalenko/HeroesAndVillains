@@ -28,9 +28,24 @@ public struct SuperhumanPlainObject: Decodable, Plain {
     /// URL of image with superhuman
     let imageURL: URL
     
+    /// Flag, that indicates is this superhuman in favorite list
+    let isFavorite: Bool
+    
     /// Background color of superhuman's card
     let backgroundColorHex: String
     
     /// Superhuman stats instance
     let stats: [StatPlainObject]
+    
+    /// Toogle superhuman favorite state
+    func toogleFavorite() -> SuperhumanPlainObject {
+        SuperhumanPlainObject(
+            name: self.name,
+            type: self.type,
+            imageURL: self.imageURL,
+            isFavorite: !self.isFavorite,
+            backgroundColorHex: self.backgroundColorHex,
+            stats: self.stats
+        )
+    }
 }

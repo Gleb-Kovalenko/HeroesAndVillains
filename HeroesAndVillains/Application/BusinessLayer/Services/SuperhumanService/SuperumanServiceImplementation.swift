@@ -7,6 +7,7 @@
 
 import Foundation
 import ServiceCore
+import SDAO
 import Monreau
 
 // MARK: - SuperumanServiceImplementation
@@ -43,5 +44,21 @@ extension SuperumanServiceImplementation: SuperhumanService {
     
     public func obtainCache(with filter: SuperhumanType) throws -> [SuperhumanPlainObject] {
         try superhumanDAO.read(predicatedBy: "type == \(filter.rawValue)")
+    }
+    
+    public func toogleFavorite(superhumanID: UniqueID, currentFavoriteState: Bool) -> ServiceCall<SuperhumanPlainObject> {
+        createCall {
+            do {
+                let superhumanPlain = try self.superhumanDAO.read(byPrimaryKey: superhumanID)
+                let updatedSuperhumanPlain = superhumanPlain?.toogleFavorite()
+                guard let updatedSuperhumanPlain = updatedSuperhumanPlain else {
+                    return .failure(NSError(domain:"Bad error:(", code: 666, userInfo:nil))
+                }
+                try self.superhumanDAO.persist(updatedSuperhumanPlain)
+                return .success(updatedSuperhumanPlain)
+            } catch {
+                return .failure(error)
+            }
+        }
     }
 }

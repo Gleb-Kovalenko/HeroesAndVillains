@@ -50,6 +50,7 @@ public final class SuperhumanInfoViewController: UIViewController {
         let button = UIButton()
         button.layer.borderWidth = LayoutConstants.favoriteButtonBorderWidth
         button.layer.cornerRadius = LayoutConstants.favoriteButtonBorderRadius
+        button.addTarget(self, action: #selector(favoritesAction), for: .touchUpInside)
         return button
     }()
     
@@ -79,18 +80,6 @@ public final class SuperhumanInfoViewController: UIViewController {
     
     // MARK: - Private
     
-    private func setGradient(startColor: UIColor, endColor: UIColor = UIColor(.black)) {
-        let gradientLayer = CAGradientLayer()
-        gradientLayer.colors = [startColor.cgColor, endColor.cgColor]
-        gradientLayer.locations = [0, 1]
-        gradientLayer.startPoint = CGPoint(x: 0.25, y: 0.5)
-        gradientLayer.endPoint = CGPoint(x: 0.75, y: 0.5)
-        gradientLayer.transform = CATransform3DMakeAffineTransform(CGAffineTransform(a: 0, b: 1, c: -1, d: 0, tx: 1, ty: 0))
-        gradientLayer.position = view.center
-        gradientLayer.frame = view.bounds
-        view.layer.insertSublayer(gradientLayer, at: 0)
-    }
-    
     private func fillStackView(with stats: [StatPlainObject]) {
         for stat in stats {
             let statView = StatView()
@@ -105,7 +94,8 @@ public final class SuperhumanInfoViewController: UIViewController {
         headerLabelView.text = data.name
         superhumanImageView.kf.setImage(with: data.imageURL)
         fillStackView(with: data.stats)
-        setGradient(startColor: UIColor(hex: data.backgroundColorHex) ?? UIColor(.blue))
+        favoriteButton.isSelected = data.isFavorite
+        view.setGradient(startColor: UIColor(hex: data.backgroundColorHex) ?? UIColor(.blue))
     }
 }
 
@@ -152,15 +142,35 @@ extension SuperhumanInfoViewController {
     }
 }
 
+// MARK: - ButtonAction
+
+extension SuperhumanInfoViewController {
+    
+    @objc func favoritesAction() {
+        favoriteButton.isSelected = !favoriteButton.isSelected
+        output?.didTriggerFavoriteButtonTappedEvent()
+    }
+}
+
 // MARK: - Design
 
 extension SuperhumanInfoViewController {
     
     func design() {
         headerLabelView.textColor = .white
-        favoriteButton.setTitleColor(UIColor(hex: "FF9F0A"), for: .normal)
-        favoriteButton.layer.borderColor = UIColor(hex: "FF9F0A")?.cgColor
-        favoriteButton.backgroundColor = .clear
+        favoriteButton.layer.borderColor = UIColor(hex: LayoutConstants.yellowColorHex)?.cgColor
+        favoriteButton.setTitleColor(UIColor(hex: LayoutConstants.yellowColorHex), for: .normal)
+        favoriteButton.setBackgroundColor(
+            color: .clear,
+            cornerRadius: LayoutConstants.favoriteButtonBorderRadius,
+            for: .normal
+        )
+        favoriteButton.setBackgroundColor(
+            color: UIColor(hex: LayoutConstants.yellowColorHex),
+            cornerRadius: LayoutConstants.favoriteButtonBorderRadius,
+            for: .selected
+        )
+        favoriteButton.setTitleColor(UIColor(.black), for: .selected)
         headerLabelView.font = UIFont.systemFont(ofSize: LayoutConstants.headerLabelViewFontSize, weight: .semibold)
     }
 }
@@ -171,6 +181,10 @@ extension SuperhumanInfoViewController: SuperhumanInfoViewInput {
 
     public func setupInitialState() {
         setContent(from: data)
+    }
+    
+    public func undoFavoriteStateChange() {
+        favoriteButton.isSelected = !favoriteButton.isSelected
     }
 }
 
@@ -189,6 +203,7 @@ extension SuperhumanInfoViewController {
     
     func localize() {
         favoriteButton.setTitle("Add to favorite", for: .normal)
+        favoriteButton.setTitle("In favorites", for: .selected)
     }
 }
 
@@ -207,5 +222,6 @@ extension SuperhumanInfoViewController {
         static let favoriteButtonInsets: UIEdgeInsets = UIEdgeInsets(top: 0, left: 8, bottom: -8, right: -8)
         static let favoriteButtonBorderWidth: CGFloat = 2
         static let favoriteButtonHeight: CGFloat = 60
+        static let yellowColorHex = "FF9F0A"
     }
 }

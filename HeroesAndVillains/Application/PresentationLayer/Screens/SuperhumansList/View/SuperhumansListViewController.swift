@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import TransitionHandler
 
 // MARK: - SuperhumansListViewController
 
@@ -106,6 +107,15 @@ extension SuperhumansListViewController: SuperhumanViewInput {
     
     public func selectSuperhuman(_ code: String) {
         //Later
+    }
+}
+
+// MARK: - ViperViewOutputProvider
+
+extension SuperhumansListViewController: ViewOutputProvider {
+
+    public var viewOutput: ModuleInput? {
+        output as? ModuleInput
     }
 }
 

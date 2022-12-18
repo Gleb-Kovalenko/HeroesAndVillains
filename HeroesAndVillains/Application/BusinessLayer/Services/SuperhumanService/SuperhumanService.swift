@@ -7,6 +7,7 @@
 
 import Foundation
 import ServiceCore
+import SDAO
 
 // MARK: - SuperhumanService
 
@@ -17,4 +18,7 @@ public protocol SuperhumanService {
     
     /// Obtain cache with superhumans
     func obtainCache(with filter: SuperhumanType) throws -> [SuperhumanPlainObject]
+    
+    /// Add superhuman to favorite
+    func toogleFavorite(superhumanID: UniqueID, currentFavoriteState: Bool) -> ServiceCall<SuperhumanPlainObject>
 }

@@ -20,6 +20,10 @@ public final class InfrastructureAssembly: CollectableAssembly {
 
     public func assemble(inContainer container: Container) {
 
+        container.register(Container.self) { resolver in
+            AssembliesHolder.container
+        }
+        
         container.register(Realm.self) { resolver in
             do {
                 /// Returns path for the given file name

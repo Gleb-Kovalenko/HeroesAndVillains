@@ -22,7 +22,7 @@ public struct SuperhumanCellViewModel: SuperhumanCellViewModelProtocol {
     }
     
     /// Flag, that indicates is this superhuman in favorite list
-    public var isFavorite = false
+    public var isFavorite: Bool
     
     /// Superhuman stats instance
     public var stats: [StatPlainObject] {
@@ -37,5 +37,15 @@ public struct SuperhumanCellViewModel: SuperhumanCellViewModelProtocol {
     /// Background color of superhuman's card
     public var backgroundColorHex: String {
         superhuman.backgroundColorHex
+    }
+    
+    // MARK: - Initializers
+
+    /// Default initializer
+    /// - Parameters:
+    ///   - superhumanPlainObject: SuperhumanPlainObject instance
+    public init(superhumanPlainObject: SuperhumanPlainObject) {
+        self.superhuman = superhumanPlainObject
+        isFavorite = superhuman.isFavorite
     }
 }

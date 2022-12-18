@@ -75,7 +75,9 @@ final public class SuperhumanListAssembly: CollectableAssembly {
         }
         
         container.register(SuperhumanCellPresenterFactory.self) { resolver in
-            SuperhumanCellPresenterFactoryImplementation()
+            let container = resolver.resolve(Container.self).unwrap()
+            let factory = SuperhumanCellPresenterFactoryImplementation(container: container)
+            return factory
         }
 
         container.register(SuperhumanCellViewModelDesigner.self) { _ in

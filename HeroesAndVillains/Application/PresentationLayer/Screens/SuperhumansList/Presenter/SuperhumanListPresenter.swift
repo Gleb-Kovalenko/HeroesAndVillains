@@ -55,10 +55,6 @@ public final class SuperhumanListPresenter {
 
 extension SuperhumanListPresenter: SuperhumanViewOutput {
     
-    public func didTriggerSelectSuperhumanEvent(_ superhuman: SuperhumanPlainObject) {
-        //Here something with router
-    }
-    
     public func didTriggerViewReadyEvent() {
         view.setupInitialState()
         interactor?.obtainSuperhumans()
@@ -84,6 +80,14 @@ extension SuperhumanListPresenter: SuperhumanListInteractorOutput {
     }
     
     public func processErrorMessage(_ errorMessage: String) {
+    }
+}
+
+extension SuperhumanListPresenter: SuperhumanInfoModuleOutput {
+    
+    public func updateCellInfo(with plain: SuperhumanPlainObject) {
+        let viewModel = superhumanCellViewModelDesigner.viewModel(from: plain)
+        contentManager?.updateCellViewModel(with: viewModel)
     }
 }
 

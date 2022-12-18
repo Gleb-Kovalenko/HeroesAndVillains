@@ -41,14 +41,12 @@ extension SuperhumanListInteractor: SuperhumanListInteractorInput {
         do {
             let plains = try superhumanService.obtainCache(with: data)
             if plains.isEmpty {
-                print("ne cache")
                 superhumanService
                     .obtain(with: data)
                     .async()
                     .success(output?.obtainSuperhumanSuccess)
                     .failure(output?.processError)
             } else {
-                print("cache")
                 output?.obtainSuperhumanSuccess(plains)
             }
         } catch {
