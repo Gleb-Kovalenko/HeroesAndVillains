@@ -1,0 +1,268 @@
+[
+  {
+    "name": "Spiderman",
+    "type": 0,
+    "imageURL": "https://i.postimg.cc/mDdCc5GM/spiderman.png",
+    "backgroundColorHex": "#58050E",
+    "stats": [
+      {
+        "longName": "INTELLIGENCE",
+        "shortName": "INT",
+        "value": 84
+      },
+      {
+        "longName": "POWER",
+        "shortName": "POW",
+        "value": 23
+      },
+      {
+        "longName": "SPEED",
+        "shortName": "SPD",
+        "value": 96
+      },
+      {
+        "longName": "ENDURANCE",
+        "shortName": "END",
+        "value": 46
+      },
+      {
+        "longName": "REACTION",
+        "shortName": "REA",
+        "value": 76
+      },
+      {
+        "longName": "PROTECTION",
+        "shortName": "PRO",
+        "value": 34
+      }
+    ]
+  },
+  {
+    "name": "Yoda",
+    "type": 0,
+    "imageURL": "https://i.postimg.cc/kDP4DQDK/yoda.png",
+    "backgroundColorHex": "#425D17",
+    "stats": [
+      {
+        "longName": "INTELLIGENCE",
+        "shortName": "INT",
+        "value": 98
+      },
+      {
+        "longName": "POWER",
+        "shortName": "POW",
+        "value": 12
+      },
+      {
+        "longName": "SPEED",
+        "shortName": "SPD",
+        "value": 33
+      },
+      {
+        "longName": "ENDURANCE",
+        "shortName": "END",
+        "value": 42
+      },
+      {
+        "longName": "REACTION",
+        "shortName": "REA",
+        "value": 67
+      },
+      {
+        "longName": "PROTECTION",
+        "shortName": "PRO",
+        "value": 22
+      }
+    ]
+  },
+  {
+    "name": "Thing",
+    "type": 0,
+    "imageURL": "https://i.postimg.cc/FF8TFDg8/thing.png",
+    "backgroundColorHex": "#5A3207",
+    "stats": [
+      {
+        "longName": "INTELLIGENCE",
+        "shortName": "INT",
+        "value": 55
+      },
+      {
+        "longName": "POWER",
+        "shortName": "POW",
+        "value": 98
+      },
+      {
+        "longName": "SPEED",
+        "shortName": "SPD",
+        "value": 43
+      },
+      {
+        "longName": "ENDURANCE",
+        "shortName": "END",
+        "value": 87
+      },
+      {
+        "longName": "REACTION",
+        "shortName": "REA",
+        "value": 84
+      },
+      {
+        "longName": "PROTECTION",
+        "shortName": "PRO",
+        "value": 97
+      }
+    ]
+  },
+  {
+    "name": "Venom",
+    "type": 1,
+    "imageURL": "https://i.postimg.cc/k4ZDP3mj/venom.png",
+    "backgroundColorHex": "#1C1C1C",
+    "stats": [
+      {
+        "longName": "INTELLIGENCE",
+        "shortName": "INT",
+        "value": 75
+      },
+      {
+        "longName": "POWER",
+        "shortName": "POW",
+        "value": 68
+      },
+      {
+        "longName": "SPEED",
+        "shortName": "SPD",
+        "value": 89
+      },
+      {
+        "longName": "ENDURANCE",
+        "shortName": "END",
+        "value": 72
+      },
+      {
+        "longName": "REACTION",
+        "shortName": "REA",
+        "value": 73
+      },
+      {
+        "longName": "PROTECTION",
+        "shortName": "PRO",
+        "value": 41
+      }
+    ]
+  },
+  {
+    "name": "Alien",
+    "type": 1,
+    "imageURL": "https://i.postimg.cc/2jKnrMGN/alien.png",
+    "backgroundColorHex": "#155915",
+    "stats": [
+      {
+        "longName": "INTELLIGENCE",
+        "shortName": "INT",
+        "value": 90
+      },
+      {
+        "longName": "POWER",
+        "shortName": "POW",
+        "value": 45
+      },
+      {
+        "longName": "SPEED",
+        "shortName": "SPD",
+        "value": 61
+      },
+      {
+        "longName": "ENDURANCE",
+        "shortName": "END",
+        "value": 23
+      },
+      {
+        "longName": "REACTION",
+        "shortName": "REA",
+        "value": 33
+      },
+      {
+        "longName": "PROTECTION",
+        "shortName": "PRO",
+        "value": 11
+      }
+    ]
+  },
+  {
+    "name": "Krang",
+    "type": 1,
+    "imageURL": "https://i.postimg.cc/8kjyVqWL/krang.png",
+    "backgroundColorHex": "#610C25",
+    "stats": [
+      {
+        "longName": "INTELLIGENCE",
+        "shortName": "INT",
+        "value": 99
+      },
+      {
+        "longName": "POWER",
+        "shortName": "POW",
+        "value": 63
+      },
+      {
+        "longName": "SPEED",
+        "shortName": "SPD",
+        "value": 23
+      },
+      {
+        "longName": "ENDURANCE",
+        "shortName": "END",
+        "value": 22
+      },
+      {
+        "longName": "REACTION",
+        "shortName": "REA",
+        "value": 45
+      },
+      {
+        "longName": "PROTECTION",
+        "shortName": "PRO",
+        "value": 60
+      }
+    ]
+  },
+  {
+    "name": "Joker",
+    "type": 1,
+    "imageURL": "https://i.postimg.cc/BbKbqYZJ/joker.png",
+    "backgroundColorHex": "#242357",
+    "stats": [
+      {
+        "longName": "INTELLIGENCE",
+        "shortName": "INT",
+        "value": 76
+      },
+      {
+        "longName": "POWER",
+        "shortName": "POW",
+        "value": 43
+      },
+      {
+        "longName": "SPEED",
+        "shortName": "SPD",
+        "value": 76
+      },
+      {
+        "longName": "ENDURANCE",
+        "shortName": "END",
+        "value": 70
+      },
+      {
+        "longName": "REACTION",
+        "shortName": "REA",
+        "value": 82
+      },
+      {
+        "longName": "PROTECTION",
+        "shortName": "PRO",
+        "value": 34
+      }
+    ]
+  }
+]

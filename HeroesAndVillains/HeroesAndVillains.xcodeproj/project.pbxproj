@@ -7,136 +7,596 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5424AE8128D3DF18002F8DDF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5424AE8028D3DF18002F8DDF /* AppDelegate.swift */; };
-		5424AE8328D3DF18002F8DDF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5424AE8228D3DF18002F8DDF /* SceneDelegate.swift */; };
-		5424AE8528D3DF18002F8DDF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5424AE8428D3DF18002F8DDF /* ViewController.swift */; };
-		5424AE8828D3DF19002F8DDF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5424AE8628D3DF19002F8DDF /* Main.storyboard */; };
-		5424AE8A28D3DF22002F8DDF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5424AE8928D3DF22002F8DDF /* Assets.xcassets */; };
-		5424AE8D28D3DF22002F8DDF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5424AE8B28D3DF22002F8DDF /* LaunchScreen.storyboard */; };
-		5424AE9828D3DF23002F8DDF /* HeroesAndVillainsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5424AE9728D3DF23002F8DDF /* HeroesAndVillainsTests.swift */; };
-		5424AEA228D3DF23002F8DDF /* HeroesAndVillainsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5424AEA128D3DF23002F8DDF /* HeroesAndVillainsUITests.swift */; };
-		5424AEA428D3DF23002F8DDF /* HeroesAndVillainsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5424AEA328D3DF23002F8DDF /* HeroesAndVillainsUITestsLaunchTests.swift */; };
+		2D1BAF73F4F93F8DFEB6D657 /* Pods_HeroesAndVillains.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68F98D429E02CAEA790F275B /* Pods_HeroesAndVillains.framework */; };
+		54054F7B290A711200379C22 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54054F7A290A711200379C22 /* UIColor.swift */; };
+		54054F7D2911541300379C22 /* StatPlainObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54054F7C2911541300379C22 /* StatPlainObject.swift */; };
+		540577BA2940FD0F001AE6EC /* HeroesAndVillainsServiceLayerAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 540577B92940FD0F001AE6EC /* HeroesAndVillainsServiceLayerAssembly.swift */; };
+		5424AED428DA684D002F8DDF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5424AED328DA684D002F8DDF /* Assets.xcassets */; };
+		542970062927C79B002C7786 /* SuperhumanListModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 542970052927C79A002C7786 /* SuperhumanListModule.swift */; };
+		5429700A2927CC57002C7786 /* SuperhumanListAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 542970092927CC57002C7786 /* SuperhumanListAssembly.swift */; };
+		5429700E2927CFC9002C7786 /* AssembliesHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5429700D2927CFC9002C7786 /* AssembliesHolder.swift */; };
+		542970132927DE5D002C7786 /* HeroesAndVillainsAssembliesCollector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 542970122927DE5D002C7786 /* HeroesAndVillainsAssembliesCollector.swift */; };
+		542970152927E200002C7786 /* AssembliesCollector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 542970142927E200002C7786 /* AssembliesCollector.swift */; };
+		5440D740291D43720071BAE7 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5440D73F291D43720071BAE7 /* Data.swift */; };
+		546982D22901ECB9002AD3CF /* StatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 546982CA2901ECB9002AD3CF /* StatView.swift */; };
+		546982D32901ECB9002AD3CF /* SuperhumansListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 546982CB2901ECB9002AD3CF /* SuperhumansListViewController.swift */; };
+		546982D52901ECB9002AD3CF /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 546982CF2901ECB9002AD3CF /* View.swift */; };
+		546982D62901ECB9002AD3CF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 546982D02901ECB9002AD3CF /* AppDelegate.swift */; };
+		546982D72901ECB9002AD3CF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 546982D12901ECB9002AD3CF /* SceneDelegate.swift */; };
+		54D1791B294BA13A00B04720 /* SuperhumanInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D1791A294BA13A00B04720 /* SuperhumanInfoViewController.swift */; };
+		54D17952294BBB5B00B04720 /* SuperhumanInfoAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D1793F294BBB5A00B04720 /* SuperhumanInfoAssembly.swift */; };
+		54D17953294BBB5B00B04720 /* SuperhumanInfoModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D17941294BBB5A00B04720 /* SuperhumanInfoModule.swift */; };
+		54D17954294BBB5B00B04720 /* SuperhumanInfoModuleInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D17943294BBB5A00B04720 /* SuperhumanInfoModuleInput.swift */; };
+		54D17955294BBB5B00B04720 /* SuperhumanInfoModuleOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D17944294BBB5A00B04720 /* SuperhumanInfoModuleOutput.swift */; };
+		54D17956294BBB5B00B04720 /* SuperhumanInfoPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D17945294BBB5A00B04720 /* SuperhumanInfoPresenter.swift */; };
+		54D17957294BBB5B00B04720 /* SuperhumanInfoRouterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D17947294BBB5A00B04720 /* SuperhumanInfoRouterInput.swift */; };
+		54D17958294BBB5B00B04720 /* SuperhumanInfoRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D17948294BBB5A00B04720 /* SuperhumanInfoRouter.swift */; };
+		54D17959294BBB5B00B04720 /* SuperhumanInfoInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D1794A294BBB5B00B04720 /* SuperhumanInfoInteractor.swift */; };
+		54D1795A294BBB5B00B04720 /* SuperhumanInfoInteractorOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D1794B294BBB5B00B04720 /* SuperhumanInfoInteractorOutput.swift */; };
+		54D1795B294BBB5B00B04720 /* SuperhumanInfoInteractorInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D1794C294BBB5B00B04720 /* SuperhumanInfoInteractorInput.swift */; };
+		54D1795D294BBB5B00B04720 /* SuperhumanInfoViewInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D1794F294BBB5B00B04720 /* SuperhumanInfoViewInput.swift */; };
+		54D1795E294BBB5B00B04720 /* SuperhumanInfoViewOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D17950294BBB5B00B04720 /* SuperhumanInfoViewOutput.swift */; };
+		54D1795F294BBB5B00B04720 /* SuperhumanInfoViewControllerAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D17951294BBB5B00B04720 /* SuperhumanInfoViewControllerAppearance.swift */; };
+		54D17961294CD74C00B04720 /* SuperhumanContentManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D17960294CD74C00B04720 /* SuperhumanContentManagerDelegate.swift */; };
+		54D17964294CEC4F00B04720 /* SuperhumanType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D17963294CEC4F00B04720 /* SuperhumanType.swift */; };
+		54D17966294DF4D100B04720 /* Aliases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D17965294DF4D100B04720 /* Aliases.swift */; };
+		54D17969294DF53500B04720 /* StatDatabaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D17968294DF53500B04720 /* StatDatabaseModel.swift */; };
+		54D1796B294DF58000B04720 /* SuperhumanDatabaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D1796A294DF58000B04720 /* SuperhumanDatabaseModel.swift */; };
+		54D1796E294DFAA900B04720 /* StatTranslator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D1796D294DFAA900B04720 /* StatTranslator.swift */; };
+		54D17970294DFB3100B04720 /* SuperhumanTranslator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D1796F294DFB3100B04720 /* SuperhumanTranslator.swift */; };
+		54D17974294E1CE600B04720 /* InfrastructureAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D17973294E1CE600B04720 /* InfrastructureAssembly.swift */; };
+		54D17976294E1DF700B04720 /* DAOAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D17975294E1DF700B04720 /* DAOAssembly.swift */; };
+		54D17978294E238C00B04720 /* TranslatorsAssemly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D17977294E238C00B04720 /* TranslatorsAssemly.swift */; };
+		54D6056E2901FF3E004F3A50 /* SuperhumansInfo.json in Resources */ = {isa = PBXBuildFile; fileRef = 54D6056D2901FF3E004F3A50 /* SuperhumansInfo.json */; };
+		54D6057629020161004F3A50 /* SuperhumanPlainObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D6057529020161004F3A50 /* SuperhumanPlainObject.swift */; };
+		54D6057F290202BF004F3A50 /* SuperhumanCellViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D6057E290202BF004F3A50 /* SuperhumanCellViewModelProtocol.swift */; };
+		54D60581290202EB004F3A50 /* SuperhumanCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D60580290202EB004F3A50 /* SuperhumanCellViewModel.swift */; };
+		54D60584290203CC004F3A50 /* SuperhumanCellAppereance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D60583290203CC004F3A50 /* SuperhumanCellAppereance.swift */; };
+		54D60586290203F8004F3A50 /* SuperhumanCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D60585290203F8004F3A50 /* SuperhumanCell.swift */; };
+		54D60588290204E5004F3A50 /* SuperhumanCellPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D60587290204E5004F3A50 /* SuperhumanCellPresenter.swift */; };
+		54D6058B2902F682004F3A50 /* SuperhumanCellPresenterFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D6058A2902F682004F3A50 /* SuperhumanCellPresenterFactory.swift */; };
+		54D6058E2902F762004F3A50 /* SuperhumanCellPresenterFactoryImpementation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D6058D2902F762004F3A50 /* SuperhumanCellPresenterFactoryImpementation.swift */; };
+		54D605902902FDD5004F3A50 /* SuperhumanContentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D6058F2902FDD5004F3A50 /* SuperhumanContentManager.swift */; };
+		54D60592290300D9004F3A50 /* SuperhumanContentManagerImplementation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D60591290300D9004F3A50 /* SuperhumanContentManagerImplementation.swift */; };
+		54D605942907FC1C004F3A50 /* SuperhumanViewInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D605932907FC1C004F3A50 /* SuperhumanViewInput.swift */; };
+		54D605962907FC6E004F3A50 /* SuperhumanViewOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D605952907FC6E004F3A50 /* SuperhumanViewOutput.swift */; };
+		54F67F2429124B5400DFB24D /* SuperhumanListModuleInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F67F2329124B5300DFB24D /* SuperhumanListModuleInput.swift */; };
+		54F67F2629124BDA00DFB24D /* SuperhumanListModuleOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F67F2529124BD900DFB24D /* SuperhumanListModuleOutput.swift */; };
+		54F67F2829124DA400DFB24D /* SuperhumanListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F67F2729124DA400DFB24D /* SuperhumanListPresenter.swift */; };
+		54F67F2B29124F4100DFB24D /* SuperhumanCellViewModelDesigner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F67F2A29124F4100DFB24D /* SuperhumanCellViewModelDesigner.swift */; };
+		54F67F2D29124FE800DFB24D /* SuperhumanCellViewModelDesignerImplementation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F67F2C29124FE800DFB24D /* SuperhumanCellViewModelDesignerImplementation.swift */; };
+		54F67F30291251AA00DFB24D /* SuperhumanListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F67F2F291251AA00DFB24D /* SuperhumanListInteractor.swift */; };
+		54F67F32291251B700DFB24D /* SuperhumanListInteractorInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F67F31291251B600DFB24D /* SuperhumanListInteractorInput.swift */; };
+		54F67F34291251CE00DFB24D /* SuperhumanListInteractorOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F67F33291251CE00DFB24D /* SuperhumanListInteractorOutput.swift */; };
+		54F67F37291254A600DFB24D /* SuperhumanListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F67F36291254A600DFB24D /* SuperhumanListRouter.swift */; };
+		54F67F39291254C700DFB24D /* SuperhumanListRouterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F67F38291254C700DFB24D /* SuperhumanListRouterInput.swift */; };
+		54F67F3E2912560200DFB24D /* SuperhumanService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F67F3D2912560200DFB24D /* SuperhumanService.swift */; };
+		54F67F402912569A00DFB24D /* SuperumanServiceImplementation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F67F3F2912569A00DFB24D /* SuperumanServiceImplementation.swift */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		5424AE9428D3DF23002F8DDF /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 5424AE7528D3DF18002F8DDF /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 5424AE7C28D3DF18002F8DDF;
-			remoteInfo = HeroesAndVillains;
-		};
-		5424AE9E28D3DF23002F8DDF /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 5424AE7528D3DF18002F8DDF /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 5424AE7C28D3DF18002F8DDF;
-			remoteInfo = HeroesAndVillains;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
-		5424AE7D28D3DF18002F8DDF /* HeroesAndVillains.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HeroesAndVillains.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		5424AE8028D3DF18002F8DDF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		5424AE8228D3DF18002F8DDF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		5424AE8428D3DF18002F8DDF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		5424AE8728D3DF19002F8DDF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		5424AE8928D3DF22002F8DDF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		5424AE8C28D3DF22002F8DDF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		5424AE8E28D3DF22002F8DDF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5424AE9328D3DF23002F8DDF /* HeroesAndVillainsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HeroesAndVillainsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		5424AE9728D3DF23002F8DDF /* HeroesAndVillainsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroesAndVillainsTests.swift; sourceTree = "<group>"; };
-		5424AE9D28D3DF23002F8DDF /* HeroesAndVillainsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HeroesAndVillainsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		5424AEA128D3DF23002F8DDF /* HeroesAndVillainsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroesAndVillainsUITests.swift; sourceTree = "<group>"; };
-		5424AEA328D3DF23002F8DDF /* HeroesAndVillainsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroesAndVillainsUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		06FEB553845546154A746D1A /* Pods-HeroesAndVillains.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HeroesAndVillains.debug.xcconfig"; path = "Target Support Files/Pods-HeroesAndVillains/Pods-HeroesAndVillains.debug.xcconfig"; sourceTree = "<group>"; };
+		54054F7A290A711200379C22 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		54054F7C2911541300379C22 /* StatPlainObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatPlainObject.swift; sourceTree = "<group>"; };
+		540577B92940FD0F001AE6EC /* HeroesAndVillainsServiceLayerAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroesAndVillainsServiceLayerAssembly.swift; sourceTree = "<group>"; };
+		5424AEC728DA6844002F8DDF /* HeroesAndVillains.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HeroesAndVillains.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5424AED328DA684D002F8DDF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		5424AED828DA684D002F8DDF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		542970052927C79A002C7786 /* SuperhumanListModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperhumanListModule.swift; sourceTree = "<group>"; };
+		542970092927CC57002C7786 /* SuperhumanListAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperhumanListAssembly.swift; sourceTree = "<group>"; };
+		5429700D2927CFC9002C7786 /* AssembliesHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssembliesHolder.swift; sourceTree = "<group>"; };
+		542970122927DE5D002C7786 /* HeroesAndVillainsAssembliesCollector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroesAndVillainsAssembliesCollector.swift; sourceTree = "<group>"; };
+		542970142927E200002C7786 /* AssembliesCollector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssembliesCollector.swift; sourceTree = "<group>"; };
+		5440D73F291D43720071BAE7 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
+		546982CA2901ECB9002AD3CF /* StatView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatView.swift; sourceTree = "<group>"; };
+		546982CB2901ECB9002AD3CF /* SuperhumansListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuperhumansListViewController.swift; sourceTree = "<group>"; };
+		546982CF2901ECB9002AD3CF /* View.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
+		546982D02901ECB9002AD3CF /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		546982D12901ECB9002AD3CF /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		54D1791A294BA13A00B04720 /* SuperhumanInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperhumanInfoViewController.swift; sourceTree = "<group>"; };
+		54D1793F294BBB5A00B04720 /* SuperhumanInfoAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuperhumanInfoAssembly.swift; sourceTree = "<group>"; };
+		54D17941294BBB5A00B04720 /* SuperhumanInfoModule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuperhumanInfoModule.swift; sourceTree = "<group>"; };
+		54D17943294BBB5A00B04720 /* SuperhumanInfoModuleInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuperhumanInfoModuleInput.swift; sourceTree = "<group>"; };
+		54D17944294BBB5A00B04720 /* SuperhumanInfoModuleOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuperhumanInfoModuleOutput.swift; sourceTree = "<group>"; };
+		54D17945294BBB5A00B04720 /* SuperhumanInfoPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuperhumanInfoPresenter.swift; sourceTree = "<group>"; };
+		54D17947294BBB5A00B04720 /* SuperhumanInfoRouterInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuperhumanInfoRouterInput.swift; sourceTree = "<group>"; };
+		54D17948294BBB5A00B04720 /* SuperhumanInfoRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuperhumanInfoRouter.swift; sourceTree = "<group>"; };
+		54D1794A294BBB5B00B04720 /* SuperhumanInfoInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuperhumanInfoInteractor.swift; sourceTree = "<group>"; };
+		54D1794B294BBB5B00B04720 /* SuperhumanInfoInteractorOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuperhumanInfoInteractorOutput.swift; sourceTree = "<group>"; };
+		54D1794C294BBB5B00B04720 /* SuperhumanInfoInteractorInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuperhumanInfoInteractorInput.swift; sourceTree = "<group>"; };
+		54D1794F294BBB5B00B04720 /* SuperhumanInfoViewInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuperhumanInfoViewInput.swift; sourceTree = "<group>"; };
+		54D17950294BBB5B00B04720 /* SuperhumanInfoViewOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuperhumanInfoViewOutput.swift; sourceTree = "<group>"; };
+		54D17951294BBB5B00B04720 /* SuperhumanInfoViewControllerAppearance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuperhumanInfoViewControllerAppearance.swift; sourceTree = "<group>"; };
+		54D17960294CD74C00B04720 /* SuperhumanContentManagerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperhumanContentManagerDelegate.swift; sourceTree = "<group>"; };
+		54D17963294CEC4F00B04720 /* SuperhumanType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperhumanType.swift; sourceTree = "<group>"; };
+		54D17965294DF4D100B04720 /* Aliases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Aliases.swift; sourceTree = "<group>"; };
+		54D17968294DF53500B04720 /* StatDatabaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatDatabaseModel.swift; sourceTree = "<group>"; };
+		54D1796A294DF58000B04720 /* SuperhumanDatabaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperhumanDatabaseModel.swift; sourceTree = "<group>"; };
+		54D1796D294DFAA900B04720 /* StatTranslator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatTranslator.swift; sourceTree = "<group>"; };
+		54D1796F294DFB3100B04720 /* SuperhumanTranslator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperhumanTranslator.swift; sourceTree = "<group>"; };
+		54D17973294E1CE600B04720 /* InfrastructureAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfrastructureAssembly.swift; sourceTree = "<group>"; };
+		54D17975294E1DF700B04720 /* DAOAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DAOAssembly.swift; sourceTree = "<group>"; };
+		54D17977294E238C00B04720 /* TranslatorsAssemly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslatorsAssemly.swift; sourceTree = "<group>"; };
+		54D6056D2901FF3E004F3A50 /* SuperhumansInfo.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = SuperhumansInfo.json; sourceTree = "<group>"; };
+		54D6057529020161004F3A50 /* SuperhumanPlainObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperhumanPlainObject.swift; sourceTree = "<group>"; };
+		54D6057E290202BF004F3A50 /* SuperhumanCellViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SuperhumanCellViewModelProtocol.swift; path = Application/Models/Plain/SuperhumanCellViewModelProtocol.swift; sourceTree = SOURCE_ROOT; };
+		54D60580290202EB004F3A50 /* SuperhumanCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SuperhumanCellViewModel.swift; path = Application/Models/Plain/SuperhumanCellViewModel.swift; sourceTree = SOURCE_ROOT; };
+		54D60583290203CC004F3A50 /* SuperhumanCellAppereance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SuperhumanCellAppereance.swift; path = Application/Models/Plain/SuperhumanCellAppereance.swift; sourceTree = SOURCE_ROOT; };
+		54D60585290203F8004F3A50 /* SuperhumanCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SuperhumanCell.swift; path = Application/Models/Plain/SuperhumanCell.swift; sourceTree = SOURCE_ROOT; };
+		54D60587290204E5004F3A50 /* SuperhumanCellPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SuperhumanCellPresenter.swift; path = Application/Models/Plain/SuperhumanCellPresenter.swift; sourceTree = SOURCE_ROOT; };
+		54D6058A2902F682004F3A50 /* SuperhumanCellPresenterFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperhumanCellPresenterFactory.swift; sourceTree = "<group>"; };
+		54D6058D2902F762004F3A50 /* SuperhumanCellPresenterFactoryImpementation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperhumanCellPresenterFactoryImpementation.swift; sourceTree = "<group>"; };
+		54D6058F2902FDD5004F3A50 /* SuperhumanContentManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperhumanContentManager.swift; sourceTree = "<group>"; };
+		54D60591290300D9004F3A50 /* SuperhumanContentManagerImplementation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperhumanContentManagerImplementation.swift; sourceTree = "<group>"; };
+		54D605932907FC1C004F3A50 /* SuperhumanViewInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperhumanViewInput.swift; sourceTree = "<group>"; };
+		54D605952907FC6E004F3A50 /* SuperhumanViewOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperhumanViewOutput.swift; sourceTree = "<group>"; };
+		54F67F2329124B5300DFB24D /* SuperhumanListModuleInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperhumanListModuleInput.swift; sourceTree = "<group>"; };
+		54F67F2529124BD900DFB24D /* SuperhumanListModuleOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperhumanListModuleOutput.swift; sourceTree = "<group>"; };
+		54F67F2729124DA400DFB24D /* SuperhumanListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperhumanListPresenter.swift; sourceTree = "<group>"; };
+		54F67F2A29124F4100DFB24D /* SuperhumanCellViewModelDesigner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperhumanCellViewModelDesigner.swift; sourceTree = "<group>"; };
+		54F67F2C29124FE800DFB24D /* SuperhumanCellViewModelDesignerImplementation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperhumanCellViewModelDesignerImplementation.swift; sourceTree = "<group>"; };
+		54F67F2F291251AA00DFB24D /* SuperhumanListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperhumanListInteractor.swift; sourceTree = "<group>"; };
+		54F67F31291251B600DFB24D /* SuperhumanListInteractorInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperhumanListInteractorInput.swift; sourceTree = "<group>"; };
+		54F67F33291251CE00DFB24D /* SuperhumanListInteractorOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperhumanListInteractorOutput.swift; sourceTree = "<group>"; };
+		54F67F36291254A600DFB24D /* SuperhumanListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperhumanListRouter.swift; sourceTree = "<group>"; };
+		54F67F38291254C700DFB24D /* SuperhumanListRouterInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperhumanListRouterInput.swift; sourceTree = "<group>"; };
+		54F67F3D2912560200DFB24D /* SuperhumanService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperhumanService.swift; sourceTree = "<group>"; };
+		54F67F3F2912569A00DFB24D /* SuperumanServiceImplementation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperumanServiceImplementation.swift; sourceTree = "<group>"; };
+		57B83DF5B93C0AD90226F21A /* Pods-HeroesAndVillains.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HeroesAndVillains.release.xcconfig"; path = "Target Support Files/Pods-HeroesAndVillains/Pods-HeroesAndVillains.release.xcconfig"; sourceTree = "<group>"; };
+		68F98D429E02CAEA790F275B /* Pods_HeroesAndVillains.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HeroesAndVillains.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		5424AE7A28D3DF18002F8DDF /* Frameworks */ = {
+		5424AEC428DA6844002F8DDF /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		5424AE9028D3DF23002F8DDF /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		5424AE9A28D3DF23002F8DDF /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				2D1BAF73F4F93F8DFEB6D657 /* Pods_HeroesAndVillains.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		5424AE7428D3DF18002F8DDF = {
+		00A984D0BAF6D5A5FDA244CF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				5424AE7F28D3DF18002F8DDF /* HeroesAndVillains */,
-				5424AE9628D3DF23002F8DDF /* HeroesAndVillainsTests */,
-				5424AEA028D3DF23002F8DDF /* HeroesAndVillainsUITests */,
-				5424AE7E28D3DF18002F8DDF /* Products */,
+				68F98D429E02CAEA790F275B /* Pods_HeroesAndVillains.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		540577B82940FCCA001AE6EC /* Assemblies */ = {
+			isa = PBXGroup;
+			children = (
+				540577B92940FD0F001AE6EC /* HeroesAndVillainsServiceLayerAssembly.swift */,
+				54D17975294E1DF700B04720 /* DAOAssembly.swift */,
+				54D17977294E238C00B04720 /* TranslatorsAssemly.swift */,
+			);
+			path = Assemblies;
+			sourceTree = "<group>";
+		};
+		5424AEBE28DA6844002F8DDF = {
+			isa = PBXGroup;
+			children = (
+				546982C42901ECB8002AD3CF /* Application */,
+				546982C22901EAE8002AD3CF /* Resources */,
+				546982C12901EACC002AD3CF /* Supporting Files */,
+				5424AEC828DA6844002F8DDF /* Products */,
+				6149D01098D3476BCAD9ED50 /* Pods */,
+				00A984D0BAF6D5A5FDA244CF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
-		5424AE7E28D3DF18002F8DDF /* Products */ = {
+		5424AEC828DA6844002F8DDF /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5424AE7D28D3DF18002F8DDF /* HeroesAndVillains.app */,
-				5424AE9328D3DF23002F8DDF /* HeroesAndVillainsTests.xctest */,
-				5424AE9D28D3DF23002F8DDF /* HeroesAndVillainsUITests.xctest */,
+				5424AEC728DA6844002F8DDF /* HeroesAndVillains.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		5424AE7F28D3DF18002F8DDF /* HeroesAndVillains */ = {
+		542970042927C77E002C7786 /* Module */ = {
 			isa = PBXGroup;
 			children = (
-				5424AE8028D3DF18002F8DDF /* AppDelegate.swift */,
-				5424AE8228D3DF18002F8DDF /* SceneDelegate.swift */,
-				5424AE8428D3DF18002F8DDF /* ViewController.swift */,
-				5424AE8628D3DF19002F8DDF /* Main.storyboard */,
-				5424AE8928D3DF22002F8DDF /* Assets.xcassets */,
-				5424AE8B28D3DF22002F8DDF /* LaunchScreen.storyboard */,
-				5424AE8E28D3DF22002F8DDF /* Info.plist */,
+				542970052927C79A002C7786 /* SuperhumanListModule.swift */,
 			);
-			path = HeroesAndVillains;
+			path = Module;
 			sourceTree = "<group>";
 		};
-		5424AE9628D3DF23002F8DDF /* HeroesAndVillainsTests */ = {
+		542970082927CC2F002C7786 /* Assembly */ = {
 			isa = PBXGroup;
 			children = (
-				5424AE9728D3DF23002F8DDF /* HeroesAndVillainsTests.swift */,
+				542970092927CC57002C7786 /* SuperhumanListAssembly.swift */,
 			);
-			path = HeroesAndVillainsTests;
+			path = Assembly;
 			sourceTree = "<group>";
 		};
-		5424AEA028D3DF23002F8DDF /* HeroesAndVillainsUITests */ = {
+		5429700B2927CF9D002C7786 /* CoreLayer */ = {
 			isa = PBXGroup;
 			children = (
-				5424AEA128D3DF23002F8DDF /* HeroesAndVillainsUITests.swift */,
-				5424AEA328D3DF23002F8DDF /* HeroesAndVillainsUITestsLaunchTests.swift */,
+				5429700C2927CFAF002C7786 /* Common */,
 			);
-			path = HeroesAndVillainsUITests;
+			path = CoreLayer;
+			sourceTree = "<group>";
+		};
+		5429700C2927CFAF002C7786 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				542970122927DE5D002C7786 /* HeroesAndVillainsAssembliesCollector.swift */,
+				5429700D2927CFC9002C7786 /* AssembliesHolder.swift */,
+				542970142927E200002C7786 /* AssembliesCollector.swift */,
+				54D17965294DF4D100B04720 /* Aliases.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		546982C12901EACC002AD3CF /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				5424AED828DA684D002F8DDF /* Info.plist */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		546982C22901EAE8002AD3CF /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				54D6056D2901FF3E004F3A50 /* SuperhumansInfo.json */,
+				5424AED328DA684D002F8DDF /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		546982C42901ECB8002AD3CF /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				54D17971294E1CBA00B04720 /* ApplicationLayer */,
+				5429700B2927CF9D002C7786 /* CoreLayer */,
+				54F67F3A291255AA00DFB24D /* BusinessLayer */,
+				54D6057329020139004F3A50 /* Models */,
+				546982C62901ECB9002AD3CF /* PresentationLayer */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		546982C62901ECB9002AD3CF /* PresentationLayer */ = {
+			isa = PBXGroup;
+			children = (
+				546982C72901ECB9002AD3CF /* Screens */,
+				546982CD2901ECB9002AD3CF /* Common */,
+				546982D02901ECB9002AD3CF /* AppDelegate.swift */,
+				546982D12901ECB9002AD3CF /* SceneDelegate.swift */,
+			);
+			path = PresentationLayer;
+			sourceTree = "<group>";
+		};
+		546982C72901ECB9002AD3CF /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				54D17916294BA02100B04720 /* SuperhumanInfo */,
+				546982C82901ECB9002AD3CF /* SuperhumansList */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		546982C82901ECB9002AD3CF /* SuperhumansList */ = {
+			isa = PBXGroup;
+			children = (
+				542970082927CC2F002C7786 /* Assembly */,
+				542970042927C77E002C7786 /* Module */,
+				54F67F352912549000DFB24D /* Router */,
+				54F67F2E2912517800DFB24D /* Interactor */,
+				54F67F2229124B0800DFB24D /* Presenter */,
+				546982C92901ECB9002AD3CF /* View */,
+			);
+			path = SuperhumansList;
+			sourceTree = "<group>";
+		};
+		546982C92901ECB9002AD3CF /* View */ = {
+			isa = PBXGroup;
+			children = (
+				546982CB2901ECB9002AD3CF /* SuperhumansListViewController.swift */,
+				54D605932907FC1C004F3A50 /* SuperhumanViewInput.swift */,
+				54D605952907FC6E004F3A50 /* SuperhumanViewOutput.swift */,
+				54D6057929020236004F3A50 /* ContentManager */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		546982CD2901ECB9002AD3CF /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				546982CE2901ECB9002AD3CF /* Extensions */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		546982CE2901ECB9002AD3CF /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				546982CF2901ECB9002AD3CF /* View.swift */,
+				54054F7A290A711200379C22 /* UIColor.swift */,
+				5440D73F291D43720071BAE7 /* Data.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		54D17916294BA02100B04720 /* SuperhumanInfo */ = {
+			isa = PBXGroup;
+			children = (
+				54D1793E294BBB5A00B04720 /* Assembly */,
+				54D17949294BBB5B00B04720 /* Interactor */,
+				54D17940294BBB5A00B04720 /* Module */,
+				54D17942294BBB5A00B04720 /* Presenter */,
+				54D17946294BBB5A00B04720 /* Router */,
+				54D1794D294BBB5B00B04720 /* View */,
+			);
+			path = SuperhumanInfo;
+			sourceTree = "<group>";
+		};
+		54D1793E294BBB5A00B04720 /* Assembly */ = {
+			isa = PBXGroup;
+			children = (
+				54D1793F294BBB5A00B04720 /* SuperhumanInfoAssembly.swift */,
+			);
+			path = Assembly;
+			sourceTree = "<group>";
+		};
+		54D17940294BBB5A00B04720 /* Module */ = {
+			isa = PBXGroup;
+			children = (
+				54D17941294BBB5A00B04720 /* SuperhumanInfoModule.swift */,
+			);
+			path = Module;
+			sourceTree = "<group>";
+		};
+		54D17942294BBB5A00B04720 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				54D17943294BBB5A00B04720 /* SuperhumanInfoModuleInput.swift */,
+				54D17944294BBB5A00B04720 /* SuperhumanInfoModuleOutput.swift */,
+				54D17945294BBB5A00B04720 /* SuperhumanInfoPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		54D17946294BBB5A00B04720 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				54D17947294BBB5A00B04720 /* SuperhumanInfoRouterInput.swift */,
+				54D17948294BBB5A00B04720 /* SuperhumanInfoRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		54D17949294BBB5B00B04720 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				54D1794A294BBB5B00B04720 /* SuperhumanInfoInteractor.swift */,
+				54D1794B294BBB5B00B04720 /* SuperhumanInfoInteractorOutput.swift */,
+				54D1794C294BBB5B00B04720 /* SuperhumanInfoInteractorInput.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		54D1794D294BBB5B00B04720 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				54D1791A294BA13A00B04720 /* SuperhumanInfoViewController.swift */,
+				54D1794F294BBB5B00B04720 /* SuperhumanInfoViewInput.swift */,
+				54D17950294BBB5B00B04720 /* SuperhumanInfoViewOutput.swift */,
+				54D17951294BBB5B00B04720 /* SuperhumanInfoViewControllerAppearance.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		54D17962294CEC2F00B04720 /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				54D17963294CEC4F00B04720 /* SuperhumanType.swift */,
+			);
+			path = Enums;
+			sourceTree = "<group>";
+		};
+		54D17967294DF51C00B04720 /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				54D17968294DF53500B04720 /* StatDatabaseModel.swift */,
+				54D1796A294DF58000B04720 /* SuperhumanDatabaseModel.swift */,
+			);
+			path = Database;
+			sourceTree = "<group>";
+		};
+		54D1796C294DFA8C00B04720 /* Translators */ = {
+			isa = PBXGroup;
+			children = (
+				54D1796D294DFAA900B04720 /* StatTranslator.swift */,
+				54D1796F294DFB3100B04720 /* SuperhumanTranslator.swift */,
+			);
+			path = Translators;
+			sourceTree = "<group>";
+		};
+		54D17971294E1CBA00B04720 /* ApplicationLayer */ = {
+			isa = PBXGroup;
+			children = (
+				54D17972294E1CCE00B04720 /* Assemblies */,
+			);
+			path = ApplicationLayer;
+			sourceTree = "<group>";
+		};
+		54D17972294E1CCE00B04720 /* Assemblies */ = {
+			isa = PBXGroup;
+			children = (
+				54D17973294E1CE600B04720 /* InfrastructureAssembly.swift */,
+			);
+			path = Assemblies;
+			sourceTree = "<group>";
+		};
+		54D6057329020139004F3A50 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				54D17967294DF51C00B04720 /* Database */,
+				54D17962294CEC2F00B04720 /* Enums */,
+				54D605742902013F004F3A50 /* Plain */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		54D605742902013F004F3A50 /* Plain */ = {
+			isa = PBXGroup;
+			children = (
+				54D6057529020161004F3A50 /* SuperhumanPlainObject.swift */,
+				54054F7C2911541300379C22 /* StatPlainObject.swift */,
+			);
+			path = Plain;
+			sourceTree = "<group>";
+		};
+		54D6057929020236004F3A50 /* ContentManager */ = {
+			isa = PBXGroup;
+			children = (
+				54D6057A2902026A004F3A50 /* SuperhumanCellControllerFactory */,
+				54D6058F2902FDD5004F3A50 /* SuperhumanContentManager.swift */,
+				54D60591290300D9004F3A50 /* SuperhumanContentManagerImplementation.swift */,
+				54D17960294CD74C00B04720 /* SuperhumanContentManagerDelegate.swift */,
+			);
+			path = ContentManager;
+			sourceTree = "<group>";
+		};
+		54D6057A2902026A004F3A50 /* SuperhumanCellControllerFactory */ = {
+			isa = PBXGroup;
+			children = (
+				54D6057B2902027D004F3A50 /* SuperhumanCellController */,
+				54D6058A2902F682004F3A50 /* SuperhumanCellPresenterFactory.swift */,
+				54D6058D2902F762004F3A50 /* SuperhumanCellPresenterFactoryImpementation.swift */,
+			);
+			path = SuperhumanCellControllerFactory;
+			sourceTree = "<group>";
+		};
+		54D6057B2902027D004F3A50 /* SuperhumanCellController */ = {
+			isa = PBXGroup;
+			children = (
+				54D6057C2902028F004F3A50 /* SuperhumanCell */,
+				54D60587290204E5004F3A50 /* SuperhumanCellPresenter.swift */,
+			);
+			path = SuperhumanCellController;
+			sourceTree = "<group>";
+		};
+		54D6057C2902028F004F3A50 /* SuperhumanCell */ = {
+			isa = PBXGroup;
+			children = (
+				54D6058229020335004F3A50 /* StatView */,
+				54D6057D290202A0004F3A50 /* SuperhumanCellViewModel */,
+				54D60583290203CC004F3A50 /* SuperhumanCellAppereance.swift */,
+				54D60585290203F8004F3A50 /* SuperhumanCell.swift */,
+			);
+			path = SuperhumanCell;
+			sourceTree = "<group>";
+		};
+		54D6057D290202A0004F3A50 /* SuperhumanCellViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				54D6057E290202BF004F3A50 /* SuperhumanCellViewModelProtocol.swift */,
+				54D60580290202EB004F3A50 /* SuperhumanCellViewModel.swift */,
+			);
+			path = SuperhumanCellViewModel;
+			sourceTree = "<group>";
+		};
+		54D6058229020335004F3A50 /* StatView */ = {
+			isa = PBXGroup;
+			children = (
+				546982CA2901ECB9002AD3CF /* StatView.swift */,
+			);
+			path = StatView;
+			sourceTree = "<group>";
+		};
+		54F67F2229124B0800DFB24D /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				54F67F2929124F2B00DFB24D /* SuperhumanListViewModelDesigner */,
+				54F67F2329124B5300DFB24D /* SuperhumanListModuleInput.swift */,
+				54F67F2529124BD900DFB24D /* SuperhumanListModuleOutput.swift */,
+				54F67F2729124DA400DFB24D /* SuperhumanListPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		54F67F2929124F2B00DFB24D /* SuperhumanListViewModelDesigner */ = {
+			isa = PBXGroup;
+			children = (
+				54F67F2A29124F4100DFB24D /* SuperhumanCellViewModelDesigner.swift */,
+				54F67F2C29124FE800DFB24D /* SuperhumanCellViewModelDesignerImplementation.swift */,
+			);
+			path = SuperhumanListViewModelDesigner;
+			sourceTree = "<group>";
+		};
+		54F67F2E2912517800DFB24D /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				54F67F2F291251AA00DFB24D /* SuperhumanListInteractor.swift */,
+				54F67F31291251B600DFB24D /* SuperhumanListInteractorInput.swift */,
+				54F67F33291251CE00DFB24D /* SuperhumanListInteractorOutput.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		54F67F352912549000DFB24D /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				54F67F36291254A600DFB24D /* SuperhumanListRouter.swift */,
+				54F67F38291254C700DFB24D /* SuperhumanListRouterInput.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		54F67F3A291255AA00DFB24D /* BusinessLayer */ = {
+			isa = PBXGroup;
+			children = (
+				54D1796C294DFA8C00B04720 /* Translators */,
+				540577B82940FCCA001AE6EC /* Assemblies */,
+				54F67F3B291255C900DFB24D /* Services */,
+			);
+			path = BusinessLayer;
+			sourceTree = "<group>";
+		};
+		54F67F3B291255C900DFB24D /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				54F67F3C291255E900DFB24D /* SuperhumanService */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		54F67F3C291255E900DFB24D /* SuperhumanService */ = {
+			isa = PBXGroup;
+			children = (
+				54F67F3D2912560200DFB24D /* SuperhumanService.swift */,
+				54F67F3F2912569A00DFB24D /* SuperumanServiceImplementation.swift */,
+			);
+			path = SuperhumanService;
+			sourceTree = "<group>";
+		};
+		6149D01098D3476BCAD9ED50 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				06FEB553845546154A746D1A /* Pods-HeroesAndVillains.debug.xcconfig */,
+				57B83DF5B93C0AD90226F21A /* Pods-HeroesAndVillains.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		5424AE7C28D3DF18002F8DDF /* HeroesAndVillains */ = {
+		5424AEC628DA6844002F8DDF /* HeroesAndVillains */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5424AEA728D3DF23002F8DDF /* Build configuration list for PBXNativeTarget "HeroesAndVillains" */;
+			buildConfigurationList = 5424AEDB28DA684D002F8DDF /* Build configuration list for PBXNativeTarget "HeroesAndVillains" */;
 			buildPhases = (
-				5424AE7928D3DF18002F8DDF /* Sources */,
-				5424AE7A28D3DF18002F8DDF /* Frameworks */,
-				5424AE7B28D3DF18002F8DDF /* Resources */,
+				782D6D86EDCE54266E421D47 /* [CP] Check Pods Manifest.lock */,
+				5424AEC328DA6844002F8DDF /* Sources */,
+				5424AEC428DA6844002F8DDF /* Frameworks */,
+				5424AEC528DA6844002F8DDF /* Resources */,
+				1BD67916CE32577538139EAD /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -144,69 +604,25 @@
 			);
 			name = HeroesAndVillains;
 			productName = HeroesAndVillains;
-			productReference = 5424AE7D28D3DF18002F8DDF /* HeroesAndVillains.app */;
+			productReference = 5424AEC728DA6844002F8DDF /* HeroesAndVillains.app */;
 			productType = "com.apple.product-type.application";
-		};
-		5424AE9228D3DF23002F8DDF /* HeroesAndVillainsTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 5424AEAA28D3DF23002F8DDF /* Build configuration list for PBXNativeTarget "HeroesAndVillainsTests" */;
-			buildPhases = (
-				5424AE8F28D3DF23002F8DDF /* Sources */,
-				5424AE9028D3DF23002F8DDF /* Frameworks */,
-				5424AE9128D3DF23002F8DDF /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				5424AE9528D3DF23002F8DDF /* PBXTargetDependency */,
-			);
-			name = HeroesAndVillainsTests;
-			productName = HeroesAndVillainsTests;
-			productReference = 5424AE9328D3DF23002F8DDF /* HeroesAndVillainsTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		5424AE9C28D3DF23002F8DDF /* HeroesAndVillainsUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 5424AEAD28D3DF23002F8DDF /* Build configuration list for PBXNativeTarget "HeroesAndVillainsUITests" */;
-			buildPhases = (
-				5424AE9928D3DF23002F8DDF /* Sources */,
-				5424AE9A28D3DF23002F8DDF /* Frameworks */,
-				5424AE9B28D3DF23002F8DDF /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				5424AE9F28D3DF23002F8DDF /* PBXTargetDependency */,
-			);
-			name = HeroesAndVillainsUITests;
-			productName = HeroesAndVillainsUITests;
-			productReference = 5424AE9D28D3DF23002F8DDF /* HeroesAndVillainsUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		5424AE7528D3DF18002F8DDF /* Project object */ = {
+		5424AEBF28DA6844002F8DDF /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1320;
 				LastUpgradeCheck = 1320;
 				TargetAttributes = {
-					5424AE7C28D3DF18002F8DDF = {
+					5424AEC628DA6844002F8DDF = {
 						CreatedOnToolsVersion = 13.2.1;
-					};
-					5424AE9228D3DF23002F8DDF = {
-						CreatedOnToolsVersion = 13.2.1;
-						TestTargetID = 5424AE7C28D3DF18002F8DDF;
-					};
-					5424AE9C28D3DF23002F8DDF = {
-						CreatedOnToolsVersion = 13.2.1;
-						TestTargetID = 5424AE7C28D3DF18002F8DDF;
 					};
 				};
 			};
-			buildConfigurationList = 5424AE7828D3DF18002F8DDF /* Build configuration list for PBXProject "HeroesAndVillains" */;
+			buildConfigurationList = 5424AEC228DA6844002F8DDF /* Build configuration list for PBXProject "HeroesAndVillains" */;
 			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -214,109 +630,144 @@
 				en,
 				Base,
 			);
-			mainGroup = 5424AE7428D3DF18002F8DDF;
-			productRefGroup = 5424AE7E28D3DF18002F8DDF /* Products */;
+			mainGroup = 5424AEBE28DA6844002F8DDF;
+			productRefGroup = 5424AEC828DA6844002F8DDF /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				5424AE7C28D3DF18002F8DDF /* HeroesAndVillains */,
-				5424AE9228D3DF23002F8DDF /* HeroesAndVillainsTests */,
-				5424AE9C28D3DF23002F8DDF /* HeroesAndVillainsUITests */,
+				5424AEC628DA6844002F8DDF /* HeroesAndVillains */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		5424AE7B28D3DF18002F8DDF /* Resources */ = {
+		5424AEC528DA6844002F8DDF /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5424AE8D28D3DF22002F8DDF /* LaunchScreen.storyboard in Resources */,
-				5424AE8A28D3DF22002F8DDF /* Assets.xcassets in Resources */,
-				5424AE8828D3DF19002F8DDF /* Main.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		5424AE9128D3DF23002F8DDF /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		5424AE9B28D3DF23002F8DDF /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				5424AED428DA684D002F8DDF /* Assets.xcassets in Resources */,
+				54D6056E2901FF3E004F3A50 /* SuperhumansInfo.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		1BD67916CE32577538139EAD /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-HeroesAndVillains/Pods-HeroesAndVillains-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-HeroesAndVillains/Pods-HeroesAndVillains-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-HeroesAndVillains/Pods-HeroesAndVillains-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		782D6D86EDCE54266E421D47 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-HeroesAndVillains-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
-		5424AE7928D3DF18002F8DDF /* Sources */ = {
+		5424AEC328DA6844002F8DDF /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5424AE8528D3DF18002F8DDF /* ViewController.swift in Sources */,
-				5424AE8128D3DF18002F8DDF /* AppDelegate.swift in Sources */,
-				5424AE8328D3DF18002F8DDF /* SceneDelegate.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		5424AE8F28D3DF23002F8DDF /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				5424AE9828D3DF23002F8DDF /* HeroesAndVillainsTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		5424AE9928D3DF23002F8DDF /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				5424AEA428D3DF23002F8DDF /* HeroesAndVillainsUITestsLaunchTests.swift in Sources */,
-				5424AEA228D3DF23002F8DDF /* HeroesAndVillainsUITests.swift in Sources */,
+				546982D52901ECB9002AD3CF /* View.swift in Sources */,
+				54D605902902FDD5004F3A50 /* SuperhumanContentManager.swift in Sources */,
+				54F67F39291254C700DFB24D /* SuperhumanListRouterInput.swift in Sources */,
+				54F67F2B29124F4100DFB24D /* SuperhumanCellViewModelDesigner.swift in Sources */,
+				54F67F2829124DA400DFB24D /* SuperhumanListPresenter.swift in Sources */,
+				54D60588290204E5004F3A50 /* SuperhumanCellPresenter.swift in Sources */,
+				54D17978294E238C00B04720 /* TranslatorsAssemly.swift in Sources */,
+				54D1795D294BBB5B00B04720 /* SuperhumanInfoViewInput.swift in Sources */,
+				54D6057629020161004F3A50 /* SuperhumanPlainObject.swift in Sources */,
+				54D60581290202EB004F3A50 /* SuperhumanCellViewModel.swift in Sources */,
+				54F67F402912569A00DFB24D /* SuperumanServiceImplementation.swift in Sources */,
+				542970062927C79B002C7786 /* SuperhumanListModule.swift in Sources */,
+				54D605962907FC6E004F3A50 /* SuperhumanViewOutput.swift in Sources */,
+				54D17974294E1CE600B04720 /* InfrastructureAssembly.swift in Sources */,
+				54D17976294E1DF700B04720 /* DAOAssembly.swift in Sources */,
+				54F67F30291251AA00DFB24D /* SuperhumanListInteractor.swift in Sources */,
+				54D1795F294BBB5B00B04720 /* SuperhumanInfoViewControllerAppearance.swift in Sources */,
+				54D60586290203F8004F3A50 /* SuperhumanCell.swift in Sources */,
+				54D1796B294DF58000B04720 /* SuperhumanDatabaseModel.swift in Sources */,
+				542970132927DE5D002C7786 /* HeroesAndVillainsAssembliesCollector.swift in Sources */,
+				54F67F34291251CE00DFB24D /* SuperhumanListInteractorOutput.swift in Sources */,
+				54D1795A294BBB5B00B04720 /* SuperhumanInfoInteractorOutput.swift in Sources */,
+				542970152927E200002C7786 /* AssembliesCollector.swift in Sources */,
+				5440D740291D43720071BAE7 /* Data.swift in Sources */,
+				540577BA2940FD0F001AE6EC /* HeroesAndVillainsServiceLayerAssembly.swift in Sources */,
+				54D1795B294BBB5B00B04720 /* SuperhumanInfoInteractorInput.swift in Sources */,
+				546982D32901ECB9002AD3CF /* SuperhumansListViewController.swift in Sources */,
+				54F67F2429124B5400DFB24D /* SuperhumanListModuleInput.swift in Sources */,
+				54D17954294BBB5B00B04720 /* SuperhumanInfoModuleInput.swift in Sources */,
+				54D17966294DF4D100B04720 /* Aliases.swift in Sources */,
+				54054F7B290A711200379C22 /* UIColor.swift in Sources */,
+				54F67F32291251B700DFB24D /* SuperhumanListInteractorInput.swift in Sources */,
+				54D17957294BBB5B00B04720 /* SuperhumanInfoRouterInput.swift in Sources */,
+				54D17958294BBB5B00B04720 /* SuperhumanInfoRouter.swift in Sources */,
+				54054F7D2911541300379C22 /* StatPlainObject.swift in Sources */,
+				5429700E2927CFC9002C7786 /* AssembliesHolder.swift in Sources */,
+				54F67F2D29124FE800DFB24D /* SuperhumanCellViewModelDesignerImplementation.swift in Sources */,
+				54D6058E2902F762004F3A50 /* SuperhumanCellPresenterFactoryImpementation.swift in Sources */,
+				54D17955294BBB5B00B04720 /* SuperhumanInfoModuleOutput.swift in Sources */,
+				54F67F37291254A600DFB24D /* SuperhumanListRouter.swift in Sources */,
+				54D17969294DF53500B04720 /* StatDatabaseModel.swift in Sources */,
+				54D17964294CEC4F00B04720 /* SuperhumanType.swift in Sources */,
+				54D605942907FC1C004F3A50 /* SuperhumanViewInput.swift in Sources */,
+				54D17961294CD74C00B04720 /* SuperhumanContentManagerDelegate.swift in Sources */,
+				54D17959294BBB5B00B04720 /* SuperhumanInfoInteractor.swift in Sources */,
+				54F67F2629124BDA00DFB24D /* SuperhumanListModuleOutput.swift in Sources */,
+				54D6058B2902F682004F3A50 /* SuperhumanCellPresenterFactory.swift in Sources */,
+				546982D22901ECB9002AD3CF /* StatView.swift in Sources */,
+				54D1791B294BA13A00B04720 /* SuperhumanInfoViewController.swift in Sources */,
+				54D60592290300D9004F3A50 /* SuperhumanContentManagerImplementation.swift in Sources */,
+				54F67F3E2912560200DFB24D /* SuperhumanService.swift in Sources */,
+				546982D62901ECB9002AD3CF /* AppDelegate.swift in Sources */,
+				54D17970294DFB3100B04720 /* SuperhumanTranslator.swift in Sources */,
+				54D17952294BBB5B00B04720 /* SuperhumanInfoAssembly.swift in Sources */,
+				54D17953294BBB5B00B04720 /* SuperhumanInfoModule.swift in Sources */,
+				54D60584290203CC004F3A50 /* SuperhumanCellAppereance.swift in Sources */,
+				54D17956294BBB5B00B04720 /* SuperhumanInfoPresenter.swift in Sources */,
+				54D1796E294DFAA900B04720 /* StatTranslator.swift in Sources */,
+				546982D72901ECB9002AD3CF /* SceneDelegate.swift in Sources */,
+				54D1795E294BBB5B00B04720 /* SuperhumanInfoViewOutput.swift in Sources */,
+				5429700A2927CC57002C7786 /* SuperhumanListAssembly.swift in Sources */,
+				54D6057F290202BF004F3A50 /* SuperhumanCellViewModelProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
-/* Begin PBXTargetDependency section */
-		5424AE9528D3DF23002F8DDF /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 5424AE7C28D3DF18002F8DDF /* HeroesAndVillains */;
-			targetProxy = 5424AE9428D3DF23002F8DDF /* PBXContainerItemProxy */;
-		};
-		5424AE9F28D3DF23002F8DDF /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 5424AE7C28D3DF18002F8DDF /* HeroesAndVillains */;
-			targetProxy = 5424AE9E28D3DF23002F8DDF /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		5424AE8628D3DF19002F8DDF /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				5424AE8728D3DF19002F8DDF /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		5424AE8B28D3DF22002F8DDF /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				5424AE8C28D3DF22002F8DDF /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
-
 /* Begin XCBuildConfiguration section */
-		5424AEA528D3DF23002F8DDF /* Debug */ = {
+		5424AED928DA684D002F8DDF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -377,7 +828,7 @@
 			};
 			name = Debug;
 		};
-		5424AEA628D3DF23002F8DDF /* Release */ = {
+		5424AEDA28DA684D002F8DDF /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -432,20 +883,21 @@
 			};
 			name = Release;
 		};
-		5424AEA828D3DF23002F8DDF /* Debug */ = {
+		5424AEDC28DA684D002F8DDF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 06FEB553845546154A746D1A /* Pods-HeroesAndVillains.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = HeroesAndVillains/Info.plist;
+				INFOPLIST_FILE = "Supporting Files/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -459,20 +911,21 @@
 			};
 			name = Debug;
 		};
-		5424AEA928D3DF23002F8DDF /* Release */ = {
+		5424AEDD28DA684D002F8DDF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 57B83DF5B93C0AD90226F21A /* Pods-HeroesAndVillains.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = HeroesAndVillains/Info.plist;
+				INFOPLIST_FILE = "Supporting Files/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -483,121 +936,31 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
-		5424AEAB28D3DF23002F8DDF /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = GlebKovalenko.HeroesAndVillainsTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HeroesAndVillains.app/HeroesAndVillains";
-			};
-			name = Debug;
-		};
-		5424AEAC28D3DF23002F8DDF /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = GlebKovalenko.HeroesAndVillainsTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HeroesAndVillains.app/HeroesAndVillains";
-			};
-			name = Release;
-		};
-		5424AEAE28D3DF23002F8DDF /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = GlebKovalenko.HeroesAndVillainsUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = HeroesAndVillains;
-			};
-			name = Debug;
-		};
-		5424AEAF28D3DF23002F8DDF /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = GlebKovalenko.HeroesAndVillainsUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = HeroesAndVillains;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		5424AE7828D3DF18002F8DDF /* Build configuration list for PBXProject "HeroesAndVillains" */ = {
+		5424AEC228DA6844002F8DDF /* Build configuration list for PBXProject "HeroesAndVillains" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				5424AEA528D3DF23002F8DDF /* Debug */,
-				5424AEA628D3DF23002F8DDF /* Release */,
+				5424AED928DA684D002F8DDF /* Debug */,
+				5424AEDA28DA684D002F8DDF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5424AEA728D3DF23002F8DDF /* Build configuration list for PBXNativeTarget "HeroesAndVillains" */ = {
+		5424AEDB28DA684D002F8DDF /* Build configuration list for PBXNativeTarget "HeroesAndVillains" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				5424AEA828D3DF23002F8DDF /* Debug */,
-				5424AEA928D3DF23002F8DDF /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		5424AEAA28D3DF23002F8DDF /* Build configuration list for PBXNativeTarget "HeroesAndVillainsTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				5424AEAB28D3DF23002F8DDF /* Debug */,
-				5424AEAC28D3DF23002F8DDF /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		5424AEAD28D3DF23002F8DDF /* Build configuration list for PBXNativeTarget "HeroesAndVillainsUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				5424AEAE28D3DF23002F8DDF /* Debug */,
-				5424AEAF28D3DF23002F8DDF /* Release */,
+				5424AEDC28DA684D002F8DDF /* Debug */,
+				5424AEDD28DA684D002F8DDF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 5424AE7528D3DF18002F8DDF /* Project object */;
+	rootObject = 5424AEBF28DA6844002F8DDF /* Project object */;
 }
