@@ -72,7 +72,7 @@ extension SuperhumanInfoPresenter: SuperhumanInfoInteractorOutput {
     }
     
     public func processErrorMessage(_ errorMessage: String) {
-        view.undoFavoriteStateChange()
+        view.undoFavoriteFilterChange()
     }
 }
 

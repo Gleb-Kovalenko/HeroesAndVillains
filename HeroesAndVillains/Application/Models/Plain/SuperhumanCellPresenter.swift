@@ -17,13 +17,29 @@ final public class SuperhumanCellPresenter: GenericCellPresenter<SuperhumanCell>
     /// ViewModel instance
     public var viewModel: SuperhumanCellViewModelProtocol
     
+    /// View instance
+    private let view: SuperhumanViewInput
+    
     /// SuperhumanService instance
     public let service: SuperhumanService
     
+    /// Calculated cell height
+    private var cellHeight: Double {
+        viewModel.isFavorite != view.isFavoriteFilterActive && view.isFavoriteFilterActive ? 0 : 196
+    }
+    
     /// Default initializer
     ///
-    /// - Parameter viewModel: ViewModel instance
-    public init(viewModel: SuperhumanCellViewModelProtocol, service: SuperhumanService) {
+    /// - Parameters:
+    ///    - viewModel: ViewModel instance
+    ///    - service: SuperhumanService instance
+    ///    - view: SuperhumansListViewController instance
+    public init(
+        viewModel: SuperhumanCellViewModelProtocol,
+        service: SuperhumanService,
+        view: SuperhumanViewInput
+    ) {
+        self.view = view
         self.viewModel = viewModel
         self.service = service
     }
@@ -36,7 +52,7 @@ final public class SuperhumanCellPresenter: GenericCellPresenter<SuperhumanCell>
     }
     
     override public func cellSize(reusableCellHolder: UITableView) -> CGSize {
-        CGSize(width: reusableCellHolder.frame.width, height: 196)
+        CGSize(width: reusableCellHolder.frame.width, height: cellHeight)
     }
     
     // MARK: - Useful
@@ -51,13 +67,11 @@ extension SuperhumanCellPresenter: SuperhumanCellOutput {
     
     public func didTriggerFavoriteButtonTappedEvent() {
         service
-            .toogleFavorite(
-                superhumanID: viewModel.superhuman.uniqueId,
-                currentFavoriteState: viewModel.superhuman.isFavorite
-            )
+            .toogleFavorite(superhumanID: viewModel.superhuman.uniqueId)
             .async()
-            .success { plain in
-                self.viewModel.isFavorite = plain.isFavorite
+            .success { [self] plain in
+                viewModel = SuperhumanCellViewModel(superhumanPlainObject: plain)
+                reusableCellHolder?.reloadData()
             }
             .failure { _ in }
     }

@@ -13,12 +13,18 @@ import Swinject
 
 final public class SuperhumanCellPresenterFactoryImplementation {
     
+    /// DI container
     public var container: Container
+    
+    /// SuperhumanListViewController instance
+    public var view: SuperhumanViewInput
     
     /// Default initializer
     /// - Parameters:
     ///   - container: Container instance
-    public init(container: Container) {
+    ///   - view: SuperhumanListViewController instance
+    public init(container: Container, view: SuperhumanViewInput) {
+        self.view = view
         self.container = container
     }
 }
@@ -33,6 +39,6 @@ extension SuperhumanCellPresenterFactoryImplementation: SuperhumanCellPresenterF
     ) -> SuperhumanCellPresenter {
         SuperhumanCellPresenter.registerCell(on: tableView)
         let superhumanService = container.resolve(SuperhumanService.self).unwrap()
-        return SuperhumanCellPresenter(viewModel: viewModel, service: superhumanService)
+        return SuperhumanCellPresenter(viewModel: viewModel, service: superhumanService, view: view)
     }
 }

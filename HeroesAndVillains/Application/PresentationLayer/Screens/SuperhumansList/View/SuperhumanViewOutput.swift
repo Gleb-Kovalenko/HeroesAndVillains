@@ -14,4 +14,7 @@ public protocol SuperhumanViewOutput {
     
     /// View is ready
     func didTriggerViewReadyEvent()
+    
+    /// Favorite filter button tapped
+    func didTriggerFavoriteFilterButtonTapped(isFavoriteFilterActive: Bool)
 }

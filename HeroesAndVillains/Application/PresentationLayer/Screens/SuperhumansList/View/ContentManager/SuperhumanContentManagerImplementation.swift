@@ -50,7 +50,7 @@ extension SuperhumanContentManagerImplementation: SuperhumanContentManager {
         else {
             return
         }
-        cellPresenter.viewModel = viewModel
+        cellPresenter.viewModel = SuperhumanCellViewModel(superhumanPlainObject: viewModel.superhuman)
         cellPresenter.updateCell(cell)
     }
     
@@ -68,7 +68,8 @@ extension SuperhumanContentManagerImplementation: SuperhumanContentManager {
 extension SuperhumanContentManagerImplementation: UITableViewDelegate {
 
     public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        presenters[indexPath.row].cellSize(reusableCellHolder: tableView).height
+        
+        return presenters[indexPath.row].cellSize(reusableCellHolder: tableView).height
     }
 
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

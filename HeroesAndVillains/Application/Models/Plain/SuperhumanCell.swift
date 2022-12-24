@@ -75,6 +75,13 @@ final public class SuperhumanCell: UITableViewCell {
         super.layoutIfNeeded()
         containerView.smoothCorners(radius: 24)
     }
+    
+    public override func prepareForReuse() {
+        super.prepareForReuse()
+        for view in statsStackView.subviews {
+            view.removeFromSuperview()
+        }
+    }
 
     // MARK: - Useful
     
@@ -89,14 +96,12 @@ final public class SuperhumanCell: UITableViewCell {
     // MARK: - Private
     
     private func setStats(with stats: [StatPlainObject]) {
-        if statsStackView.subviews.isEmpty {
-            for stat in stats {
-                let statView = StatView()
-                let shortName = stat.shortName
-                let value = stat.value
-                statView.setupText(statValue: value, statName: shortName)
-                statsStackView.addArrangedSubview(statView)
-            }
+        for stat in stats {
+            let statView = StatView()
+            let shortName = stat.shortName
+            let value = stat.value
+            statView.setupText(statValue: value, statName: shortName)
+            statsStackView.addArrangedSubview(statView)
         }
     }
 }

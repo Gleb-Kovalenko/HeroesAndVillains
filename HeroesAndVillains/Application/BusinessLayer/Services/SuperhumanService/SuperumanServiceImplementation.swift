@@ -46,7 +46,11 @@ extension SuperumanServiceImplementation: SuperhumanService {
         try superhumanDAO.read(predicatedBy: "type == \(filter.rawValue)")
     }
     
-    public func toogleFavorite(superhumanID: UniqueID, currentFavoriteState: Bool) -> ServiceCall<SuperhumanPlainObject> {
+    public func obtainCache(with filter: SuperhumanType, isFavoriteFilterActive: Bool) throws -> [SuperhumanPlainObject] {
+        try superhumanDAO.read(predicatedBy: "type == \(filter.rawValue) and isFavotire == \(isFavoriteFilterActive)")
+    }
+    
+    public func toogleFavorite(superhumanID: UniqueID) -> ServiceCall<SuperhumanPlainObject> {
         createCall {
             do {
                 let superhumanPlain = try self.superhumanDAO.read(byPrimaryKey: superhumanID)

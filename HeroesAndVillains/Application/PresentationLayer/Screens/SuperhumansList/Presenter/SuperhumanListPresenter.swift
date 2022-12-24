@@ -59,6 +59,10 @@ extension SuperhumanListPresenter: SuperhumanViewOutput {
         view.setupInitialState()
         interactor?.obtainSuperhumans()
     }
+    
+    public func didTriggerFavoriteFilterButtonTapped(isFavoriteFilterActive: Bool) {
+        interactor?.obtainSuperhumans(with: isFavoriteFilterActive)
+    }
 }
 
 // MARK: - SuperhumanContentManagerDelegate

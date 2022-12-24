@@ -53,4 +53,18 @@ extension SuperhumanListInteractor: SuperhumanListInteractorInput {
             output?.processError(error)
         }
     }
+    
+    public func obtainSuperhumans(with isFavoriteFilterActive: Bool) {
+        do {
+            var plains = [SuperhumanPlainObject]()
+            if isFavoriteFilterActive {
+                plains = try superhumanService.obtainCache(with: data, isFavoriteFilterActive: isFavoriteFilterActive)
+            } else {
+                plains = try superhumanService.obtainCache(with: data)
+            }
+            output?.obtainSuperhumanSuccess(plains)
+        } catch {
+            output?.processError(error)
+        }
+    }
 }

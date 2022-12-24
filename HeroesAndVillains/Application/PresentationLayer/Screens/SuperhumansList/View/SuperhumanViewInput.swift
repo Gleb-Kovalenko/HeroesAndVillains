@@ -11,6 +11,9 @@ import Foundation
 
 public protocol SuperhumanViewInput: AnyObject {
 
+    /// Current state of favorite filter
+    var isFavoriteFilterActive: Bool { get }
+    
     /// Setup initial view state
     func setupInitialState()
 

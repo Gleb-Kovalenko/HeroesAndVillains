@@ -13,5 +13,5 @@ public protocol SuperhumanInfoViewInput: AnyObject {
     func setupInitialState()
     
     /// Undo favorite state if has handled error while changing state
-    func undoFavoriteStateChange()
+    func undoFavoriteFilterChange()
 }

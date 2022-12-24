@@ -183,7 +183,7 @@ extension SuperhumanInfoViewController: SuperhumanInfoViewInput {
         setContent(from: data)
     }
     
-    public func undoFavoriteStateChange() {
+    public func undoFavoriteFilterChange() {
         favoriteButton.isSelected = !favoriteButton.isSelected
     }
 }

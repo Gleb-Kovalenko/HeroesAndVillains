@@ -27,6 +27,15 @@ public final class SuperhumansListViewController: UIViewController {
         return tableView
     }()
     
+    /// Filter by favorti button
+    var favoriteFilterButton: UIButton = {
+        let button = UIButton()
+        button.setImage(UIImage(named: "unfilledStar"), for: .normal)
+        button.setImage(UIImage(named: "filledStar"), for: .selected)
+        button.addTarget(self, action: #selector(favoriteFilter), for: .touchUpInside)
+        return button
+    }()
+    
     // MARK: - Initializers
 
     /// Default initializer
@@ -67,12 +76,24 @@ extension SuperhumansListViewController {
     }
 }
 
+// MARK: ButtonAction
+
+extension SuperhumansListViewController {
+    
+    @objc func favoriteFilter() {
+        favoriteFilterButton.isSelected = !favoriteFilterButton.isSelected
+        output?.didTriggerFavoriteFilterButtonTapped(isFavoriteFilterActive: favoriteFilterButton.isSelected)
+    }
+}
+
 // MARK: - Layout
 
 extension SuperhumansListViewController {
     
     private func setupLayout() {
+        setupTableView()
         setupNavigatioBar()
+        setupFavoriteFilterButton()
     }
     
     /// Setup table with superhumans cards
@@ -80,6 +101,13 @@ extension SuperhumansListViewController {
         tableView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(tableView)
         tableView.fullPinTo(view: view)
+    }
+    
+    private func setupFavoriteFilterButton() {
+        favoriteFilterButton.translatesAutoresizingMaskIntoConstraints = false
+        tableView.addSubview(favoriteFilterButton)
+        favoriteFilterButton.rightAnchor.constraint(equalTo: tableView.rightAnchor, constant: 50).isActive = true
+        favoriteFilterButton.topAnchor.constraint(equalTo: tableView.topAnchor, constant: 36).isActive = true
     }
     
     private func setupNavigatioBar() {
@@ -101,8 +129,11 @@ extension SuperhumansListViewController {
 
 extension SuperhumansListViewController: SuperhumanViewInput {
     
+    public var isFavoriteFilterActive: Bool {
+        favoriteFilterButton.isSelected
+    }
+    
     public func setupInitialState() {
-        setupTableView()
     }
     
     public func selectSuperhuman(_ code: String) {
