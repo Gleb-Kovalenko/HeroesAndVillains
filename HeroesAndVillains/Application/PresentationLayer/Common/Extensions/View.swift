@@ -47,6 +47,6 @@ extension UIView {
         gradientLayer.transform = CATransform3DMakeAffineTransform(CGAffineTransform(a: 0, b: 1, c: -1, d: 0, tx: 1, ty: 0))
         gradientLayer.position = self.center
         gradientLayer.frame = self.bounds
-        self.layer.insertSublayer(gradientLayer, at: 0)
+        layer.insertSublayer(gradientLayer, at: 0)
     }
 }

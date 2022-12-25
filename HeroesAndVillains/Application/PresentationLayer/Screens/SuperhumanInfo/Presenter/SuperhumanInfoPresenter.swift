@@ -59,7 +59,7 @@ extension SuperhumanInfoPresenter: SuperhumanInfoViewOutput {
     }
     
     public func didTriggerFavoriteButtonTappedEvent() {
-        interactor.toogleFavorite(superhumanId: data.uniqueId, currentState: data.isFavorite)
+        interactor.toggleFavorite(superhumanId: data.uniqueId)
     }
 }
 
@@ -67,12 +67,11 @@ extension SuperhumanInfoPresenter: SuperhumanInfoViewOutput {
 
 extension SuperhumanInfoPresenter: SuperhumanInfoInteractorOutput {
     
-    public func favoriteToogleSuccess(updatedData: SuperhumanInfoModule.Data) {
+    public func favoriteToggleSuccess(updatedData: SuperhumanInfoModule.Data) {
         output?.updateCellInfo(with: updatedData)
     }
     
     public func processErrorMessage(_ errorMessage: String) {
-        view.undoFavoriteFilterChange()
     }
 }
 

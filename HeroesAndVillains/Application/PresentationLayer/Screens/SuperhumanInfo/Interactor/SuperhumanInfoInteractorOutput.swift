@@ -11,8 +11,8 @@ import VIPER
 
 public protocol SuperhumanInfoInteractorOutput: InteractorOutput {
     
-    /// Superhuman favorite state change was succces
+    /// Superhuman favorite status changed successfully
     /// - Parameters:
     ///    - updatedData: updated superhuman plain object
-    func favoriteToogleSuccess(updatedData: SuperhumanInfoModule.Data)
+    func favoriteToggleSuccess(updatedData: SuperhumanInfoModule.Data)
 }

@@ -37,8 +37,8 @@ public struct SuperhumanPlainObject: Decodable, Plain {
     /// Superhuman stats instance
     let stats: [StatPlainObject]
     
-    /// Toogle superhuman favorite state
-    func toogleFavorite() -> SuperhumanPlainObject {
+    /// toggle superhuman favorite state
+    func toggleFavorite() -> SuperhumanPlainObject {
         SuperhumanPlainObject(
             name: self.name,
             type: self.type,

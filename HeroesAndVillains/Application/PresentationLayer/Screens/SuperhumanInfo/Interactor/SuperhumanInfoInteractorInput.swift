@@ -11,6 +11,6 @@ import SDAO
 
 public protocol SuperhumanInfoInteractorInput {
     
-    /// Toogle superhuman favorite state
-    func toogleFavorite(superhumanId: UniqueID, currentState: Bool)
+    /// Toggle superhuman favorite state
+    func toggleFavorite(superhumanId: UniqueID)
 }

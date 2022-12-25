@@ -21,7 +21,7 @@ final public class SuperhumanCellPresenter: GenericCellPresenter<SuperhumanCell>
     private let view: SuperhumanViewInput
     
     /// SuperhumanService instance
-    public let service: SuperhumanService
+    public let superhumanService: SuperhumanService
     
     /// Calculated cell height
     private var cellHeight: Double {
@@ -41,7 +41,7 @@ final public class SuperhumanCellPresenter: GenericCellPresenter<SuperhumanCell>
     ) {
         self.view = view
         self.viewModel = viewModel
-        self.service = service
+        self.superhumanService = service
     }
     
     // MARK: - SuperhumanCellPresenter
@@ -66,8 +66,8 @@ final public class SuperhumanCellPresenter: GenericCellPresenter<SuperhumanCell>
 extension SuperhumanCellPresenter: SuperhumanCellOutput {
     
     public func didTriggerFavoriteButtonTappedEvent() {
-        service
-            .toogleFavorite(superhumanID: viewModel.superhuman.uniqueId)
+        superhumanService
+            .toggleFavorite(superhumanID: viewModel.superhuman.uniqueId)
             .async()
             .success { [self] plain in
                 viewModel = SuperhumanCellViewModel(superhumanPlainObject: plain)

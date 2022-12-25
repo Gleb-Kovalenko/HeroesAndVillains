@@ -35,12 +35,12 @@ final public class SuperhumanInfoInteractor {
 
 extension SuperhumanInfoInteractor: SuperhumanInfoInteractorInput {
     
-    /// Toogle favorite state in superhuman by id
-    public func toogleFavorite(superhumanId: UniqueID, currentState: Bool) {
+    /// toggle favorite state in superhuman by id
+    public func toggleFavorite(superhumanId: UniqueID) {
         superhumanService
-            .toogleFavorite(superhumanID: superhumanId)
+            .toggleFavorite(superhumanID: superhumanId)
             .async()
-            .success (self.output?.favoriteToogleSuccess)
-            .failure (self.output?.processError)
+            .success(output?.favoriteToggleSuccess)
+            .failure(output?.processError)
     }
 }

@@ -50,13 +50,17 @@ extension SuperumanServiceImplementation: SuperhumanService {
         try superhumanDAO.read(predicatedBy: "type == \(filter.rawValue) and isFavotire == \(isFavoriteFilterActive)")
     }
     
-    public func toogleFavorite(superhumanID: UniqueID) -> ServiceCall<SuperhumanPlainObject> {
+    public func toggleFavorite(superhumanID: UniqueID) -> ServiceCall<SuperhumanPlainObject> {
         createCall {
             do {
                 let superhumanPlain = try self.superhumanDAO.read(byPrimaryKey: superhumanID)
-                let updatedSuperhumanPlain = superhumanPlain?.toogleFavorite()
+                let updatedSuperhumanPlain = superhumanPlain?.toggleFavorite()
                 guard let updatedSuperhumanPlain = updatedSuperhumanPlain else {
-                    return .failure(NSError(domain:"Bad error:(", code: 666, userInfo:nil))
+                    return .failure(NSError(
+                        domain:"Not found",
+                        code: 404,
+                        userInfo: ["description": "Superhuman not found in database"]
+                    ))
                 }
                 try self.superhumanDAO.persist(updatedSuperhumanPlain)
                 return .success(updatedSuperhumanPlain)

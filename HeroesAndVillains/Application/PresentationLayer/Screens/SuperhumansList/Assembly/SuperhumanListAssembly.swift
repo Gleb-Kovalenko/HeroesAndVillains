@@ -70,14 +70,12 @@ final public class SuperhumanListAssembly: CollectableAssembly {
             data: SuperhumanListModule.Data
         ) in
             let superhumanService = resolver.resolve(SuperhumanService.self).unwrap()
-            let interactor = SuperhumanListInteractor(superhumanService: superhumanService, data: data)
-            return interactor
+            return SuperhumanListInteractor(superhumanService: superhumanService, data: data)
         }
         
         container.register(SuperhumanCellPresenterFactory.self) { (resolver, view: SuperhumanViewInput) in
             let container = resolver.resolve(Container.self).unwrap()
-            let factory = SuperhumanCellPresenterFactoryImplementation(container: container, view: view)
-            return factory
+            return SuperhumanCellPresenterFactoryImplementation(container: container, view: view)
         }
 
         container.register(SuperhumanCellViewModelDesigner.self) { _ in

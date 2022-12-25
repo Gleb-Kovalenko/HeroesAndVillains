@@ -185,8 +185,8 @@ extension SuperhumanCell {
 extension SuperhumanCell {
     
     @objc func favoritesAction() {
-        output?.didTriggerFavoriteButtonTappedEvent()
         favoriteButton.isSelected = !favoriteButton.isSelected
+        output?.didTriggerFavoriteButtonTappedEvent()
     }
 }
 
