@@ -21,7 +21,7 @@ public protocol SuperhumanContentManager: GeneralContentManager {
     /// - Parameter viewModels: new data
     func updateData(_ viewModels: [SuperhumanCellViewModelProtocol])
 
-    /// Select some superhuman
-    /// - Parameter superhumanName: some superhuman's name
-    func selectSuperhuman(_ superhumanId: UniqueID)
+    /// Update cell view model
+    /// - Parameter viewModel: new viewModel
+    func updateCellViewModel(with viewModel: SuperhumanCellViewModelProtocol)
 }

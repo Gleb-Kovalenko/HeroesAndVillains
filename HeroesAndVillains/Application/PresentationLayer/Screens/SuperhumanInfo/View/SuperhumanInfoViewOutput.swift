@@ -11,4 +11,7 @@ public protocol SuperhumanInfoViewOutput {
 
     /// View is ready
     func didTriggerViewReadyEvent()
+    
+    /// Favorite button tapped
+    func didTriggerFavoriteButtonTappedEvent()
 }

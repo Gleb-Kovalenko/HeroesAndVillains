@@ -7,10 +7,26 @@
 
 import Foundation
 import UIKit
+import Swinject
 
 // MARK: - SuperhumanCellPresenterFactoryImplementation
 
 final public class SuperhumanCellPresenterFactoryImplementation {
+    
+    /// DI container
+    public var container: Container
+    
+    /// SuperhumanListViewController instance
+    public unowned var view: SuperhumanViewInput
+    
+    /// Default initializer
+    /// - Parameters:
+    ///   - container: Container instance
+    ///   - view: SuperhumanListViewController instance
+    public init(container: Container, view: SuperhumanViewInput) {
+        self.view = view
+        self.container = container
+    }
 }
 
 // MARK: - SuperhumanCellPresenterFactory
@@ -22,6 +38,7 @@ extension SuperhumanCellPresenterFactoryImplementation: SuperhumanCellPresenterF
         tableView: UITableView
     ) -> SuperhumanCellPresenter {
         SuperhumanCellPresenter.registerCell(on: tableView)
-        return SuperhumanCellPresenter(viewModel: viewModel)
+        let superhumanService = container.resolve(SuperhumanService.self).unwrap()
+        return SuperhumanCellPresenter(viewModel: viewModel, superhumanService: superhumanService, view: view)
     }
 }

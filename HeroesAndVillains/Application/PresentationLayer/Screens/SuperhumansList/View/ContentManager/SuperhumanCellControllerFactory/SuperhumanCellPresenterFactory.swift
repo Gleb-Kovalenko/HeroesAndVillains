@@ -33,7 +33,7 @@ extension SuperhumanCellPresenterFactory {
     ///   - viewModels: viewModels instances for cells configuration
     ///   - tableView: tableView for registering cells
     /// - Returns: SuperhumanCellPresenter array
-    func controllers(with viewModels: [SuperhumanCellViewModelProtocol], tableView: UITableView) -> [SuperhumanCellPresenter] {
+    func presenters(with viewModels: [SuperhumanCellViewModelProtocol], tableView: UITableView) -> [SuperhumanCellPresenter] {
         viewModels.map {
             controller(with: $0, tableView: tableView)
         }

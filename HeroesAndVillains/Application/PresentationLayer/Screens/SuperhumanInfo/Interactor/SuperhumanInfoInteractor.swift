@@ -6,6 +6,7 @@
 //
 
 import VIPER
+import SDAO
 
 // MARK: - SuperhumanInfoInteractor
 
@@ -33,4 +34,13 @@ final public class SuperhumanInfoInteractor {
 // MARK: - SuperhumanInfoInteractorInput
 
 extension SuperhumanInfoInteractor: SuperhumanInfoInteractorInput {
+    
+    /// Toggle favorite state in superhuman by id
+    public func toggleFavorite(superhumanId: UniqueID) {
+        superhumanService
+            .toggleFavorite(superhumanID: superhumanId)
+            .async()
+            .success(output?.favoriteToggleSuccess)
+            .failure(output?.processError)
+    }
 }

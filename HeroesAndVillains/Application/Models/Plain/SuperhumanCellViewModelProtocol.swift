@@ -30,4 +30,9 @@ public protocol SuperhumanCellViewModelProtocol {
     
     /// Superhuman object instance
     var superhuman: SuperhumanPlainObject { get }
+    
+    /// Default initializer
+    /// - Parameters:
+    ///   - superhumanPlainObject: SuperhumanPlainObject instance
+    init(superhumanPlainObject: SuperhumanPlainObject)
 }

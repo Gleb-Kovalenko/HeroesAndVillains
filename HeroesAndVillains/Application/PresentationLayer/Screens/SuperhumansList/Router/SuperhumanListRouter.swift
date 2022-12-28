@@ -26,6 +26,11 @@ extension SuperhumanListRouter: SuperhumanListRouterInput {
         transitionHandler
             .openModule(SuperhumanInfoModule.self, withData: data)
             .to(.navigation(style: .push))
-            .perform()
+            .then { target in
+                guard let moduleOutput = self.transitionHandler.moduleOutput else {
+                    return
+                }
+                target.setModuleOutput(moduleOutput)
+            }
     }
 }

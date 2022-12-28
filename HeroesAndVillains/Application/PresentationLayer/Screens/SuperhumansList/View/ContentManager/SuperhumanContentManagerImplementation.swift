@@ -22,8 +22,8 @@ final public class SuperhumanContentManagerImplementation: IntermediateContentMa
     /// Delegate instance
     public weak var delegate: SuperhumanContentManagerDelegate?
     
-    /// Current controllers which manipulates tableView's cells
-    private var controllers: [SuperhumanCellPresenter] = []
+    /// Current presenters which manipulates tableView's cells
+    private var presenters: [SuperhumanCellPresenter] = []
     
     // MARK: - Initializers
     
@@ -43,15 +43,22 @@ final public class SuperhumanContentManagerImplementation: IntermediateContentMa
 
 extension SuperhumanContentManagerImplementation: SuperhumanContentManager {
     
-    public func selectSuperhuman(_ superhumanId: UniqueID) {
-        //Later
+    public func updateCellViewModel(with viewModel: SuperhumanCellViewModelProtocol) {
+        guard
+            let cellPresenter = presenters.first(where: { $0.viewModel.superhuman.uniqueId == viewModel.superhuman.uniqueId }),
+            let cell = cellPresenter.currentCell()
+        else {
+            return
+        }
+        cellPresenter.viewModel = SuperhumanCellViewModel(superhumanPlainObject: viewModel.superhuman)
+        cellPresenter.updateCell(cell)
     }
     
     public func updateData(_ viewModels: [SuperhumanCellViewModelProtocol]) {
         guard let tableView = contentView else {
             return
         }
-        controllers = presentersFactory.controllers(with: viewModels, tableView: tableView)
+        presenters = presentersFactory.presenters(with: viewModels, tableView: tableView)
         tableView.reloadData()
     }
 }
@@ -61,11 +68,12 @@ extension SuperhumanContentManagerImplementation: SuperhumanContentManager {
 extension SuperhumanContentManagerImplementation: UITableViewDelegate {
 
     public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        controllers[indexPath.row].cellSize(reusableCellHolder: tableView).height
+        
+        presenters[indexPath.row].cellSize(reusableCellHolder: tableView).height
     }
 
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let controller = controllers[indexPath.row]
+        let controller = presenters[indexPath.row]
         delegate?.didSelectSuperhuman(controller.viewModel.superhuman)
     }
 }
@@ -75,11 +83,11 @@ extension SuperhumanContentManagerImplementation: UITableViewDelegate {
 extension SuperhumanContentManagerImplementation: UITableViewDataSource {
     
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        controllers.count
+        presenters.count
     }
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = controllers[indexPath.row].cellFromReusableCellHolder(tableView, forIndexPath: indexPath) as? SuperhumanCell
+        let cell = presenters[indexPath.row].cellFromReusableCellHolder(tableView, forIndexPath: indexPath) as? SuperhumanCell
         cell?.smoothCorners(radius: 24)
         cell?.selectionStyle = .none
         return cell.unwrap()

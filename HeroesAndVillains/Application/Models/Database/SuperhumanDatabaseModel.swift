@@ -17,6 +17,7 @@ public final class SuperhumanDatabaseModel: RealmModel {
     @objc dynamic var name = ""
     @objc dynamic var type = 0
     @objc dynamic var imageURL = ""
+    @objc dynamic var isFavotire = false
     @objc dynamic var backgroundColorHex = ""
     let stats = List<StatDatabaseModel>()
 }

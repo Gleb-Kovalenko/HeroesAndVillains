@@ -14,7 +14,10 @@ import UIKit
 final public class SuperhumanCell: UITableViewCell {
         
     // MARK: - Properties
-
+    
+    /// SuperhumanCell output instance
+    public weak var output: SuperhumanCellOutput?
+    
     /// General cell container view
     private let containerView = UIView()
 
@@ -44,6 +47,8 @@ final public class SuperhumanCell: UITableViewCell {
     private let favoriteButton: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(named: "unfilledStar"), for: .normal)
+        button.setImage(UIImage(named: "filledStar"), for: .selected)
+        button.addTarget(self, action: #selector(favoritesAction), for: .touchUpInside)
         return button
     }()
 
@@ -70,6 +75,13 @@ final public class SuperhumanCell: UITableViewCell {
         super.layoutIfNeeded()
         containerView.smoothCorners(radius: 24)
     }
+    
+    public override func prepareForReuse() {
+        super.prepareForReuse()
+        for view in statsStackView.subviews {
+            view.removeFromSuperview()
+        }
+    }
 
     // MARK: - Useful
     
@@ -77,20 +89,19 @@ final public class SuperhumanCell: UITableViewCell {
         headerLabelView.text = viewModel.name
         superhumanImageView.kf.setImage(with: viewModel.imageURL)
         setStats(with: viewModel.stats)
+        favoriteButton.isSelected = viewModel.isFavorite
         containerView.backgroundColor = UIColor(hex: viewModel.backgroundColorHex)
     }
     
     // MARK: - Private
     
     private func setStats(with stats: [StatPlainObject]) {
-        if statsStackView.subviews.isEmpty {
-            for stat in stats {
-                let statView = StatView()
-                let shortName = stat.shortName
-                let value = stat.value
-                statView.setupText(statValue: value, statName: shortName)
-                statsStackView.addArrangedSubview(statView)
-            }
+        for stat in stats {
+            let statView = StatView()
+            let shortName = stat.shortName
+            let value = stat.value
+            statView.setupText(statValue: value, statName: shortName)
+            statsStackView.addArrangedSubview(statView)
         }
     }
 }
@@ -166,6 +177,16 @@ extension SuperhumanCell {
         statsStackView.leftAnchor.constraint(equalTo: infoContainerView.leftAnchor).isActive = true
         statsStackView.rightAnchor.constraint(equalTo: infoContainerView.rightAnchor).isActive = true
         statsStackView.bottomAnchor.constraint(equalTo: infoContainerView.bottomAnchor).isActive = true
+    }
+}
+
+// MARK: - ButtonAction
+
+extension SuperhumanCell {
+    
+    @objc func favoritesAction() {
+        favoriteButton.isSelected = !favoriteButton.isSelected
+        output?.didTriggerFavoriteButtonTappedEvent()
     }
 }
 

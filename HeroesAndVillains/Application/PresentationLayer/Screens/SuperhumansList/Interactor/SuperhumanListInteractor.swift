@@ -41,16 +41,28 @@ extension SuperhumanListInteractor: SuperhumanListInteractorInput {
         do {
             let plains = try superhumanService.obtainCache(with: data)
             if plains.isEmpty {
-                print("ne cache")
                 superhumanService
                     .obtain(with: data)
                     .async()
                     .success(output?.obtainSuperhumanSuccess)
                     .failure(output?.processError)
             } else {
-                print("cache")
                 output?.obtainSuperhumanSuccess(plains)
             }
+        } catch {
+            output?.processError(error)
+        }
+    }
+    
+    public func obtainSuperhumans(with isFavoriteFilterActive: Bool) {
+        do {
+            var plains = [SuperhumanPlainObject]()
+            if isFavoriteFilterActive {
+                plains = try superhumanService.obtainFavorites(with: data)
+            } else {
+                plains = try superhumanService.obtainCache(with: data)
+            }
+            output?.obtainSuperhumanSuccess(plains)
         } catch {
             output?.processError(error)
         }

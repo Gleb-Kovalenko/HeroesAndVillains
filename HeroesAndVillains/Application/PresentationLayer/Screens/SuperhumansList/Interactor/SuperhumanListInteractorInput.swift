@@ -13,4 +13,7 @@ public protocol SuperhumanListInteractorInput {
     
     /// Obtain all available superhumans
     func obtainSuperhumans()
+    
+    /// Obtain all superumans with favorite state
+    func obtainSuperhumans(with isFavoriteFilterActive: Bool)
 }

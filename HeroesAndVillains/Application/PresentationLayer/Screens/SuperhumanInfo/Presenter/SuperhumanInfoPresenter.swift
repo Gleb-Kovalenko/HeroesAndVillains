@@ -6,6 +6,7 @@
 //
 
 import VIPER
+import TransitionHandler
 
 // MARK: - SuperhumanInfoPresenter
 
@@ -56,12 +57,29 @@ extension SuperhumanInfoPresenter: SuperhumanInfoViewOutput {
     public func didTriggerViewReadyEvent() {
         view.setupInitialState()
     }
+    
+    public func didTriggerFavoriteButtonTappedEvent() {
+        interactor.toggleFavorite(superhumanId: data.uniqueId)
+    }
 }
 
 // MARK: - SuperhumanInfoInteractorOutput
 
 extension SuperhumanInfoPresenter: SuperhumanInfoInteractorOutput {
-
+    
+    public func favoriteToggleSuccess(updatedData: SuperhumanInfoModule.Data) {
+        output?.updateCellInfo(with: updatedData)
+    }
+    
     public func processErrorMessage(_ errorMessage: String) {
+    }
+}
+
+// MARK: - SuperhumanInfoModuleInput
+
+extension SuperhumanInfoPresenter: SuperhumanInfoModuleInput {
+
+    public func setModuleOutput(_ moduleOutput: ModuleOutput) {
+        self.output = moduleOutput as? SuperhumanInfoModuleOutput
     }
 }

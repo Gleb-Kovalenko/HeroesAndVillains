@@ -51,7 +51,7 @@ final public class SuperhumanListAssembly: CollectableAssembly {
                 .resolve(SuperhumanListInteractorInput.self, argument: data)
                 .unwrap(as: SuperhumanListInteractor.self)
             let superhumanCellViewModelDesigner = resolver.resolve(SuperhumanCellViewModelDesigner.self).unwrap()
-            var contentManager = resolver.resolve(SuperhumanContentManager.self, argument: view).unwrap()
+            var contentManager = resolver.resolve(SuperhumanContentManager.self, arguments: view, data).unwrap()
             let transitionHandler = view as TransitionHandler
             let presenter = SuperhumanListPresenter(
                 view: view as SuperhumanViewInput,
@@ -70,20 +70,20 @@ final public class SuperhumanListAssembly: CollectableAssembly {
             data: SuperhumanListModule.Data
         ) in
             let superhumanService = resolver.resolve(SuperhumanService.self).unwrap()
-            let interactor = SuperhumanListInteractor(superhumanService: superhumanService, data: data)
-            return interactor
+            return SuperhumanListInteractor(superhumanService: superhumanService, data: data)
         }
         
-        container.register(SuperhumanCellPresenterFactory.self) { resolver in
-            SuperhumanCellPresenterFactoryImplementation()
+        container.register(SuperhumanCellPresenterFactory.self) { (resolver, view: SuperhumanViewInput) in
+            let container = resolver.resolve(Container.self).unwrap()
+            return SuperhumanCellPresenterFactoryImplementation(container: container, view: view)
         }
 
         container.register(SuperhumanCellViewModelDesigner.self) { _ in
             SuperhumanCellViewModelDesignerImplementation()
         }
 
-        container.register(SuperhumanContentManager.self) { (resolver, controller: SuperhumansListViewController) in
-            let presentersFactory = resolver.resolve(SuperhumanCellPresenterFactory.self).unwrap()
+        container.register(SuperhumanContentManager.self) { (resolver, controller: SuperhumansListViewController, data: SuperhumanListModule.Data) in
+            let presentersFactory = resolver.resolve(SuperhumanCellPresenterFactory.self, argument: controller as SuperhumanViewInput).unwrap()
             let contentManager = SuperhumanContentManagerImplementation(presentersFactory: presentersFactory)
             contentManager.configure(withContentView: controller.tableView)
             return contentManager
