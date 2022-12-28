@@ -46,8 +46,8 @@ extension SuperumanServiceImplementation: SuperhumanService {
         try superhumanDAO.read(predicatedBy: "type == \(filter.rawValue)")
     }
     
-    public func obtainCache(with filter: SuperhumanType, isFavoriteFilterActive: Bool) throws -> [SuperhumanPlainObject] {
-        try superhumanDAO.read(predicatedBy: "type == \(filter.rawValue) and isFavotire == \(isFavoriteFilterActive)")
+    public func obtainFavorites(with filter: SuperhumanType) throws -> [SuperhumanPlainObject] {
+        try superhumanDAO.read(predicatedBy: "type == \(filter.rawValue) and isFavotire == true")
     }
     
     public func toggleFavorite(superhumanID: UniqueID) -> ServiceCall<SuperhumanPlainObject> {
@@ -57,7 +57,7 @@ extension SuperumanServiceImplementation: SuperhumanService {
                 let updatedSuperhumanPlain = superhumanPlain?.toggleFavorite()
                 guard let updatedSuperhumanPlain = updatedSuperhumanPlain else {
                     return .failure(NSError(
-                        domain:"Not found",
+                        domain:"com.superhumans.app",
                         code: 404,
                         userInfo: ["description": "Superhuman not found in database"]
                     ))

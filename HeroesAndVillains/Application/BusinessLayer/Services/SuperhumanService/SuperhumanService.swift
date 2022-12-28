@@ -19,9 +19,9 @@ public protocol SuperhumanService {
     /// Obtain cache with superhumans
     func obtainCache(with filter: SuperhumanType) throws -> [SuperhumanPlainObject]
     
-    /// toggle superhuman favorite
+    /// Toggle superhuman favorite
     func toggleFavorite(superhumanID: UniqueID) -> ServiceCall<SuperhumanPlainObject>
     
-    /// Obtain cache with superhumans that have needed favorite state
-    func obtainCache(with filter: SuperhumanType, isFavoriteFilterActive: Bool) throws -> [SuperhumanPlainObject]
+    /// Obtain favorite superhumans
+    func obtainFavorites(with filter: SuperhumanType) throws -> [SuperhumanPlainObject]
 }

@@ -32,16 +32,16 @@ final public class SuperhumanCellPresenter: GenericCellPresenter<SuperhumanCell>
     ///
     /// - Parameters:
     ///    - viewModel: ViewModel instance
-    ///    - service: SuperhumanService instance
+    ///    - superhumanService: SuperhumanService instance
     ///    - view: SuperhumansListViewController instance
     public init(
         viewModel: SuperhumanCellViewModelProtocol,
-        service: SuperhumanService,
+        superhumanService: SuperhumanService,
         view: SuperhumanViewInput
     ) {
         self.view = view
         self.viewModel = viewModel
-        self.superhumanService = service
+        self.superhumanService = superhumanService
     }
     
     // MARK: - SuperhumanCellPresenter

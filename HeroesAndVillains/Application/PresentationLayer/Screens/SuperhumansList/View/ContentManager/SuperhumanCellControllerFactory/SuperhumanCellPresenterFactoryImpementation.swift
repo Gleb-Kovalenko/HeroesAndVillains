@@ -17,7 +17,7 @@ final public class SuperhumanCellPresenterFactoryImplementation {
     public var container: Container
     
     /// SuperhumanListViewController instance
-    public var view: SuperhumanViewInput
+    public unowned var view: SuperhumanViewInput
     
     /// Default initializer
     /// - Parameters:
@@ -39,6 +39,6 @@ extension SuperhumanCellPresenterFactoryImplementation: SuperhumanCellPresenterF
     ) -> SuperhumanCellPresenter {
         SuperhumanCellPresenter.registerCell(on: tableView)
         let superhumanService = container.resolve(SuperhumanService.self).unwrap()
-        return SuperhumanCellPresenter(viewModel: viewModel, service: superhumanService, view: view)
+        return SuperhumanCellPresenter(viewModel: viewModel, superhumanService: superhumanService, view: view)
     }
 }

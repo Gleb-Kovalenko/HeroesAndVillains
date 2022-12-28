@@ -58,7 +58,7 @@ extension SuperhumanListInteractor: SuperhumanListInteractorInput {
         do {
             var plains = [SuperhumanPlainObject]()
             if isFavoriteFilterActive {
-                plains = try superhumanService.obtainCache(with: data, isFavoriteFilterActive: isFavoriteFilterActive)
+                plains = try superhumanService.obtainFavorites(with: data)
             } else {
                 plains = try superhumanService.obtainCache(with: data)
             }

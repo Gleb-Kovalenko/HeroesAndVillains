@@ -35,7 +35,7 @@ final public class SuperhumanInfoInteractor {
 
 extension SuperhumanInfoInteractor: SuperhumanInfoInteractorInput {
     
-    /// toggle favorite state in superhuman by id
+    /// Toggle favorite state in superhuman by id
     public func toggleFavorite(superhumanId: UniqueID) {
         superhumanService
             .toggleFavorite(superhumanID: superhumanId)

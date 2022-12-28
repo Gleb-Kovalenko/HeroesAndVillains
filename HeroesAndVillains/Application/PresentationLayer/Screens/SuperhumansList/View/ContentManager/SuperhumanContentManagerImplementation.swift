@@ -69,7 +69,7 @@ extension SuperhumanContentManagerImplementation: UITableViewDelegate {
 
     public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-        return presenters[indexPath.row].cellSize(reusableCellHolder: tableView).height
+        presenters[indexPath.row].cellSize(reusableCellHolder: tableView).height
     }
 
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
