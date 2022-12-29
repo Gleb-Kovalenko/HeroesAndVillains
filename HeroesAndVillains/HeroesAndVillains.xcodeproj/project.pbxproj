@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		2D1BAF73F4F93F8DFEB6D657 /* Pods_HeroesAndVillains.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68F98D429E02CAEA790F275B /* Pods_HeroesAndVillains.framework */; };
+		54000859295D1C2100C65F9B /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54000858295D1C2000C65F9B /* Array.swift */; };
+		5400085B295D27B700C65F9B /* CellAnimationStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5400085A295D27B700C65F9B /* CellAnimationStyle.swift */; };
 		54054F7B290A711200379C22 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54054F7A290A711200379C22 /* UIColor.swift */; };
 		54054F7D2911541300379C22 /* StatPlainObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54054F7C2911541300379C22 /* StatPlainObject.swift */; };
 		540577BA2940FD0F001AE6EC /* HeroesAndVillainsServiceLayerAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 540577B92940FD0F001AE6EC /* HeroesAndVillainsServiceLayerAssembly.swift */; };
@@ -78,6 +80,8 @@
 
 /* Begin PBXFileReference section */
 		06FEB553845546154A746D1A /* Pods-HeroesAndVillains.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HeroesAndVillains.debug.xcconfig"; path = "Target Support Files/Pods-HeroesAndVillains/Pods-HeroesAndVillains.debug.xcconfig"; sourceTree = "<group>"; };
+		54000858295D1C2000C65F9B /* Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
+		5400085A295D27B700C65F9B /* CellAnimationStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellAnimationStyle.swift; sourceTree = "<group>"; };
 		54054F7A290A711200379C22 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		54054F7C2911541300379C22 /* StatPlainObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatPlainObject.swift; sourceTree = "<group>"; };
 		540577B92940FD0F001AE6EC /* HeroesAndVillainsServiceLayerAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroesAndVillainsServiceLayerAssembly.swift; sourceTree = "<group>"; };
@@ -323,6 +327,7 @@
 				54054F7A290A711200379C22 /* UIColor.swift */,
 				5440D73F291D43720071BAE7 /* Data.swift */,
 				54D1797B294F631500B04720 /* UIButton.swift */,
+				54000858295D1C2000C65F9B /* Array.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -400,6 +405,7 @@
 			isa = PBXGroup;
 			children = (
 				54D17963294CEC4F00B04720 /* SuperhumanType.swift */,
+				5400085A295D27B700C65F9B /* CellAnimationStyle.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -707,6 +713,7 @@
 			files = (
 				546982D52901ECB9002AD3CF /* View.swift in Sources */,
 				54D605902902FDD5004F3A50 /* SuperhumanContentManager.swift in Sources */,
+				5400085B295D27B700C65F9B /* CellAnimationStyle.swift in Sources */,
 				54F67F39291254C700DFB24D /* SuperhumanListRouterInput.swift in Sources */,
 				54D1797C294F631600B04720 /* UIButton.swift in Sources */,
 				54F67F2B29124F4100DFB24D /* SuperhumanCellViewModelDesigner.swift in Sources */,
@@ -766,6 +773,7 @@
 				54D17956294BBB5B00B04720 /* SuperhumanInfoPresenter.swift in Sources */,
 				54D1796E294DFAA900B04720 /* StatTranslator.swift in Sources */,
 				546982D72901ECB9002AD3CF /* SceneDelegate.swift in Sources */,
+				54000859295D1C2100C65F9B /* Array.swift in Sources */,
 				54D1795E294BBB5B00B04720 /* SuperhumanInfoViewOutput.swift in Sources */,
 				5429700A2927CC57002C7786 /* SuperhumanListAssembly.swift in Sources */,
 				54D6057F290202BF004F3A50 /* SuperhumanCellViewModelProtocol.swift in Sources */,

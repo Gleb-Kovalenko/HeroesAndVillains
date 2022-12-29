@@ -58,15 +58,32 @@ extension SuperhumanContentManagerImplementation: SuperhumanContentManager {
         guard let tableView = contentView else {
             return
         }
-        presenters = presentersFactory.presenters(with: viewModels, tableView: tableView)
-        tableView.reloadData()
+        presenters
+            .filter { $0.isNeedToClose }
+            .compactMap { $0.currentCell() }
+            .startAnimations(
+                animation: CellAnimationStyle.slideLeftToRight,
+                then: { [self] in
+                    presenters = presentersFactory.presenters(with: viewModels, tableView: tableView)
+                    tableView.reloadData()
+                }
+            )
     }
 }
 
 // MARK: - UITableViewDelegate
 
 extension SuperhumanContentManagerImplementation: UITableViewDelegate {
-
+    
+    public func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        
+        guard let cell = cell as? SuperhumanCell else {
+            return
+        }
+        
+        presenters[indexPath.row].willDisplayCell(cell)
+    }
+    
     public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
         presenters[indexPath.row].cellSize(reusableCellHolder: tableView).height
@@ -83,6 +100,7 @@ extension SuperhumanContentManagerImplementation: UITableViewDelegate {
 extension SuperhumanContentManagerImplementation: UITableViewDataSource {
     
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
         presenters.count
     }
     
@@ -99,6 +117,7 @@ extension SuperhumanContentManagerImplementation: UITableViewDataSource {
 extension SuperhumanContentManagerImplementation {
     
     enum LayoutConstants {
+        
         static let cellSpacingHeight: CGFloat = 16
     }
 }
