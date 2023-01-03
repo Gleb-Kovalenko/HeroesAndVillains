@@ -50,7 +50,6 @@ extension Array where Element: UIView {
 
 extension Array where Element: EquatableObject {
 
-    
     /// Returns an array containing the elements from the original array
     /// that are equal in the second array
     /// and the unique elements from the second array
