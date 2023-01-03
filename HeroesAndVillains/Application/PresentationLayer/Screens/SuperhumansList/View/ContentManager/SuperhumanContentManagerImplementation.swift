@@ -62,9 +62,10 @@ extension SuperhumanContentManagerImplementation: SuperhumanContentManager {
             .filter { $0.isNeedToClose }
             .compactMap { $0.currentCell() }
             .startAnimations(
-                animation: CellAnimationStyle.slideLeftToRight,
+                animation: AnimationStyleTypes.slideLeftToRight,
                 then: { [self] in
-                    presenters = presentersFactory.presenters(with: viewModels, tableView: tableView)
+                    let factoryPresenters = presentersFactory.presenters(with: viewModels, tableView: tableView)
+                    presenters = presenters.duplicatesAndUnique(from: factoryPresenters)
                     tableView.reloadData()
                 }
             )
@@ -74,6 +75,16 @@ extension SuperhumanContentManagerImplementation: SuperhumanContentManager {
 // MARK: - UITableViewDelegate
 
 extension SuperhumanContentManagerImplementation: UITableViewDelegate {
+    
+    public func tableView(_ tableView: UITableView, didUnhighlightRowAt indexPath: IndexPath) {
+        
+        presenters[indexPath.row].didUnhighlightCell()
+    }
+    
+    public func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath) {
+
+        presenters[indexPath.row].didHighlightCell()
+    }
     
     public func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         

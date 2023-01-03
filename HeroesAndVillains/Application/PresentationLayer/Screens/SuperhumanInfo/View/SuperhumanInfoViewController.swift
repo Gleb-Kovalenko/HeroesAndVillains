@@ -147,6 +147,13 @@ extension SuperhumanInfoViewController {
 extension SuperhumanInfoViewController {
     
     @objc func favoritesAction() {
+        
+        favoriteButton.startAnimation(
+            duration: 0.2,
+            delay: 0,
+            animation: AnimationStyleTypes.transformSize(scale: 1.1),
+            completionBlock: AnimationStyleTypes.setDefaultSize.animate(favoriteButton)
+        )
         favoriteButton.isSelected = !favoriteButton.isSelected
         output?.didTriggerFavoriteButtonTappedEvent()
     }

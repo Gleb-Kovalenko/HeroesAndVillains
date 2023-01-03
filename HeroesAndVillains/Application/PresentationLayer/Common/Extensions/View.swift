@@ -53,7 +53,7 @@ extension UIView {
     func startAnimation(
         duration: Double = 0.4,
         delay: Double = 0.0,
-        animation: CellAnimationStyle,
+        animation: AnimationStyleTypes,
         completionBlock: (() -> Void)? = nil
     ){
         

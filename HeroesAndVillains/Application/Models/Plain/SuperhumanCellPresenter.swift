@@ -81,10 +81,36 @@ final public class SuperhumanCellPresenter: GenericCellPresenter<SuperhumanCell>
             cell.startAnimation(
                 duration: 0.4,
                 delay: 0.1 * Double(indexPath.row + 1),
-                animation: CellAnimationStyle.slideRightToLeft
+                animation: AnimationStyleTypes.slideRightToLeft
             )
             isOnTableView = true
         }
+    }
+    
+    public override func didHighlightCell() {
+        
+        guard let cell = currentCell() else {
+            return
+        }
+        
+        cell.startAnimation(
+            duration: 0.4,
+            delay: 0,
+            animation: AnimationStyleTypes.transformSize(scale: 1.05)
+        )
+    }
+    
+    public override func didUnhighlightCell() {
+        
+        guard let cell = currentCell() else {
+            return
+        }
+        
+        cell.startAnimation(
+            duration: 0.4,
+            delay: 0,
+            animation: AnimationStyleTypes.setDefaultSize
+        )
     }
     
     // MARK: - Useful
@@ -110,7 +136,7 @@ extension SuperhumanCellPresenter: SuperhumanCellOutput {
                         return
                     }
                     cell.startAnimation(
-                        animation: CellAnimationStyle.slideLeftToRight,
+                        animation: AnimationStyleTypes.slideLeftToRight,
                         completionBlock: {
                             isOnTableView = false
                             reusableCellHolder?.reloadData()
@@ -121,5 +147,14 @@ extension SuperhumanCellPresenter: SuperhumanCellOutput {
                 }
             }
             .failure { _ in }
+    }
+}
+
+// MARK: - EquatableObject
+
+extension SuperhumanCellPresenter: EquatableObject {
+    
+    public func isEqual(to other: SuperhumanCellPresenter) -> Bool {
+        self.viewModel.isFavorite == other.viewModel.isFavorite && self.viewModel.superhuman.uniqueId == other.viewModel.superhuman.uniqueId
     }
 }
