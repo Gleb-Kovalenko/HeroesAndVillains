@@ -77,12 +77,10 @@ extension SuperhumanContentManagerImplementation: SuperhumanContentManager {
 extension SuperhumanContentManagerImplementation: UITableViewDelegate {
     
     public func tableView(_ tableView: UITableView, didUnhighlightRowAt indexPath: IndexPath) {
-        
         presenters[indexPath.row].didUnhighlightCell()
     }
     
     public func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath) {
-
         presenters[indexPath.row].didHighlightCell()
     }
     
@@ -91,12 +89,10 @@ extension SuperhumanContentManagerImplementation: UITableViewDelegate {
         guard let cell = cell as? SuperhumanCell else {
             return
         }
-        
         presenters[indexPath.row].willDisplayCell(cell)
     }
     
     public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        
         presenters[indexPath.row].cellSize(reusableCellHolder: tableView).height
     }
 
@@ -111,7 +107,6 @@ extension SuperhumanContentManagerImplementation: UITableViewDelegate {
 extension SuperhumanContentManagerImplementation: UITableViewDataSource {
     
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
         presenters.count
     }
     
@@ -128,7 +123,6 @@ extension SuperhumanContentManagerImplementation: UITableViewDataSource {
 extension SuperhumanContentManagerImplementation {
     
     enum LayoutConstants {
-        
         static let cellSpacingHeight: CGFloat = 16
     }
 }

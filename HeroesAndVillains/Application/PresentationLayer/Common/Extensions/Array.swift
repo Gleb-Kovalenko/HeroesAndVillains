@@ -8,6 +8,8 @@
 import Foundation
 import UIKit
 
+// MARK: - UIView
+
 extension Array where Element: UIView {
     
     func startAnimations(
@@ -48,18 +50,19 @@ extension Array where Element: UIView {
     }
 }
 
-extension Array where Element: EquatableObject {
+// MARK: - NSObject
+
+extension Array where Element: NSObject {
 
     /// Returns an array containing the elements from the original array
     /// that are equal in the second array
     /// and the unique elements from the second array
-    /// Elements must implement the `EquatableObject` protocol
     ///
     /// Example:
     ///
     /// Let objects be equal when they have the same id
     ///
-    ///     class SomeEqutableObject {
+    ///     class SomeObject: NSObject {
     ///         var id: Int
     ///         var someOtherProperty: String
     ///
@@ -69,24 +72,28 @@ extension Array where Element: EquatableObject {
     ///         }
     ///     }
     ///
-    ///     extension SomeEqutableObject: EquatableObject {
+    ///     extension SomeObject {
     ///
-    ///         func isEqual(to other: SomeEqutableObject) -> Bool {
-    ///             self.id == other.id
-    ///         }
+    ///        override func isEqual(_ object: Any?) -> Bool {
+    ///            guard let object = object as? SomeObject else {
+    ///                return false
+    ///            }
+    ///            return id == object.id
+    ///        }
     ///     }
     ///
     /// Than we have two arrays:
     ///
     ///     let firstArray = [
-    ///         SomeEqutableObject(id: 1, someOtherProperty: "hello"),
-    ///         SomeEqutableObject(id: 2, someOtherProperty: "swift")
+    ///         SomeObject(id: 1, someOtherProperty: "hello"),
+    ///         SomeObject(id: 2, someOtherProperty: "swift")
     ///     ]
     ///
     ///     let secondArray = [
-    ///         SomeEqutableObject(id: 1, someOtherProperty: "world"),
-    ///         SomeEqutableObject(id: 3, someOtherProperty: "uikit")
+    ///         SomeObject(id: 1, someOtherProperty: "world"),
+    ///         SomeObject(id: 3, someOtherProperty: "uikit")
     ///     ]
+    ///     
     /// And result of function:
     ///
     ///     let resultArray = firstArray.duplicatesAndUnique(from: secondArray)
@@ -96,10 +103,10 @@ extension Array where Element: EquatableObject {
     ///     resultArray = [
     ///
     ///         //Element from `firstArray` that equals to element in `secondArray`
-    ///         SomeEqutableObject(id: 1, someOtherProperty: "hello"),
+    ///         SomeObject(id: 1, someOtherProperty: "hello"),
     ///
     ///         // Unique element from `secondArray`
-    ///         SomeEqutableObject(id: 3, someOtherProperty: "uikit")
+    ///         SomeObject(id: 3, someOtherProperty: "uikit")
     ///     ]
     ///
     /// - Parameter array: array to compare with the original one
@@ -107,7 +114,7 @@ extension Array where Element: EquatableObject {
     func duplicatesAndUnique(from array: [Element]) -> [Element] {
         var newArray = array
         self.forEach { element in
-            let index = array.firstIndex(where: { $0.isEqual(to: element) })
+            let index = array.firstIndex(where: { $0.isEqual(element) })
             if let index = index {
                 newArray[index] = element
             }

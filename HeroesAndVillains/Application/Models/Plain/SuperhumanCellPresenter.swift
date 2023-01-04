@@ -92,7 +92,6 @@ final public class SuperhumanCellPresenter: GenericCellPresenter<SuperhumanCell>
         guard let cell = currentCell() else {
             return
         }
-        
         cell.startAnimation(
             duration: 0.4,
             delay: 0,
@@ -105,7 +104,6 @@ final public class SuperhumanCellPresenter: GenericCellPresenter<SuperhumanCell>
         guard let cell = currentCell() else {
             return
         }
-        
         cell.startAnimation(
             duration: 0.4,
             delay: 0,
@@ -150,11 +148,16 @@ extension SuperhumanCellPresenter: SuperhumanCellOutput {
     }
 }
 
-// MARK: - EquatableObject
+// MARK: - NSObject
 
-extension SuperhumanCellPresenter: EquatableObject {
+extension SuperhumanCellPresenter {
     
-    public func isEqual(to other: SuperhumanCellPresenter) -> Bool {
-        self.viewModel.isFavorite == other.viewModel.isFavorite && self.viewModel.superhuman.uniqueId == other.viewModel.superhuman.uniqueId
+    public override func isEqual(_ object: Any?) -> Bool {
+        guard let cellPresenter = object as? SuperhumanCellPresenter else {
+            return false
+        }
+        return
+            viewModel.superhuman.uniqueId == cellPresenter.viewModel.superhuman.uniqueId &&
+            viewModel.isFavorite == cellPresenter.viewModel.isFavorite
     }
 }

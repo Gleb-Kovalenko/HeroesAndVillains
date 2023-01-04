@@ -8,7 +8,11 @@
 import Foundation
 import UIKit
 
+// MARK: - AnimationStyleTypes
+
 enum AnimationStyleTypes {
+    
+    // MARK: Cases
     
     case slideRightToLeft
     case slideLeftToRight
