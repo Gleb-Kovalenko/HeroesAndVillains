@@ -28,6 +28,22 @@ final public class SuperhumanCellPresenter: GenericCellPresenter<SuperhumanCell>
         viewModel.isFavorite != view.isFavoriteFilterActive && view.isFavoriteFilterActive ? 0 : 196
     }
     
+    /// Flag indicating that the cell should be closed
+    var isNeedToClose: Bool {
+        cellHeight == 0
+    }
+    
+    /// Это не работает, но пока оставил здесь(всегда выдается false и сообщение в консоль)
+//    var isOnTableView: Bool {
+//
+//        guard let cell = currentCell(), let reusableCellHolder = reusableCellHolder else {
+//            return false
+//        }
+//        return reusableCellHolder.visibleCells.contains(cell)
+//    }
+    /// Пока оставил это
+    var isOnTableView = false
+    
     /// Default initializer
     ///
     /// - Parameters:
@@ -55,6 +71,46 @@ final public class SuperhumanCellPresenter: GenericCellPresenter<SuperhumanCell>
         CGSize(width: reusableCellHolder.frame.width, height: cellHeight)
     }
     
+    public override func willDisplayCell(_ cell: SuperhumanCell) {
+        
+        guard let indexPath = indexPath else {
+            return
+        }
+        
+        if !isOnTableView {
+            cell.startAnimation(
+                duration: 0.4,
+                delay: 0.1 * Double(indexPath.row + 1),
+                animation: AnimationStyleTypes.slideRightToLeft
+            )
+            isOnTableView = true
+        }
+    }
+    
+    public override func didHighlightCell() {
+        
+        guard let cell = currentCell() else {
+            return
+        }
+        cell.startAnimation(
+            duration: 0.4,
+            delay: 0,
+            animation: AnimationStyleTypes.transformSize(scale: 1.05)
+        )
+    }
+    
+    public override func didUnhighlightCell() {
+        
+        guard let cell = currentCell() else {
+            return
+        }
+        cell.startAnimation(
+            duration: 0.4,
+            delay: 0,
+            animation: AnimationStyleTypes.setDefaultSize
+        )
+    }
+    
     // MARK: - Useful
     
     public func updateCell(_ cell: SuperhumanCell) {
@@ -62,6 +118,8 @@ final public class SuperhumanCellPresenter: GenericCellPresenter<SuperhumanCell>
         reusableCellHolder?.reloadData()
     }
 }
+
+// MARK: - CellOutput
 
 extension SuperhumanCellPresenter: SuperhumanCellOutput {
     
@@ -71,8 +129,35 @@ extension SuperhumanCellPresenter: SuperhumanCellOutput {
             .async()
             .success { [self] plain in
                 viewModel = SuperhumanCellViewModel(superhumanPlainObject: plain)
-                reusableCellHolder?.reloadData()
+                if isNeedToClose {
+                    guard let cell = currentCell() else {
+                        return
+                    }
+                    cell.startAnimation(
+                        animation: AnimationStyleTypes.slideLeftToRight,
+                        completionBlock: {
+                            isOnTableView = false
+                            reusableCellHolder?.reloadData()
+                        }
+                    )
+                } else {
+                    reusableCellHolder?.reloadData()
+                }
             }
             .failure { _ in }
+    }
+}
+
+// MARK: - NSObject
+
+extension SuperhumanCellPresenter {
+    
+    public override func isEqual(_ object: Any?) -> Bool {
+        guard let cellPresenter = object as? SuperhumanCellPresenter else {
+            return false
+        }
+        return
+            viewModel.superhuman.uniqueId == cellPresenter.viewModel.superhuman.uniqueId &&
+            viewModel.isFavorite == cellPresenter.viewModel.isFavorite
     }
 }

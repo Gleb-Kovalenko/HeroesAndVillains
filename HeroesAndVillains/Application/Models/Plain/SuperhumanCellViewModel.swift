@@ -38,7 +38,11 @@ public struct SuperhumanCellViewModel: SuperhumanCellViewModelProtocol {
     public var backgroundColorHex: String {
         superhuman.backgroundColorHex
     }
-    
+        
+    public static func == (lhs: SuperhumanCellViewModel, rhs: SuperhumanCellViewModel) -> Bool {
+        lhs.isFavorite == rhs.isFavorite && lhs.superhuman.uniqueId == rhs.superhuman.uniqueId
+    }
+
     // MARK: - Initializers
 
     /// Default initializer
