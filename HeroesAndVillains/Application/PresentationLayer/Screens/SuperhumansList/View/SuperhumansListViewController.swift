@@ -32,7 +32,6 @@ public final class SuperhumansListViewController: UIViewController {
         let button = UIButton()
         button.setImage(UIImage(named: "unfilledStar"), for: .normal)
         button.setImage(UIImage(named: "filledStar"), for: .selected)
-        button.addTarget(self, action: #selector(favoriteFilter), for: .touchUpInside)
         return button
     }()
     
@@ -51,6 +50,13 @@ public final class SuperhumansListViewController: UIViewController {
     }
     
     // MARK: - ViewController
+    
+    public override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.prefersLargeTitles = true
+        // TODO: - Спросить: Нужно ли это тут?(про isTranslucent)
+        navigationController?.navigationBar.isTranslucent = false
+    }
     
     public override func viewDidLoad() {
         super.viewDidLoad()
@@ -104,14 +110,15 @@ extension SuperhumansListViewController {
     }
     
     private func setupFavoriteFilterButton() {
-        favoriteFilterButton.translatesAutoresizingMaskIntoConstraints = false
-        tableView.addSubview(favoriteFilterButton)
-        favoriteFilterButton.rightAnchor.constraint(equalTo: tableView.rightAnchor, constant: 50).isActive = true
-        favoriteFilterButton.topAnchor.constraint(equalTo: tableView.topAnchor, constant: 36).isActive = true
+        // TODO: - Утонить:
+        // Прикол какой-то, если оставить как было, то тогда action у кнопки = nil, а так норм
+        // Вообще пишут, мол swift не дает добавить таргет, если сущность еще не принадлежит к чему-либо
+        // (что-то вроде этого). Короче, я без понятия, как сделать норм, но так работает
+        favoriteFilterButton.addTarget(self, action: #selector(favoriteFilter), for: .touchUpInside)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: favoriteFilterButton)
     }
     
     private func setupNavigatioBar() {
-        navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.largeTitleDisplayMode = .automatic
     }
 }
@@ -122,6 +129,13 @@ extension SuperhumansListViewController {
     
     private func design() {
         tableView.backgroundColor = .black
+        navigationController?.navigationBar.titleTextAttributes = [
+            NSAttributedString.Key.foregroundColor: UIColor.white
+        ]
+        navigationController?.navigationBar.barTintColor = .black
+        navigationController?.navigationBar.largeTitleTextAttributes = [
+            NSAttributedString.Key.foregroundColor: UIColor.white
+        ]
     }
 }
 

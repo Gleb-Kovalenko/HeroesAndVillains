@@ -54,6 +54,13 @@ public final class SuperhumanInfoViewController: UIViewController {
         return button
     }()
     
+    /// Custom back button
+    var backButton: UIButton = {
+        let button = UIButton()
+        button.setImage(UIImage(named: "backButton"), for: .normal)
+        return button
+    }()
+    
     // MARK: - Initializers
 
     /// Default initializer
@@ -69,6 +76,12 @@ public final class SuperhumanInfoViewController: UIViewController {
     }
     
     // MARK: - ViewController
+    
+    public override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationItem.largeTitleDisplayMode = .never
+        navigationController?.navigationBar.isTranslucent = true
+    }
     
     public override func viewDidLoad() {
         super.viewDidLoad()
@@ -95,7 +108,7 @@ public final class SuperhumanInfoViewController: UIViewController {
         superhumanImageView.kf.setImage(with: data.imageURL)
         fillStackView(with: data.stats)
         favoriteButton.isSelected = data.isFavorite
-        view.setGradient(startColor: UIColor(hex: data.backgroundColorHex) ?? UIColor(.blue))
+        view.setGradient(startColor: UIColor(hex: data.backgroundColorHex) ?? UIColor.black)
     }
 }
 
@@ -104,10 +117,16 @@ public final class SuperhumanInfoViewController: UIViewController {
 extension SuperhumanInfoViewController {
     
     private func setupLayout() {
+        setupNavigationBar()
         setupHeaderView()
         setupImageView()
         setupStackView()
         setupFavoriteButton()
+    }
+    
+    private func setupNavigationBar() {
+        backButton.addTarget(navigationController, action: #selector(UINavigationController.popViewController(animated:)), for: .touchUpInside)
+        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: backButton)
     }
     
     private func setupHeaderView() {
@@ -157,7 +176,6 @@ extension SuperhumanInfoViewController {
 extension SuperhumanInfoViewController {
     
     func design() {
-        headerLabelView.textColor = .white
         favoriteButton.layer.borderColor = UIColor(hex: LayoutConstants.yellowColorHex)?.cgColor
         favoriteButton.setTitleColor(UIColor(hex: LayoutConstants.yellowColorHex), for: .normal)
         favoriteButton.setBackgroundColor(
@@ -171,6 +189,7 @@ extension SuperhumanInfoViewController {
             for: .selected
         )
         favoriteButton.setTitleColor(UIColor(.black), for: .selected)
+        headerLabelView.textColor = .white
         headerLabelView.font = UIFont.systemFont(ofSize: LayoutConstants.headerLabelViewFontSize, weight: .semibold)
     }
 }
@@ -213,13 +232,13 @@ extension SuperhumanInfoViewController {
     
     enum LayoutConstants {
         static let statLineSpacing: CGFloat = 16
-        static let headerTopPadding: CGFloat = 9
+        static let headerTopPadding: CGFloat = 80
         static let imageTopPadding: CGFloat = 40
         static let stackTopPadding: CGFloat = 40
-        static let headerLabelViewFontSize: CGFloat = 22
+        static let headerLabelViewFontSize: CGFloat = 34
         static let imageHeight: CGFloat = 164
         static let favoriteButtonBorderRadius: CGFloat = 16
-        static let favoriteButtonInsets: UIEdgeInsets = UIEdgeInsets(top: 0, left: 8, bottom: -8, right: -8)
+        static let favoriteButtonInsets: UIEdgeInsets = UIEdgeInsets(top: 0, left: 8, bottom: -12, right: -8)
         static let favoriteButtonBorderWidth: CGFloat = 2
         static let favoriteButtonHeight: CGFloat = 60
         static let yellowColorHex = "FF9F0A"
