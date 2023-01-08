@@ -22,17 +22,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             
             let tabController = UITabBarController()
             
-            let superhumanListHeroesController = SuperhumanListModule.instantiate(withData: .heroes)
+            let superhumanListHeroesController = UINavigationController(rootViewController: SuperhumanListModule.instantiate(withData: .heroes))
             superhumanListHeroesController.tabBarItem = UITabBarItem(
                 title: "Superheroes",
-                image: nil,
+                image: UIImage(named: "superheroesTab"),
                 selectedImage: nil
             )
-            
-            let superhumanListVillainsContoller = SuperhumanListModule.instantiate(withData: .villains)
+            let superhumanListVillainsContoller = UINavigationController(rootViewController: SuperhumanListModule.instantiate(withData: .villains))
             superhumanListVillainsContoller.tabBarItem = UITabBarItem(
                 title: "Supervillains",
-                image: nil,
+                image: UIImage(named: "supervillainsTab"),
                 selectedImage: nil
             )
             
@@ -42,7 +41,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             ]
             tabController.viewControllers = controllers
             
-            window.rootViewController = UINavigationController(rootViewController: tabController)
+            // TODO: - Видимо нужно будет создавать кастомный tabController, ибо это крblнж тут делать
+            tabController.tabBar.barTintColor = .black
+            tabController.tabBar.tintColor = .white
+            tabController.tabBar.isTranslucent = false
+            
+            window.rootViewController = tabController
             
             self.window = window
             window.makeKeyAndVisible()
