@@ -29,18 +29,10 @@ final public class SuperhumanCellPresenter: GenericCellPresenter<SuperhumanCell>
     }
     
     /// Flag indicating that the cell should be closed
-    var isNeedToClose: Bool {
+    var isShouldBeHidden: Bool {
         cellHeight == 0
     }
     
-    /// Это не работает, но пока оставил здесь(всегда выдается false и сообщение в консоль)
-//    var isOnTableView: Bool {
-//
-//        guard let cell = currentCell(), let reusableCellHolder = reusableCellHolder else {
-//            return false
-//        }
-//        return reusableCellHolder.visibleCells.contains(cell)
-//    }
     /// Пока оставил это
     var isOnTableView = false
     
@@ -73,41 +65,36 @@ final public class SuperhumanCellPresenter: GenericCellPresenter<SuperhumanCell>
     
     public override func willDisplayCell(_ cell: SuperhumanCell) {
         
-        guard let indexPath = indexPath else {
-            return
-        }
+        guard let indexPath = indexPath else { return }
         
         if !isOnTableView {
             cell.startAnimation(
-                duration: 0.4,
-                delay: 0.1 * Double(indexPath.row + 1),
-                animation: AnimationStyleTypes.slideRightToLeft
+                duration: Constants.cellAnimationDuration,
+                delay: Constants.cellAnimationDelay(on: indexPath.row),
+                animation: ViewAnimationStyle.slideRightToLeft
             )
             isOnTableView = true
         }
     }
     
+    public override func didEndDisplayingCell(_ cell: SuperhumanCell) {
+        
+        isOnTableView = false
+    }
+    
     public override func didHighlightCell() {
         
-        guard let cell = currentCell() else {
-            return
-        }
-        cell.startAnimation(
-            duration: 0.4,
-            delay: 0,
-            animation: AnimationStyleTypes.transformSize(scale: 1.05)
+        currentCell()?.startAnimation(
+            duration: Constants.cellAnimationDuration,
+            animation: ViewAnimationStyle.transformSize(scale: Constants.cellAnimationSizeScaling)
         )
     }
     
     public override func didUnhighlightCell() {
         
-        guard let cell = currentCell() else {
-            return
-        }
-        cell.startAnimation(
-            duration: 0.4,
-            delay: 0,
-            animation: AnimationStyleTypes.setDefaultSize
+        currentCell()?.startAnimation(
+            duration: Constants.cellAnimationDuration,
+            animation: ViewAnimationStyle.setDefaultSize
         )
     }
     
@@ -129,12 +116,12 @@ extension SuperhumanCellPresenter: SuperhumanCellOutput {
             .async()
             .success { [self] plain in
                 viewModel = SuperhumanCellViewModel(superhumanPlainObject: plain)
-                if isNeedToClose {
+                if isShouldBeHidden {
                     guard let cell = currentCell() else {
                         return
                     }
                     cell.startAnimation(
-                        animation: AnimationStyleTypes.slideLeftToRight,
+                        animation: ViewAnimationStyle.slideLeftToRight,
                         completionBlock: {
                             isOnTableView = false
                             reusableCellHolder?.reloadData()
@@ -152,12 +139,29 @@ extension SuperhumanCellPresenter: SuperhumanCellOutput {
 
 extension SuperhumanCellPresenter {
     
+    override public var hash: Int {
+        return viewModel.superhuman.uniqueId.hashValue
+    }
+    
     public override func isEqual(_ object: Any?) -> Bool {
+        
         guard let cellPresenter = object as? SuperhumanCellPresenter else {
             return false
         }
-        return
-            viewModel.superhuman.uniqueId == cellPresenter.viewModel.superhuman.uniqueId &&
-            viewModel.isFavorite == cellPresenter.viewModel.isFavorite
+        return viewModel.superhuman.uniqueId == cellPresenter.viewModel.superhuman.uniqueId
+    }
+}
+
+// MARK: - Constants
+
+extension SuperhumanCellPresenter {
+    
+    enum Constants {
+        static let cellAnimationDuration = 0.4
+        static let cellAnimationSizeScaling = 1.05
+        static let cellAnimationDelay = 0.1
+        static func cellAnimationDelay(on row: Int) -> Double {
+            cellAnimationDelay * Double(row + 1)
+        }
     }
 }

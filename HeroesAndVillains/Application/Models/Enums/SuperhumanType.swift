@@ -15,4 +15,15 @@ public enum SuperhumanType: Int, Decodable {
     
     case heroes
     case villains
+    
+    // MARK: - Useful
+    
+    var title: String {
+        switch self {
+        case .villains:
+            return "Supervillains"
+        case .heroes:
+            return "Superheroes"
+        }
+    }
 }

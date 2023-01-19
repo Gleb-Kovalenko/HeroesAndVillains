@@ -1,56 +1,13 @@
 //
-//  Array.swift
+//  Array+NSObject.swift
 //  HeroesAndVillains
 //
-//  Created by Gleb Kovalenko on 29.12.2022.
+//  Created by Глеб Коваленко on 09.01.2023.
 //
 
 import Foundation
-import UIKit
 
-// MARK: - UIView
-
-extension Array where Element: UIView {
-    
-    func startAnimations(
-        duration: Double = 0.4,
-        delay: Double = 0.3,
-        animation: AnimationStyleTypes,
-        completionBlock: (() -> Void)? = nil,
-        then afterCompleteBlock: (() -> Void)? = nil
-    ) {
-        
-        if self.isEmpty {
-            afterCompleteBlock?()
-            return
-        }
-        
-        for (index, view) in self.enumerated() {
-            if index == self.count - 1 {
-                view.startAnimation(
-                    duration: duration,
-                    delay: delay * Double(self.count - index - 1),
-                    animation: animation,
-                    completionBlock: {
-                        completionBlock?()
-                        afterCompleteBlock?()
-                    }
-                )
-            } else {
-                view.startAnimation(
-                    duration: duration,
-                    delay: delay * Double(self.count - index - 1),
-                    animation: animation,
-                    completionBlock: {
-                        completionBlock?()
-                    }
-                )
-            }
-        }
-    }
-}
-
-// MARK: - NSObject
+// MARK: - Array+NSObject
 
 extension Array where Element: NSObject {
 
@@ -93,7 +50,7 @@ extension Array where Element: NSObject {
     ///         SomeObject(id: 1, someOtherProperty: "world"),
     ///         SomeObject(id: 3, someOtherProperty: "uikit")
     ///     ]
-    ///     
+    ///
     /// And result of function:
     ///
     ///     let resultArray = firstArray.duplicatesAndUnique(from: secondArray)
@@ -112,6 +69,7 @@ extension Array where Element: NSObject {
     /// - Parameter array: array to compare with the original one
     /// - Returns: array with equals elements from original and second arrays and with unique elements from second one
     func duplicatesAndUnique(from array: [Element]) -> [Element] {
+    
         var newArray = array
         self.forEach { element in
             let index = array.firstIndex(where: { $0.isEqual(element) })

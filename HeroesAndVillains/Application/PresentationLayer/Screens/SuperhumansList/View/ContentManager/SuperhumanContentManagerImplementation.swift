@@ -59,13 +59,26 @@ extension SuperhumanContentManagerImplementation: SuperhumanContentManager {
             return
         }
         presenters
-            .filter { $0.isNeedToClose }
+            .filter { $0.isShouldBeHidden }
             .compactMap { $0.currentCell() }
-            .startAnimations(
-                animation: AnimationStyleTypes.slideLeftToRight,
+            .startAnimation(
+                animation: ViewAnimationStyle.slideLeftToRight,
                 then: { [self] in
                     let factoryPresenters = presentersFactory.presenters(with: viewModels, tableView: tableView)
-                    presenters = presenters.duplicatesAndUnique(from: factoryPresenters)
+                    presenters = presenters.duplicatesAndUnique(from: factoryPresenters).sorted {
+                        return $0.viewModel.name < $1.viewModel.name
+                    }
+                    print("presenters: \n")
+                    presenters.forEach {
+                        print(
+                        """
+                            Hash: \($0.hash)
+                            name: \($0.viewModel.name)
+                            isOnTable: \($0.isOnTableView)
+                            \n\n
+                        """
+                        )
+                    }
                     tableView.reloadData()
                 }
             )
@@ -76,14 +89,6 @@ extension SuperhumanContentManagerImplementation: SuperhumanContentManager {
 
 extension SuperhumanContentManagerImplementation: UITableViewDelegate {
     
-    public func tableView(_ tableView: UITableView, didUnhighlightRowAt indexPath: IndexPath) {
-        presenters[indexPath.row].didUnhighlightCell()
-    }
-    
-    public func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath) {
-        presenters[indexPath.row].didHighlightCell()
-    }
-    
     public func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         
         guard let cell = cell as? SuperhumanCell else {
@@ -91,6 +96,14 @@ extension SuperhumanContentManagerImplementation: UITableViewDelegate {
         }
         presenters[indexPath.row].willDisplayCell(cell)
     }
+    
+//    public func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+//        
+//        guard let cell = cell as? SuperhumanCell else {
+//            return
+//        }
+//        presenters[indexPath.row].didEndDisplayingCell(cell)
+//    }
     
     public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         presenters[indexPath.row].cellSize(reusableCellHolder: tableView).height
@@ -111,6 +124,7 @@ extension SuperhumanContentManagerImplementation: UITableViewDataSource {
     }
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         let cell = presenters[indexPath.row].cellFromReusableCellHolder(tableView, forIndexPath: indexPath) as? SuperhumanCell
         cell?.smoothCorners(radius: 24)
         cell?.selectionStyle = .none
@@ -122,7 +136,7 @@ extension SuperhumanContentManagerImplementation: UITableViewDataSource {
 
 extension SuperhumanContentManagerImplementation {
     
-    enum LayoutConstants {
+    enum Constants {
         static let cellSpacingHeight: CGFloat = 16
     }
 }

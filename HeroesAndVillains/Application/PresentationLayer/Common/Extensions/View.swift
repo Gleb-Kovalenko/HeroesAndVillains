@@ -53,10 +53,9 @@ extension UIView {
     func startAnimation(
         duration: Double = 0.4,
         delay: Double = 0.0,
-        animation: AnimationStyleTypes,
+        animation: ViewAnimationStyle,
         completionBlock: (() -> Void)? = nil
     ){
-        
         UIView.animate(withDuration: duration,
             delay: delay,
             usingSpringWithDamping: 1,
