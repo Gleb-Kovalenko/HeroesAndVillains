@@ -77,12 +77,6 @@ public final class SuperhumanInfoViewController: UIViewController {
     
     // MARK: - ViewController
     
-    public override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        navigationItem.largeTitleDisplayMode = .never
-        navigationController?.navigationBar.isTranslucent = true
-    }
-    
     public override func viewDidLoad() {
         super.viewDidLoad()
         setupLayout()
@@ -127,6 +121,8 @@ extension SuperhumanInfoViewController {
     private func setupNavigationBar() {
         backButton.addTarget(navigationController, action: #selector(UINavigationController.popViewController(animated:)), for: .touchUpInside)
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView: backButton)
+        navigationItem.largeTitleDisplayMode = .never
+        navigationController?.navigationBar.isTranslucent = true
     }
     
     private func setupHeaderView() {

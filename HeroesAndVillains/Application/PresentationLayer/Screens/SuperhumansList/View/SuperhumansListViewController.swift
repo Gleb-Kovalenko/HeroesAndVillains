@@ -51,13 +51,6 @@ public final class SuperhumansListViewController: UIViewController {
     
     // MARK: - ViewController
     
-    public override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        navigationController?.navigationBar.prefersLargeTitles = true
-        // TODO: - Спросить: Нужно ли это тут?(про isTranslucent)
-        navigationController?.navigationBar.isTranslucent = false
-    }
-    
     public override func viewDidLoad() {
         super.viewDidLoad()
         design()
@@ -72,13 +65,7 @@ public final class SuperhumansListViewController: UIViewController {
 extension SuperhumansListViewController {
     
     private func localize() {
-        switch data {
-        case .villains:
-            navigationItem.title = "Supervillains"
-        case .heroes:
-            navigationItem.title = "Superheroes"
-        }
-        // TODO: - Сделать в енуме свойство и там брать тайтл
+        navigationItem.title = data.title
     }
 }
 
@@ -110,12 +97,10 @@ extension SuperhumansListViewController {
     }
     
     private func setupFavoriteFilterButton() {
-        // TODO: - Утонить:
-        // Прикол какой-то, если оставить как было, то тогда action у кнопки = nil, а так норм
-        // Вообще пишут, мол swift не дает добавить таргет, если сущность еще не принадлежит к чему-либо
-        // (что-то вроде этого). Короче, я без понятия, как сделать норм, но так работает
         favoriteFilterButton.addTarget(self, action: #selector(favoriteFilter), for: .touchUpInside)
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: favoriteFilterButton)
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationController?.navigationBar.isTranslucent = false
     }
     
     private func setupNavigatioBar() {
@@ -151,7 +136,6 @@ extension SuperhumansListViewController: SuperhumanViewInput {
     }
     
     public func selectSuperhuman(_ code: String) {
-        //Later
     }
 }
 
