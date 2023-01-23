@@ -75,7 +75,6 @@ extension SuperhumansListViewController {
 extension SuperhumansListViewController {
     
     @objc func favoriteFilter() {
-        
         favoriteFilterButton.startAnimation(
             duration: Constants.favoriteFilterButtonAnimationDuration,
             animation: ViewAnimationStyle.transformSize(scale: Constants.favoriteFilterButtonAnimationSizeScaling),

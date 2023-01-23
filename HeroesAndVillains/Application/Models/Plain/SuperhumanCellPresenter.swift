@@ -78,7 +78,6 @@ final public class SuperhumanCellPresenter: GenericCellPresenter<SuperhumanCell>
     }
     
     public override func didEndDisplayingCell(_ cell: SuperhumanCell) {
-        
         isOnTableView = false
     }
     
