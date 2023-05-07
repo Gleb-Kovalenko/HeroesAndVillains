@@ -67,7 +67,7 @@ extension StatView {
         addSubview(statNameLabel)
         statNameLabel.topAnchor.constraint(equalTo: topAnchor).isActive = true
         statNameLabel.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
-        statNameLabel.leftAnchor.constraint(equalTo: statValueLabel.rightAnchor, constant: LayoutConstants.statValueAndNameSpacing).isActive = true
+        statNameLabel.leftAnchor.constraint(equalTo: statValueLabel.rightAnchor, constant: Constants.statValueAndNameSpacing).isActive = true
     }
 }
 
@@ -87,7 +87,7 @@ extension StatView {
 
 extension StatView {
     
-    enum LayoutConstants {
+    enum Constants {
         static let statValueAndNameSpacing: CGFloat = 8
     }
 }

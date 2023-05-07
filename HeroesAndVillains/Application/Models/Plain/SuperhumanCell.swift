@@ -27,7 +27,7 @@ final public class SuperhumanCell: UITableViewCell {
     /// Stack view with superhuman's stats
     private let statsStackView: UIStackView =  {
         let stackView = UIStackView()
-        stackView.spacing = LayoutConstants.statLineSpacing
+        stackView.spacing = Constants.statLineSpacing
         stackView.axis = .vertical
         stackView.alignment = .leading
         return stackView
@@ -124,25 +124,25 @@ extension SuperhumanCell {
         contentView.addSubview(containerView)
         containerView.leftAnchor.constraint(equalTo: contentView.leftAnchor).isActive = true
         containerView.rightAnchor.constraint(equalTo: contentView.rightAnchor).isActive = true
-        containerView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: LayoutConstants.containerViewBottomPadding).isActive = true
-        containerView.heightAnchor.constraint(equalToConstant: LayoutConstants.containerViewHeight).isActive = true
+        containerView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: Constants.containerViewBottomPadding).isActive = true
+        containerView.heightAnchor.constraint(equalToConstant: Constants.containerViewHeight).isActive = true
     }
     
     private func setupImageView() {
         superhumanImageView.translatesAutoresizingMaskIntoConstraints = false
         containerView.addSubview(superhumanImageView)
-        superhumanImageView.rightAnchor.constraint(equalTo: containerView.rightAnchor, constant: LayoutConstants.imageViewInsets.right).isActive = true
-        superhumanImageView.widthAnchor.constraint(equalToConstant: LayoutConstants.imageWidth).isActive = true
-        superhumanImageView.topAnchor.constraint(equalTo: containerView.topAnchor, constant: LayoutConstants.imageViewInsets.top).isActive = true
-        superhumanImageView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: LayoutConstants.imageViewInsets.bottom).isActive = true
+        superhumanImageView.rightAnchor.constraint(equalTo: containerView.rightAnchor, constant: Constants.imageViewInsets.right).isActive = true
+        superhumanImageView.widthAnchor.constraint(equalToConstant: Constants.imageWidth).isActive = true
+        superhumanImageView.topAnchor.constraint(equalTo: containerView.topAnchor, constant: Constants.imageViewInsets.top).isActive = true
+        superhumanImageView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: Constants.imageViewInsets.bottom).isActive = true
     }
     
     private func setupInfoContainerView() {
         infoContainerView.translatesAutoresizingMaskIntoConstraints = false
         containerView.addSubview(infoContainerView)
-        infoContainerView.leftAnchor.constraint(equalTo: containerView.leftAnchor, constant: LayoutConstants.infoContainerInsets.left).isActive = true
-        infoContainerView.topAnchor.constraint(equalTo: containerView.topAnchor, constant: LayoutConstants.infoContainerInsets.top).isActive = true
-        infoContainerView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: LayoutConstants.infoContainerInsets.bottom).isActive = true
+        infoContainerView.leftAnchor.constraint(equalTo: containerView.leftAnchor, constant: Constants.infoContainerInsets.left).isActive = true
+        infoContainerView.topAnchor.constraint(equalTo: containerView.topAnchor, constant: Constants.infoContainerInsets.top).isActive = true
+        infoContainerView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: Constants.infoContainerInsets.bottom).isActive = true
     }
     
     private func setupHeaderView() {
@@ -151,7 +151,7 @@ extension SuperhumanCell {
         cellHeaderView.topAnchor.constraint(equalTo: infoContainerView.topAnchor).isActive = true
         cellHeaderView.leftAnchor.constraint(equalTo: infoContainerView.leftAnchor).isActive = true
         cellHeaderView.rightAnchor.constraint(equalTo: infoContainerView.rightAnchor).isActive = true
-        cellHeaderView.heightAnchor.constraint(equalToConstant: LayoutConstants.cellHeaderHeight).isActive = true
+        cellHeaderView.heightAnchor.constraint(equalToConstant: Constants.cellHeaderHeight).isActive = true
     }
     
     private func setupFavoriteButton() {
@@ -159,13 +159,13 @@ extension SuperhumanCell {
         cellHeaderView.addSubview(favoriteButton)
         favoriteButton.leftAnchor.constraint(equalTo: cellHeaderView.leftAnchor).isActive = true
         favoriteButton.topAnchor.constraint(equalTo: cellHeaderView.topAnchor).isActive = true
-        favoriteButton.heightAnchor.constraint(equalToConstant: LayoutConstants.favoriteButtonHeight).isActive = true
+        favoriteButton.heightAnchor.constraint(equalToConstant: Constants.favoriteButtonHeight).isActive = true
     }
     
     private func setupHeaderLabelView() {
         headerLabelView.translatesAutoresizingMaskIntoConstraints = false
         cellHeaderView.addSubview(headerLabelView)
-        headerLabelView.leftAnchor.constraint(equalTo: favoriteButton.rightAnchor, constant: LayoutConstants.headerButtonAndLabelSpacing).isActive = true
+        headerLabelView.leftAnchor.constraint(equalTo: favoriteButton.rightAnchor, constant: Constants.headerButtonAndLabelSpacing).isActive = true
         headerLabelView.rightAnchor.constraint(equalTo: cellHeaderView.rightAnchor).isActive = true
         headerLabelView.centerYAnchor.constraint(equalTo: favoriteButton.centerYAnchor).isActive = true
     }
@@ -173,7 +173,7 @@ extension SuperhumanCell {
     private func setupStackView() {
         statsStackView.translatesAutoresizingMaskIntoConstraints = false
         infoContainerView.addSubview(statsStackView)
-        statsStackView.topAnchor.constraint(equalTo: cellHeaderView.bottomAnchor, constant: LayoutConstants.statsStackViewTopPadding).isActive = true
+        statsStackView.topAnchor.constraint(equalTo: cellHeaderView.bottomAnchor, constant: Constants.statsStackViewTopPadding).isActive = true
         statsStackView.leftAnchor.constraint(equalTo: infoContainerView.leftAnchor).isActive = true
         statsStackView.rightAnchor.constraint(equalTo: infoContainerView.rightAnchor).isActive = true
         statsStackView.bottomAnchor.constraint(equalTo: infoContainerView.bottomAnchor).isActive = true
@@ -185,6 +185,12 @@ extension SuperhumanCell {
 extension SuperhumanCell {
     
     @objc func favoritesAction() {
+        
+        favoriteButton.startAnimation(
+            duration: Constants.favoriteButtonAnimationDuration,
+            animation: ViewAnimationStyle.transformSize(scale: Constants.favoriteButtonAnimationSizeScaling),
+            completionBlock: ViewAnimationStyle.setDefaultSize.animate(favoriteButton)
+        )
         favoriteButton.isSelected = !favoriteButton.isSelected
         output?.didTriggerFavoriteButtonTappedEvent()
     }
@@ -206,7 +212,9 @@ extension SuperhumanCell {
 
 extension SuperhumanCell {
     
-    enum LayoutConstants {
+    enum Constants {
+        static let favoriteButtonAnimationDuration: Double = 0.2
+        static let favoriteButtonAnimationSizeScaling: Double = 1.3
         static let containerViewBottomPadding: CGFloat = -6
         static let containerViewHeight: CGFloat = 196
         static let imageViewInsets: UIEdgeInsets = UIEdgeInsets(top: 16, left: 0, bottom: -16, right: -16)

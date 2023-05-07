@@ -39,7 +39,7 @@ public final class SuperhumanInfoViewController: UIViewController {
     /// Stack view with superhuman's stats
     private let statsStackView: UIStackView = {
         let stackView = UIStackView()
-        stackView.spacing = LayoutConstants.statLineSpacing
+        stackView.spacing = Constants.statLineSpacing
         stackView.axis = .vertical
         stackView.alignment = .leading
         return stackView
@@ -48,8 +48,8 @@ public final class SuperhumanInfoViewController: UIViewController {
     /// Favorite button instance
     private let favoriteButton : UIButton = {
         let button = UIButton()
-        button.layer.borderWidth = LayoutConstants.favoriteButtonBorderWidth
-        button.layer.cornerRadius = LayoutConstants.favoriteButtonBorderRadius
+        button.layer.borderWidth = Constants.favoriteButtonBorderWidth
+        button.layer.cornerRadius = Constants.favoriteButtonBorderRadius
         button.addTarget(self, action: #selector(favoritesAction), for: .touchUpInside)
         return button
     }()
@@ -129,31 +129,31 @@ extension SuperhumanInfoViewController {
         headerLabelView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(headerLabelView)
         headerLabelView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        headerLabelView.topAnchor.constraint(equalTo: view.topAnchor, constant: LayoutConstants.headerTopPadding).isActive = true
+        headerLabelView.topAnchor.constraint(equalTo: view.topAnchor, constant: Constants.headerTopPadding).isActive = true
     }
     
     private func setupImageView() {
         superhumanImageView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(superhumanImageView)
         superhumanImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        superhumanImageView.topAnchor.constraint(equalTo: headerLabelView.bottomAnchor, constant: LayoutConstants.imageTopPadding).isActive = true
-        superhumanImageView.heightAnchor.constraint(equalToConstant: LayoutConstants.imageHeight).isActive = true
+        superhumanImageView.topAnchor.constraint(equalTo: headerLabelView.bottomAnchor, constant: Constants.imageTopPadding).isActive = true
+        superhumanImageView.heightAnchor.constraint(equalToConstant: Constants.imageHeight).isActive = true
     }
     
     private func setupStackView() {
         statsStackView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(statsStackView)
         statsStackView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        statsStackView.topAnchor.constraint(equalTo: superhumanImageView.bottomAnchor, constant: LayoutConstants.stackTopPadding).isActive = true
+        statsStackView.topAnchor.constraint(equalTo: superhumanImageView.bottomAnchor, constant: Constants.stackTopPadding).isActive = true
     }
     
     private func setupFavoriteButton() {
         favoriteButton.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(favoriteButton)
-        favoriteButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: LayoutConstants.favoriteButtonInsets.left).isActive = true
-        favoriteButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: LayoutConstants.favoriteButtonInsets.right).isActive = true
-        favoriteButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: LayoutConstants.favoriteButtonInsets.bottom).isActive = true
-        favoriteButton.heightAnchor.constraint(equalToConstant: LayoutConstants.favoriteButtonHeight).isActive = true
+        favoriteButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: Constants.favoriteButtonInsets.left).isActive = true
+        favoriteButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: Constants.favoriteButtonInsets.right).isActive = true
+        favoriteButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: Constants.favoriteButtonInsets.bottom).isActive = true
+        favoriteButton.heightAnchor.constraint(equalToConstant: Constants.favoriteButtonHeight).isActive = true
     }
 }
 
@@ -162,6 +162,12 @@ extension SuperhumanInfoViewController {
 extension SuperhumanInfoViewController {
     
     @objc func favoritesAction() {
+        
+        favoriteButton.startAnimation(
+            duration: Constants.favoriteButtonAnimationDuration,
+            animation: ViewAnimationStyle.transformSize(scale: Constants.favoriteButtonAnimationSizeScaling),
+            completionBlock: ViewAnimationStyle.setDefaultSize.animate(favoriteButton)
+        )
         favoriteButton.isSelected = !favoriteButton.isSelected
         output?.didTriggerFavoriteButtonTappedEvent()
     }
@@ -172,16 +178,17 @@ extension SuperhumanInfoViewController {
 extension SuperhumanInfoViewController {
     
     func design() {
-        favoriteButton.layer.borderColor = UIColor(hex: LayoutConstants.yellowColorHex)?.cgColor
-        favoriteButton.setTitleColor(UIColor(hex: LayoutConstants.yellowColorHex), for: .normal)
+        headerLabelView.textColor = .white
+        favoriteButton.layer.borderColor = UIColor(hex: Constants.yellowColorHex)?.cgColor
+        favoriteButton.setTitleColor(UIColor(hex: Constants.yellowColorHex), for: .normal)
         favoriteButton.setBackgroundColor(
             color: .clear,
-            cornerRadius: LayoutConstants.favoriteButtonBorderRadius,
+            cornerRadius: Constants.favoriteButtonBorderRadius,
             for: .normal
         )
         favoriteButton.setBackgroundColor(
-            color: UIColor(hex: LayoutConstants.yellowColorHex),
-            cornerRadius: LayoutConstants.favoriteButtonBorderRadius,
+            color: UIColor(hex: Constants.yellowColorHex),
+            cornerRadius: Constants.favoriteButtonBorderRadius,
             for: .selected
         )
         favoriteButton.setTitleColor(UIColor(.black), for: .selected)
@@ -226,9 +233,11 @@ extension SuperhumanInfoViewController {
 
 extension SuperhumanInfoViewController {
     
-    enum LayoutConstants {
+    enum Constants {
         static let statLineSpacing: CGFloat = 16
-        static let headerTopPadding: CGFloat = 80
+        static let favoriteButtonAnimationDuration = 0.2
+        static let favoriteButtonAnimationSizeScaling = 1.1
+        static let headerTopPadding: CGFloat = 9
         static let imageTopPadding: CGFloat = 40
         static let stackTopPadding: CGFloat = 40
         static let headerLabelViewFontSize: CGFloat = 34

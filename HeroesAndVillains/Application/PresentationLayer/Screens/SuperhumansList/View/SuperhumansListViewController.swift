@@ -23,7 +23,7 @@ public final class SuperhumansListViewController: UIViewController {
     /// Table with superhuman cells
     var tableView: UITableView = {
         let tableView = UITableView()
-        tableView.contentInset = LayoutConstants.contentInsets
+        tableView.contentInset = Constants.contentInsets
         return tableView
     }()
     
@@ -74,6 +74,11 @@ extension SuperhumansListViewController {
 extension SuperhumansListViewController {
     
     @objc func favoriteFilter() {
+        favoriteFilterButton.startAnimation(
+            duration: Constants.favoriteFilterButtonAnimationDuration,
+            animation: ViewAnimationStyle.transformSize(scale: Constants.favoriteFilterButtonAnimationSizeScaling),
+            completionBlock: ViewAnimationStyle.setDefaultSize.animate(favoriteFilterButton)
+        )
         favoriteFilterButton.isSelected = !favoriteFilterButton.isSelected
         output?.didTriggerFavoriteFilterButtonTapped(isFavoriteFilterActive: favoriteFilterButton.isSelected)
     }
@@ -152,7 +157,9 @@ extension SuperhumansListViewController: ViewOutputProvider {
 
 extension SuperhumansListViewController {
     
-    enum LayoutConstants {
+    enum Constants {
+        static let favoriteFilterButtonAnimationDuration = 0.2
+        static let favoriteFilterButtonAnimationSizeScaling = 1.1
         static let contentInsets: UIEdgeInsets = UIEdgeInsets(top: 16, left: 0, bottom: 16, right: 0)
     }
 }

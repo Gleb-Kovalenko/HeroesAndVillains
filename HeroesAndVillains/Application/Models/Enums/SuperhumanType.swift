@@ -29,10 +29,10 @@ public enum SuperhumanType: Int, Decodable, CaseIterable {
     
     var tabImageName: String {
         switch self {
-        case .heroes:
-            return "superheroesTab"
         case .villains:
-            return "supervillainsTab"
+            return "Supervillains"
+        case .heroes:
+            return "Superheroes"
         }
     }
 }
