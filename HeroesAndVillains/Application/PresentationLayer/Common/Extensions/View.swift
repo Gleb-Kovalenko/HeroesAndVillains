@@ -49,4 +49,23 @@ extension UIView {
         gradientLayer.frame = self.bounds
         layer.insertSublayer(gradientLayer, at: 0)
     }
+    
+    func startAnimation(
+        duration: Double = 0.4,
+        delay: Double = 0.0,
+        animation: ViewAnimationStyle,
+        completionBlock: (() -> Void)? = nil
+    ){
+        UIView.animate(withDuration: duration,
+            delay: delay,
+            usingSpringWithDamping: 1,
+            initialSpringVelocity: 0.05,
+            options: UIView.AnimationOptions.curveEaseInOut,
+            animations: animation.animate(self),
+            completion: { _ in
+            if let block = completionBlock {
+                block()
+            }
+        })
+    }
 }
