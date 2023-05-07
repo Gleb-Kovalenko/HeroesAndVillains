@@ -13,6 +13,7 @@
 		54054F7B290A711200379C22 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54054F7A290A711200379C22 /* UIColor.swift */; };
 		54054F7D2911541300379C22 /* StatPlainObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54054F7C2911541300379C22 /* StatPlainObject.swift */; };
 		540577BA2940FD0F001AE6EC /* HeroesAndVillainsServiceLayerAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 540577B92940FD0F001AE6EC /* HeroesAndVillainsServiceLayerAssembly.swift */; };
+		541F6352297D64F1002CD5DF /* SuperhumansTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541F6351297D64F1002CD5DF /* SuperhumansTabBar.swift */; };
 		5424AED428DA684D002F8DDF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5424AED328DA684D002F8DDF /* Assets.xcassets */; };
 		542970062927C79B002C7786 /* SuperhumanListModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 542970052927C79A002C7786 /* SuperhumanListModule.swift */; };
 		5429700A2927CC57002C7786 /* SuperhumanListAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 542970092927CC57002C7786 /* SuperhumanListAssembly.swift */; };
@@ -87,6 +88,7 @@
 		54054F7A290A711200379C22 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		54054F7C2911541300379C22 /* StatPlainObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatPlainObject.swift; sourceTree = "<group>"; };
 		540577B92940FD0F001AE6EC /* HeroesAndVillainsServiceLayerAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroesAndVillainsServiceLayerAssembly.swift; sourceTree = "<group>"; };
+		541F6351297D64F1002CD5DF /* SuperhumansTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperhumansTabBar.swift; sourceTree = "<group>"; };
 		5424AEC728DA6844002F8DDF /* HeroesAndVillains.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HeroesAndVillains.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5424AED328DA684D002F8DDF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5424AED828DA684D002F8DDF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -188,6 +190,14 @@
 			path = Assemblies;
 			sourceTree = "<group>";
 		};
+		541F6350297D64A2002CD5DF /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				541F6351297D64F1002CD5DF /* SuperhumansTabBar.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		5424AEBE28DA6844002F8DDF = {
 			isa = PBXGroup;
 			children = (
@@ -275,6 +285,7 @@
 		546982C62901ECB9002AD3CF /* PresentationLayer */ = {
 			isa = PBXGroup;
 			children = (
+				541F6350297D64A2002CD5DF /* Helpers */,
 				546982C72901ECB9002AD3CF /* Screens */,
 				546982CD2901ECB9002AD3CF /* Common */,
 				546982D02901ECB9002AD3CF /* AppDelegate.swift */,
@@ -765,6 +776,7 @@
 				54D17961294CD74C00B04720 /* SuperhumanContentManagerDelegate.swift in Sources */,
 				54D17959294BBB5B00B04720 /* SuperhumanInfoInteractor.swift in Sources */,
 				54F67F2629124BDA00DFB24D /* SuperhumanListModuleOutput.swift in Sources */,
+				541F6352297D64F1002CD5DF /* SuperhumansTabBar.swift in Sources */,
 				54D6058B2902F682004F3A50 /* SuperhumanCellPresenterFactory.swift in Sources */,
 				546982D22901ECB9002AD3CF /* StatView.swift in Sources */,
 				54D1791B294BA13A00B04720 /* SuperhumanInfoViewController.swift in Sources */,

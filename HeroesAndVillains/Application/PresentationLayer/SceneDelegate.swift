@@ -20,29 +20,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             
             let window = UIWindow(windowScene: windowScene)
             
-            let tabController = UITabBarController()
-            
-            let superhumanListHeroesController = SuperhumanListModule.instantiate(withData: .heroes)
-            superhumanListHeroesController.tabBarItem = UITabBarItem(
-                title: "Superheroes",
-                image: nil,
-                selectedImage: nil
-            )
-            
-            let superhumanListVillainsContoller = SuperhumanListModule.instantiate(withData: .villains)
-            superhumanListVillainsContoller.tabBarItem = UITabBarItem(
-                title: "Supervillains",
-                image: nil,
-                selectedImage: nil
-            )
-            
-            let controllers = [
-                superhumanListHeroesController,
-                superhumanListVillainsContoller
-            ]
-            tabController.viewControllers = controllers
-            
-            window.rootViewController = UINavigationController(rootViewController: tabController)
+            window.rootViewController = SuperhumansTabBar()
             
             self.window = window
             window.makeKeyAndVisible()

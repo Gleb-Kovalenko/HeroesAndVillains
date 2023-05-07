@@ -9,7 +9,7 @@ import Foundation
 
 // MARK: - SuperhumanType
 
-public enum SuperhumanType: Int, Decodable {
+public enum SuperhumanType: Int, Decodable, CaseIterable {
     
     // MARK: - Cases
     
@@ -19,6 +19,15 @@ public enum SuperhumanType: Int, Decodable {
     // MARK: - Useful
     
     var title: String {
+        switch self {
+        case .heroes:
+            return "Superheroes"
+        case .villains:
+            return "Supervillains"
+        }
+    }
+    
+    var tabImageName: String {
         switch self {
         case .villains:
             return "Supervillains"

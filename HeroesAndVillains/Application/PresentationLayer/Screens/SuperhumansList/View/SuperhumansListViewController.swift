@@ -32,7 +32,6 @@ public final class SuperhumansListViewController: UIViewController {
         let button = UIButton()
         button.setImage(UIImage(named: "unfilledStar"), for: .normal)
         button.setImage(UIImage(named: "filledStar"), for: .selected)
-        button.addTarget(self, action: #selector(favoriteFilter), for: .touchUpInside)
         return button
     }()
     
@@ -103,14 +102,13 @@ extension SuperhumansListViewController {
     }
     
     private func setupFavoriteFilterButton() {
-        favoriteFilterButton.translatesAutoresizingMaskIntoConstraints = false
-        tableView.addSubview(favoriteFilterButton)
-        favoriteFilterButton.rightAnchor.constraint(equalTo: tableView.rightAnchor, constant: 50).isActive = true
-        favoriteFilterButton.topAnchor.constraint(equalTo: tableView.topAnchor, constant: 36).isActive = true
+        favoriteFilterButton.addTarget(self, action: #selector(favoriteFilter), for: .touchUpInside)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: favoriteFilterButton)
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationController?.navigationBar.isTranslucent = false
     }
     
     private func setupNavigatioBar() {
-        navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.largeTitleDisplayMode = .automatic
     }
 }
@@ -121,6 +119,13 @@ extension SuperhumansListViewController {
     
     private func design() {
         tableView.backgroundColor = .black
+        navigationController?.navigationBar.titleTextAttributes = [
+            NSAttributedString.Key.foregroundColor: UIColor.white
+        ]
+        navigationController?.navigationBar.barTintColor = .black
+        navigationController?.navigationBar.largeTitleTextAttributes = [
+            NSAttributedString.Key.foregroundColor: UIColor.white
+        ]
     }
 }
 
@@ -136,7 +141,6 @@ extension SuperhumansListViewController: SuperhumanViewInput {
     }
     
     public func selectSuperhuman(_ code: String) {
-        //Later
     }
 }
 
